@@ -1,0 +1,8 @@
+Name,Virtual private gateway ID,State,Type,VPC,Amazon ASN
+VPG_VPC_VESA-PROD-PF,vgw-0e73d581fb4cafe61,Attached,ipsec.1,vpc-00344fe8bc5e453f6,9059
+VPG_VPC_VESA_INDUS,vgw-07c106d7984f1ed67,Attached,ipsec.1,vpc-0c4bccf053441edf6,9059
+VPG_VPC_SERVICES_TECHNIQUES,vgw-0e1602b66fc782e40,Attached,ipsec.1,vpc-07dbe76a0049b6630,9059
+VPG_VPC_EOL,vgw-0ecbce5bd7714eb85,Attached,ipsec.1,vpc-01b88edc87fee897f,9059
+VPG_VPC_STREAMING,vgw-5693ad22,Attached,ipsec.1,vpc-9681faf0,9059
+VPG_VPC_PROD,vgw-439ea037,Attached,ipsec.1,vpc-db0ba2be,9059
+VPG_PROD_VERI,vgw-fa63538e,Attached,ipsec.1,vpc-0f94c76a,9059
