@@ -1,12 +1,14 @@
 <?php 
+    require_once('Src/Model/functions.php');
 
-  Class Mother {
-    
-    public function __construct() {
+    Class Mother {
+        private $db;
         
+        public function __construct() {
+            $this->db = ConnectDB();
+        }
+    
+        // AWS CSV
+    
+        // Affichage
     }
-    
-    // AWS CSV
-    
-    // Affichage
-  }
