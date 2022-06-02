@@ -1,5 +1,5 @@
 <?php 
-    require_once('Src/Controller/Read.php');
+    require_once('Src/Controller/Read/Read.php');
 
     class NAT_Gateway {
         private $nat_gateway_array;

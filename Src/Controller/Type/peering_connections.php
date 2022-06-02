@@ -1,5 +1,5 @@
 <?php
-    require_once('Src/Controller/Read.php');
+    require_once('Src/Controller/Read/Read.php');
 
     class Peering_Connections {
         private $peering_connections_array;

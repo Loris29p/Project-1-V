@@ -1,5 +1,5 @@
 <?php 
-    require_once('Src/Controller/Read.php');
+    require_once('Src/Controller/Read/Read.php');
 
     class Private_Gateway {
         private $private_gateway_array;

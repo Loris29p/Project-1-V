@@ -1,5 +1,5 @@
 <?php 
-    require_once('Src/Controller/Read.php');
+    require_once('Src/Controller/Read/Read.php');
 
     class Transit_Gateway {
         private $transit_gateway_array;

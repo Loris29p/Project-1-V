@@ -1,6 +1,6 @@
 <?php 
     require_once("./Config/Config.php");
-    require_once("./Src/Controller/User.php");
+    require_once("./Src/Controller/User/User.php");
     require_once('./Src/Model/functions.php');
     require_once('./Src/Controller/Type/vpc.php');
     require_once('./Src/Controller/Type/route_tables.php');
@@ -15,8 +15,8 @@
     // $db = ConnectDB();
     // $user = new User($db, "Poilly", "Loris");
 
-    $vpc = new Endpoints();
-    $vpc_array = $vpc->GetAllEndpoints();
+    $vpc = new VPC();
+    $vpc_array = $vpc->GetAllVPC();
 
     echo "<pre>";
     print_r($vpc_array);
