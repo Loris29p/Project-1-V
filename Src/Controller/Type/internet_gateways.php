@@ -26,7 +26,7 @@
             }
         }
 
-        public function GetAllInternetGateway() {
+        public function GetAllInternet_Gateways() {
             return $this->internet_gateways_array;
         }
     }

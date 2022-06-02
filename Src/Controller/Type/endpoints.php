@@ -20,8 +20,13 @@
                     $endpoint_id = $value[1];
                     $vpc_id = $value[2];
                     $service_name = $value[3];
-                    $state = $value[4];
-                    $this->endpoints_array[] = ["name" => $name, "endpoint_id" => $endpoint_id, "vpc_id" => $vpc_id, "service_name" => $service_name, "state" => $state];
+                    $endoint_type = $value[4];
+                    $state = $value[5];
+                    $creation_time = $value[6];
+                    $network_interfaces = $value[7];
+                    $subnets = $value[8];
+                    $route_tables = $value[9];
+                    $this->endpoints_array[$key] = array( 'name' => $name, 'endpoint_id' => $endpoint_id, 'vpc_id' => $vpc_id, 'service_name' => $service_name, 'endoint_type' => $endoint_type, 'state' => $state, 'creation_time' => $creation_time, 'network_interfaces' => $network_interfaces, 'subnets' => $subnets, 'route_tables' => $route_tables);
                 }
             }
         }

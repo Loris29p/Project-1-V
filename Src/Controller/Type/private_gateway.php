@@ -27,7 +27,7 @@
             }
         }
 
-        public function GetAllPrivateGateway() {
+        public function GetAllPrivate_Gateway() {
             return $this->private_gateway_array;
         }
     }

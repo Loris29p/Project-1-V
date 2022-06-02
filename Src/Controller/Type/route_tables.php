@@ -28,7 +28,7 @@
             }
         }
 
-        public function GetAllRouteTables() {
+        public function GetAllRoute_Tables() {
             return $this->route_array;
         }
     }

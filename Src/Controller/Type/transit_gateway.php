@@ -25,7 +25,7 @@
             }
         }
 
-        public function GetAllTransitGateway() {
+        public function GetAllTransit_Gateway() {
             return $this->transit_gateway_array;
         }
     }

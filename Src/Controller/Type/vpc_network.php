@@ -23,7 +23,7 @@
             }
         }
 
-        public function GetAllVPCNetwork() {
+        public function GetAllVPC_Network() {
             return $this->vpc_network_array;
         }
     }

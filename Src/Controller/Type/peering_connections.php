@@ -21,20 +21,20 @@
                     $status = $value[2];
                     $requester_vpc = $value[3];
                     $accepter_vpc = $value[4];
-                    $requester_cidrs = $value[5];
-                    $accepter_cidrs = $value[6];
+                    $requester_cidr = $value[5];
+                    $accepter_cidr = $value[6];
                     $requester_owner_id = $value[7];
                     $accepter_owner_id = $value[8];
                     $route_table_id = $value[9];
                     $vpc_id = $value[10];
                     $main = $value[11];
                     $associated_with = $value[12];
-                    $this->peering_connections_array[] = ["name" => $name, "peering_connection_id" => $peering_connection_id, "status" => $status, "requester_vpc" => $requester_vpc, "accepter_vpc" => $accepter_vpc, "requester_cidrs" => $requester_cidrs, "accepter_cidrs" => $accepter_cidrs, "requester_owner_id" => $requester_owner_id, "accepter_owner_id" => $accepter_owner_id, "route_table_id" => $route_table_id, "vpc_id" => $vpc_id, "main" => $main, "associated_with" => $associated_with];
+                    $this->peering_connections_array[] = ["name" => $name, "peering_connection_id" => $peering_connection_id, "status" => $status, "requester_vpc" => $requester_vpc, "accepter_vpc" => $accepter_vpc, "requester_cidr" => $requester_cidr, "accepter_cidr" => $accepter_cidr, "requester_owner_id" => $requester_owner_id, "accepter_owner_id" => $accepter_owner_id, "route_table_id" => $route_table_id, "vpc_id" => $vpc_id, "main" => $main, "associated_with" => $associated_with];
                 }
             }
         }
 
-        public function GetAllPeeringConnections() {
+        public function GetAllPeering_Connections() {
             return $this->peering_connections_array;
         }
     }

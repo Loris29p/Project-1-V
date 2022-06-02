@@ -33,7 +33,7 @@
             }
         }
 
-        public function GetAllNatGateway() {
+        public function GetAllNat_Gateway() {
             return $this->nat_gateway_array;
         }
     }
