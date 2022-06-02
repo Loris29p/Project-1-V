@@ -11,11 +11,12 @@
     require_once('./Src/Controller/Type/transit_gateway.php');
     require_once('./Src/Controller/Type/nat_gateway.php');
     require_once('./Src/Controller/Type/internet_gateways.php');
+    require_once('./Src/Controller/Type/endpoints.php');
     // $db = ConnectDB();
     // $user = new User($db, "Poilly", "Loris");
 
-    $vpc = new Internet_Gateways();
-    $vpc_array = $vpc->GetAllInternetGateway();
+    $vpc = new Endpoints();
+    $vpc_array = $vpc->GetAllEndpoints();
 
     echo "<pre>";
     print_r($vpc_array);

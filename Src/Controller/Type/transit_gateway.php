@@ -12,7 +12,17 @@
         }
 
         public function BuildArray() {
-            $this->transit_gateway_array = $this->read->ReadTransitGateway();
+            $transit_gateway_array = $this->read->ReadTransitGateway();
+            foreach ($transit_gateway_array as $key => $value) {
+                if ($key != 0 AND $key != count($transit_gateway_array)) {
+                    $value = $value;
+                    $name = $value[0];
+                    $gateway = $value[1];
+                    $owner = $value[2];
+                    $state = $value[3];
+                    $this->transit_gateway_array[] = ["name" => $name, "gateway" => $gateway, "owner" => $owner, "state" => $state];    
+                }
+            }
         }
 
         public function GetAllTransitGateway() {

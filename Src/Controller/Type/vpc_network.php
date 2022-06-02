@@ -12,7 +12,15 @@
         }
 
         public function BuildArray() {
-            $this->vpc_network_array = $this->read->ReadVPCNetwork();
+            $vpc_network_array = $this->read->ReadVPCNetwork();
+            foreach ($vpc_network_array as $key => $value) {
+                if ($key != 0 AND $key != count($vpc_network_array)) {
+                    $value = $value;
+                    $id = $value[0];
+                    $id_sous_reseaux = $value[1];
+                    $this->vpc_network_array[] = ["id" => $id, "id_sous_reseaux" => $id_sous_reseaux];    
+                }
+            }
         }
 
         public function GetAllVPCNetwork() {
