@@ -1,14 +1,17 @@
 <?php 
     require_once('Src/Controller/Read/Read.php');
+    require_once('Src/Controller/SGBD/sgbd.php');
 
     class VPC_Network {
         private $vpc_network_array;
         private $read;
+        private $sgbd;
 
         public function __construct()
         {
             $this->read = new Read();
             $this->BuildArray();
+            $this->sgbd = new SGBD();
         }
 
         public function BuildArray() {
@@ -25,5 +28,20 @@
 
         public function GetAllVPC_Network() {
             return $this->vpc_network_array;
+        }
+
+        public function Update_SGDB() {
+            echo "Update_SGDB";
+            $vpc_network = $this->sgbd->get('vpc_network');
+            if ($vpc_network != $this->vpc_network_array) {
+                echo "Une mise à jour des disponible";
+                $this->sgbd->truncate("vpc_network");
+                sleep(1);
+                foreach ($this->vpc_network_array as $key => $value) {
+                    $this->sgbd->insert('vpc_network', $value);
+                }
+            } else {
+                echo "Aucune mise à jour disponible";
+            }
         }
     }

@@ -1,14 +1,17 @@
 <?php 
     require_once('Src/Controller/Read/Read.php');
+    require_once('Src/Controller/SGBD/sgbd.php');
 
     class Network {
         private $network_array;
         private $read;
+        private $sgbd;
 
         public function __construct()
         {
             $this->read = new Read();
             $this->BuildArray();
+            $this->sgbd = new SGBD();
         }
 
         public function BuildArray() {
@@ -35,5 +38,19 @@
 
         public function GetAllNetwork() {
             return $this->network_array;
+        }
+
+        public function Update_SGDB() {
+            $network = $this->sgbd->get('network');
+            if ($network != $this->network_array) {
+                echo "Une mise à jour des disponible";
+                $this->sgbd->truncate("network");
+                sleep(1);
+                foreach ($this->network_array as $key => $value) {
+                    $this->sgbd->insert('network', $value);
+                }
+            } else {
+                echo "Aucune mise à jour disponible";
+            }
         }
     }

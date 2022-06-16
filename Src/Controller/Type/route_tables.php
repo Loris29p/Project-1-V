@@ -1,14 +1,17 @@
 <?php 
     require_once('Src/Controller/Read/Read.php');
+    require_once('Src/Controller/SGBD/sgbd.php');
 
     class Route_Tables {
         private $route_array;
         private $read;
+        private $sgbd;
 
         public function __construct()
         {
             $this->read = new Read();
             $this->BuildArray();
+            $this->sgbd = new SGBD();
         }
 
         public function BuildArray() {
@@ -30,5 +33,19 @@
 
         public function GetAllRoute_Tables() {
             return $this->route_array;
+        }
+
+        public function Update_SGDB() {
+            $route_tables = $this->sgbd->get('route_tables');
+            if ($route_tables != $this->route_array) {
+                echo "Une mise à jour des disponible";
+                $this->sgbd->truncate("route_tables");
+                sleep(1);
+                foreach ($this->route_array as $key => $value) {
+                    $this->sgbd->insert('route_tables', $value);
+                }
+            } else {
+                echo "Aucune mise à jour disponible";
+            }
         }
     }

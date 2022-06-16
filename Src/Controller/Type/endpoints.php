@@ -1,14 +1,17 @@
 <?php 
     require_once('Src/Controller/Read/Read.php');
+    require_once('Src/Controller/SGBD/sgbd.php');
 
     class Endpoints {
         private $endpoints_array;
         private $read;
+        private $sgbd;
 
         public function __construct()
         {
             $this->read = new Read();
             $this->BuildArray();
+            $this->sgbd = new SGBD();
         }
 
         public function BuildArray() {
@@ -33,5 +36,25 @@
 
         public function GetAllEndpoints() {
             return $this->endpoints_array;
+        }
+
+        public function Update_SGDB() {
+            $endpoints = $this->sgbd->get('endpoints');
+            if ($endpoints != $this->endpoints_array) {
+                echo "Une mise à jour des disponible";
+                echo "<br>";
+                $this->sgbd->truncate("endpoints");
+                print_r($endpoints);
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
+                print_r($this->endpoints_array);
+                sleep(1);
+                foreach ($this->endpoints_array as $key => $value) {
+                    $this->sgbd->insert('endpoints', $value);
+                }
+            } else {
+                echo "Aucune mise à jour disponible";
+            }
         }
     }

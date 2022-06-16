@@ -1,3 +1,3 @@
 Name,VPC endpoint ID,VPC ID,Service name,Endpoint type,Status,Creation time,Network interfaces,Subnets,Route tables
-–,vpce-07dcf86962d1fe7f8,vpc-01b88edc87fee897f,com.amazonaws.eu-west-1.s3,Gateway,Available,"Tuesday, May 28, 2019, 16:07:53 GMT+2",–,–,rtb-07ab5cbce7b12ba8b
-–,vpce-039e3457954050888,vpc-db0ba2be,com.amazonaws.eu-west-1.s3,Gateway,Available,"Wednesday, February 9, 2022, 15:11:53 GMT+1",–,–,–
+Not,vpce-07dcf86962d1fe7f8,vpc-01b88edc87fee897f,com.amazonaws.eu-west-1.s3,Gateway,Available,"Tuesday, May 28, 2019, 16:07:53 GMT+2",Not,Not,rtb-07ab5cbce7b12ba8b
+Not,vpce-039e3457954050888,vpc-db0ba2be,com.amazonaws.eu-west-1.s3,Gateway,Available,"Wednesday, February 9, 2022, 15:11:53 GMT+1",Not,Not,Not

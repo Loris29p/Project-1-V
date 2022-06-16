@@ -51,4 +51,54 @@
             );
             return $array;
         }
+
+        public function UpdateVPC() {
+            $vpc = new VPC();
+            $vpc->Update_SGDB();
+        }
+
+        public function UpdateRouteTable() {
+            $route_tables = new Route_Tables();
+            $route_tables->Update_SGDB();
+        }
+
+        public function UpdateNetwork() {
+            $network = new Network();
+            $network->Update_SGDB();
+        }
+
+        public function UpdateVPC_Network() {
+            $vpc_network = new VPC_Network();
+            $vpc_network->Update_SGDB();
+        }
+
+        public function UpdatePrivate_Gateway() {
+            $private_gateway = new Private_Gateway();
+            $private_gateway->Update_SGDB();
+        }
+
+        public function UpdatePeering_Connections() {
+            $peering_connections = new Peering_Connections();
+            $peering_connections->Update_SGDB();
+        }
+
+        public function UpdateTransit_Gateway() {
+            $transit_gateway = new Transit_Gateway();
+            $transit_gateway->Update_SGDB();
+        }
+
+        public function UpdateNat_Gateway() {
+            $nat_gateway = new Nat_Gateway();
+            $nat_gateway->Update_SGDB();
+        }
+
+        public function UpdateInternet_Gateways() {
+            $internet_gateways = new Internet_Gateways();
+            $internet_gateways->Update_SGDB();
+        }
+
+        public function UpdateEndpoints() {
+            $endpoints = new Endpoints();
+            $endpoints->Update_SGDB();
+        }
     }

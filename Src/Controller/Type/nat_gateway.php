@@ -1,14 +1,17 @@
 <?php 
     require_once('Src/Controller/Read/Read.php');
+    require_once('Src/Controller/SGBD/sgbd.php');
 
     class NAT_Gateway {
         private $nat_gateway_array;
         private $read;
+        private $sgbd;
 
         public function __construct()
         {
             $this->read = new Read();
             $this->BuildArray();
+            $this->sgbd = new SGBD();
         }
 
         public function BuildArray() {
@@ -35,5 +38,19 @@
 
         public function GetAllNat_Gateway() {
             return $this->nat_gateway_array;
+        }
+
+        public function Update_SGDB() {
+            $nat_gateway = $this->sgbd->get('nat_gateway');
+            if ($nat_gateway != $this->nat_gateway_array) {
+                echo "Une mise à jour des disponible";
+                $this->sgbd->truncate("nat_gateway");
+                sleep(1);
+                foreach ($this->nat_gateway_array as $key => $value) {
+                    $this->sgbd->insert('nat_gateway', $value);
+                }
+            } else {
+                echo "Aucune mise à jour disponible";
+            }
         }
     }

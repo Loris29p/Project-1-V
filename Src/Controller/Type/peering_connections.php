@@ -1,14 +1,17 @@
 <?php
     require_once('Src/Controller/Read/Read.php');
+    require_once('Src/Controller/SGBD/sgbd.php');
 
     class Peering_Connections {
         private $peering_connections_array;
         private $read;
+        private $sgbd;
 
         public function __construct()
         {
             $this->read = new Read();
             $this->BuildArray();
+            $this->sgbd = new SGBD();
         }
 
         public function BuildArray() {
@@ -36,5 +39,19 @@
 
         public function GetAllPeering_Connections() {
             return $this->peering_connections_array;
+        }
+
+        public function Update_SGDB() {
+            $peering_connections = $this->sgbd->get('peering_connections');
+            if ($peering_connections != $this->peering_connections_array) {
+                echo "Une mise à jour des disponible";
+                $this->sgbd->truncate("peering_connections");
+                sleep(1);
+                foreach ($this->peering_connections_array as $key => $value) {
+                    $this->sgbd->insert('peering_connections', $value);
+                }
+            } else {
+                echo "Aucune mise à jour disponible";
+            }
         }
     }
