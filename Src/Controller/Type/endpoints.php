@@ -13,7 +13,7 @@
             $this->BuildArray();
             $this->sgbd = new SGBD();
         }
-
+ 
         public function BuildArray() {
             $endpoints_array = $this->read->ReadEndpoints();
             foreach ($endpoints_array as $key => $value) {
