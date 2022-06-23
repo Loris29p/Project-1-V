@@ -29,7 +29,7 @@
                     $network_interfaces = $value[7];
                     $subnets = $value[8];
                     $route_tables = $value[9];
-                    $this->endpoints_array[$key] = array( 'name' => $name, 'endpoint_id' => $endpoint_id, 'vpc_id' => $vpc_id, 'service_name' => $service_name, 'endoint_type' => $endoint_type, 'state' => $state, 'creation_time' => $creation_time, 'network_interfaces' => $network_interfaces, 'subnets' => $subnets, 'route_tables' => $route_tables);
+                    $this->endpoints_array[] = array( 'name' => $name, 'endpoint_id' => $endpoint_id, 'vpc_id' => $vpc_id, 'service_name' => $service_name, 'endoint_type' => $endoint_type, 'state' => $state, 'creation_time' => $creation_time, 'network_interfaces' => $network_interfaces, 'subnets' => $subnets, 'route_tables' => $route_tables);
                 }
             }
         }
@@ -42,13 +42,7 @@
             $endpoints = $this->sgbd->get('endpoints');
             if ($endpoints != $this->endpoints_array) {
                 echo "Une mise à jour des disponible";
-                echo "<br>";
                 $this->sgbd->truncate("endpoints");
-                print_r($endpoints);
-                echo "<br>";
-                echo "<br>";
-                echo "<br>";
-                print_r($this->endpoints_array);
                 sleep(1);
                 foreach ($this->endpoints_array as $key => $value) {
                     $this->sgbd->insert('endpoints', $value);

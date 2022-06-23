@@ -47,6 +47,7 @@
             }
             $query = substr($query, 0, -2);
             $query .= ")";
+            echo $query;
             $result = $this->db->query($query);
             return $result;
         }

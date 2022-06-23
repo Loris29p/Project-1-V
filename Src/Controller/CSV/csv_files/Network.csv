@@ -73,10 +73,10 @@ VPC_VERI_SubnetPriHPPROD1B,subnet-9cac96f9,vpc-0f94c76a,10.72.25.0/24,250,eu-wes
 VPC_VERI_SubnetPriRELAYB,subnet-92ac96f7,vpc-0f94c76a,10.72.28.0/26,59,eu-west-1b,euw1-az1,rtb-0f7e426a | PrivateRouteTableB_VERI,acl-ce7542ab,Non,Non,Non
 SB_VPC_STREAMING_PUB_PROD_A,subnet-7331c829,vpc-9681faf0,10.64.15.192/27,23,eu-west-1a,euw1-az3,rtb-96f590ef | RTB_VPC_STREAMING_PUB,acl-cf986bb6,Non,Non,Non
 VPC_VERI_SubnetPubDMZ1A,subnet-2585ff7c,vpc-0f94c76a,10.72.21.0/24,251,eu-west-1a,euw1-az3,rtb-0c7e4269 | PublicRouteTable_VERI,acl-ce7542ab,Non,Non,Non
-–,subnet-08cffd42,vpc-6b42bd02,172.31.32.0/20,4091,eu-west-3c,euw3-az3,rtb-12aa6c7b,acl-d02ce9b9,Yes,Yes,No
-SB_VPC_VESA_NETBACKUP_PUB_A,subnet-0367b54592611baf5,vpc-05d465008f28183b8,10.73.8.0/28,10,eu-west-3a,euw3-az1,rtb-0d71ae029d1968b1d | RTB_VPC_PARIS_NETBACKUP_PUB,acl-0317f258fc1ca7ec0,No,No,No
-SB_VPC_VESA_NETBACKUP_PUB_B,subnet-042cf2755b8f752d9,vpc-05d465008f28183b8,10.73.8.16/28,10,eu-west-3b,euw3-az2,rtb-0d71ae029d1968b1d | RTB_VPC_PARIS_NETBACKUP_PUB,acl-0317f258fc1ca7ec0,No,No,No
-–,subnet-81657af9,vpc-6b42bd02,172.31.16.0/20,4091,eu-west-3b,euw3-az2,rtb-12aa6c7b,acl-d02ce9b9,Yes,Yes,No
-–,subnet-a4d52ecd,vpc-6b42bd02,172.31.0.0/20,4091,eu-west-3a,euw3-az1,rtb-12aa6c7b,acl-d02ce9b9,Yes,Yes,No
-SB_VPC_VESA_NETBACKUP_INT_A,subnet-0bfb04427779f4faa,vpc-05d465008f28183b8,10.73.8.32/28,7,eu-west-3a,euw3-az1,rtb-0885889164c27b4da | RTB_VPC_PARIS_NETBACKUP_INT,acl-0317f258fc1ca7ec0,No,No,No
-SB_VPC_VESA_NETBACKUP_INT_B,subnet-0adc7ebaa6b3b139b,vpc-05d465008f28183b8,10.73.8.48/28,11,eu-west-3b,euw3-az2,rtb-0885889164c27b4da | RTB_VPC_PARIS_NETBACKUP_INT,acl-0317f258fc1ca7ec0,No,No,No
+–,subnet-08cffd42,vpc-6b42bd02,172.31.32.0/20,4091,eu-west-3c,euw3-az3,rtb-12aa6c7b,acl-d02ce9b9,Oui,Oui,Non
+SB_VPC_VESA_NETBACKUP_PUB_A,subnet-0367b54592611baf5,vpc-05d465008f28183b8,10.73.8.0/28,10,eu-west-3a,euw3-az1,rtb-0d71ae029d1968b1d | RTB_VPC_PARIS_NETBACKUP_PUB,acl-0317f258fc1ca7ec0,Non,Non,Non
+SB_VPC_VESA_NETBACKUP_PUB_B,subnet-042cf2755b8f752d9,vpc-05d465008f28183b8,10.73.8.16/28,10,eu-west-3b,euw3-az2,rtb-0d71ae029d1968b1d | RTB_VPC_PARIS_NETBACKUP_PUB,acl-0317f258fc1ca7ec0,Non,Non,Non
+–,subnet-81657af9,vpc-6b42bd02,172.31.16.0/20,4091,eu-west-3b,euw3-az2,rtb-12aa6c7b,acl-d02ce9b9,Oui,Oui,Non
+–,subnet-a4d52ecd,vpc-6b42bd02,172.31.0.0/20,4091,eu-west-3a,euw3-az1,rtb-12aa6c7b,acl-d02ce9b9,Oui,Oui,Non
+SB_VPC_VESA_NETBACKUP_INT_A,subnet-0bfb04427779f4faa,vpc-05d465008f28183b8,10.73.8.32/28,7,eu-west-3a,euw3-az1,rtb-0885889164c27b4da | RTB_VPC_PARIS_NETBACKUP_INT,acl-0317f258fc1ca7ec0,Non,Non,Non
+SB_VPC_VESA_NETBACKUP_INT_B,subnet-0adc7ebaa6b3b139b,vpc-05d465008f28183b8,10.73.8.48/28,11,eu-west-3b,euw3-az2,rtb-0885889164c27b4da | RTB_VPC_PARIS_NETBACKUP_INT,acl-0317f258fc1ca7ec0,Non,Non,Non
