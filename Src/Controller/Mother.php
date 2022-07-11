@@ -7,35 +7,55 @@
     require_once('Src/Controller/Type/private_gateway.php');
     require_once('Src/Controller/Type/peering_connections.php');
     require_once('Src/Controller/Type/transit_gateway.php');
+    require_once('Src/Controller/Type/transit_gateway_attachments.php');
     require_once('Src/Controller/Type/nat_gateway.php');
     require_once('Src/Controller/Type/internet_gateways.php');
     require_once('Src/Controller/Type/endpoints.php');
+    require_once('Src/Controller/SGBD/sgbd.php');
 
     Class Mother {
-        public function __construct() {}
+        private VPC $vpc;
+        private Route_Tables $route_tables;
+        private Network $network;
+        private VPC_Network $vpc_network;
+        private Private_Gateway $private_gateway;
+        private Peering_Connections $peering_connections;
+        private Transit_Gateway $transit_gateway;
+        private Transit_Gateway_Attachments $transit_gateway_attachments;
+        private NAT_Gateway $nat_gateway;
+        private Internet_Gateways $internet_gateways;
+        private Endpoints $endpoints;
+        private SGBD $sgbd;
+        private array $vpc_array;
+
+        public function __construct() {
+            $this->sgbd = new SGBD();
+            $this->vpc = new VPC($this->sgbd);
+            $this->route_tables = new Route_Tables($this->sgbd);
+            $this->network = new Network($this->sgbd);
+            $this->vpc_network = new VPC_Network($this->sgbd);
+            $this->private_gateway = new Private_Gateway($this->sgbd);
+            $this->peering_connections = new Peering_Connections($this->sgbd);
+            $this->transit_gateway = new Transit_Gateway($this->sgbd);
+            $this->transit_gateway_attachments = new Transit_Gateway_Attachments($this->sgbd);
+            $this->nat_gateway = new NAT_Gateway($this->sgbd);
+            $this->internet_gateways = new Internet_Gateways($this->sgbd);
+            $this->endpoints = new Endpoints($this->sgbd);
+        }
     
         // Envoyer les informations de touts les type dans l'affichage sous forme de tableau
         public function GetAllType() {
-            $vpc = new VPC();
-            $vpc_array = $vpc->GetAllVPC();
-            $route_tables = new Route_Tables();
-            $route_tables_array = $route_tables->GetAllRoute_Tables();
-            $network = new Network();
-            $network_array = $network->GetAllNetwork();
-            $vpc_network = new VPC_Network();
-            $vpc_network_array = $vpc_network->GetAllVPC_Network();
-            $private_gateway = new Private_Gateway();
-            $private_gateway_array = $private_gateway->GetAllPrivate_Gateway();
-            $peering_connections = new Peering_Connections();
-            $peering_connections_array = $peering_connections->GetAllPeering_Connections();
-            $transit_gateway = new Transit_Gateway();
-            $transit_gateway_array = $transit_gateway->GetAllTransit_Gateway();
-            $nat_gateway = new Nat_Gateway();
-            $nat_gateway_array = $nat_gateway->GetAllNat_Gateway();
-            $internet_gateways = new Internet_Gateways();
-            $internet_gateways_array = $internet_gateways->GetAllInternet_Gateways();
-            $endpoints = new Endpoints();
-            $endpoints_array = $endpoints->GetAllEndpoints();
+            $vpc_array = $this->vpc->GetAllVPC();
+            $route_tables_array = $this->route_tables->GetAllRoute_Tables();
+            $network_array = $this->network->GetAllNetwork();
+            $vpc_network_array = $this->vpc_network->GetAllVPC_Network();
+            $private_gateway_array = $this->private_gateway->GetAllPrivate_Gateway();
+            $peering_connections_array = $this->peering_connections->GetAllPeering_Connections();
+            $transit_gateway_array = $this->transit_gateway->GetAllTransit_Gateway();
+            $transit_gateway_attachments_array = $this->transit_gateway_attachments->GetAllTransit_Gateway_Attachments();
+            $nat_gateway_array = $this->nat_gateway->GetAllNat_Gateway();
+            $internet_gateways_array = $this->internet_gateways->GetAllInternet_Gateways();
+            $endpoints_array = $this->endpoints->GetAllEndpoints();
 
             $array = array(
                 "vpc" => $vpc_array,
@@ -45,6 +65,7 @@
                 "private_gateway" => $private_gateway_array,
                 "peering_connections" => $peering_connections_array,
                 "transit_gateway" => $transit_gateway_array,
+                "transit_gateway_attachments" => $transit_gateway_attachments_array,
                 "nat_gateway" => $nat_gateway_array,
                 "internet_gateways" => $internet_gateways_array,
                 "endpoints" => $endpoints_array
@@ -53,52 +74,46 @@
         }
 
         public function UpdateVPC() {
-            $vpc = new VPC();
-            $vpc->Update_SGDB();
+            $this->vpc->Update_SGDB();
         }
 
         public function UpdateRouteTable() {
-            $route_tables = new Route_Tables();
-            $route_tables->Update_SGDB();
+            $this->route_tables->Update_SGDB();
         }
 
         public function UpdateNetwork() {
-            $network = new Network();
-            $network->Update_SGDB();
+            $this->network->Update_SGDB();
         }
 
         public function UpdateVPC_Network() {
-            $vpc_network = new VPC_Network();
-            $vpc_network->Update_SGDB();
+            $this->vpc_network->Update_SGDB();
         }
 
         public function UpdatePrivate_Gateway() {
-            $private_gateway = new Private_Gateway();
-            $private_gateway->Update_SGDB();
+            $this->private_gateway->Update_SGDB();
         }
 
         public function UpdatePeering_Connections() {
-            $peering_connections = new Peering_Connections();
-            $peering_connections->Update_SGDB();
+            $this->peering_connections->Update_SGDB();
         }
 
         public function UpdateTransit_Gateway() {
-            $transit_gateway = new Transit_Gateway();
-            $transit_gateway->Update_SGDB();
+            $this->transit_gateway->Update_SGDB();
+        }
+
+        public function UpdateTransit_Gateway_Attachments() {
+            $this->transit_gateway_attachments->Update_SGDB();
         }
 
         public function UpdateNat_Gateway() {
-            $nat_gateway = new Nat_Gateway();
-            $nat_gateway->Update_SGDB();
+            $this->nat_gateway->Update_SGDB();
         }
 
         public function UpdateInternet_Gateways() {
-            $internet_gateways = new Internet_Gateways();
-            $internet_gateways->Update_SGDB();
+            $this->internet_gateways->Update_SGDB();
         }
 
         public function UpdateEndpoints() {
-            $endpoints = new Endpoints();
-            $endpoints->Update_SGDB();
+            $this->endpoints->Update_SGDB();
         }
     }

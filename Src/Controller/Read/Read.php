@@ -49,4 +49,8 @@
             return $this->csv->GetAllCSV("Endpoints");
         }
 
+        public function ReadTransitGatewayAttachments() {
+            return $this->csv->GetAllCSV("Transit_Gateway_Attachments");
+        }
+
     }

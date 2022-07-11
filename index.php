@@ -207,6 +207,8 @@
             $mother->UpdateEndpoints();
         } elseif ($_POST['action'] == 'transit_gateway_update') {
             $mother->UpdateTransit_Gateway();
+        } elseif ($_POST['action'] == 'transit_gateway_attachments_update') {
+            $mother->UpdateTransit_Gateway_Attachments();
         } elseif ($_POST['action'] == 'nat_gateway_update') {
             $mother->UpdateNat_Gateway();
         } elseif ($_POST['action'] == 'internet_gateway_update') {
@@ -246,6 +248,7 @@
             <input type="submit" name="action" value="nat_gateway_update">
             <input type="submit" name="action" value="peering_connections_update">
             <input type="submit" name="action" value="transit_gateway_update">
+            <input type="submit" name="action" value="transit_gateway_attachments_update">
             <input type="submit" name="action" value="network_update">
             <input type="submit" name="action" value="private_gateway_update">
             <input type="submit" name="action" value="route_table_update">

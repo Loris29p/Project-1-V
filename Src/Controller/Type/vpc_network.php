@@ -7,11 +7,11 @@
         private $read;
         private $sgbd;
 
-        public function __construct()
+        public function __construct(SGBD $sgbd)
         {
             $this->read = new Read();
             $this->BuildArray();
-            $this->sgbd = new SGBD();
+            $this->sgbd = $sgbd;
         }
 
         public function BuildArray() {
@@ -31,7 +31,6 @@
         }
 
         public function Update_SGDB() {
-            echo "Update_SGDB";
             $vpc_network = $this->sgbd->get('vpc_network');
             if ($vpc_network != $this->vpc_network_array) {
                 echo "Une mise à jour des disponible";

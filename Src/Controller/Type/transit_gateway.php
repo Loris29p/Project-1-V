@@ -7,11 +7,11 @@
         private $read;
         private $sgbd;
 
-        public function __construct()
+        public function __construct(SGBD $sgbd)
         {
             $this->read = new Read();
+            $this->sgbd = $sgbd;
             $this->BuildArray();
-            $this->sgbd = new SGBD();
         }
 
         public function BuildArray() {
@@ -23,7 +23,8 @@
                     $gateway = $value[1];
                     $owner = $value[2];
                     $state = $value[3];
-                    $this->transit_gateway_array[] = ["name" => $name, "gateway" => $gateway, "owner" => $owner, "state" => $state];    
+                    $this->transit_gateway_array[] = ["name" => $name, "gateway" => $gateway, "owner" => $owner, "state" => $state];  
+                    $this->GetTransitAttachmentsByVpcId($gateway);
                 }
             }
         }
@@ -43,6 +44,22 @@
                 }
             } else {
                 echo "Aucune mise à jour disponible";
+            }
+        }
+
+        public function GetTransitAttachmentsByVpcId($gateway_id) {
+            $gateway_attachments = $this->sgbd->getWithParameters("SELECT * FROM transit_gateway_attachments WHERE transit_gateway_ID = '$gateway_id'");
+            if ($gateway_attachments != Array()) {
+                $this->transit_gateway_array[$gateway_id]['gateway_attachments'] = $gateway_attachments;
+            }
+        }
+
+        public function GetAllElementForShowByVpcId($gateway_id) {
+            if (isset($this->transit_gateway_array[$gateway_id])) {
+                $gateway = $this->transit_gateway_array[$gateway_id];
+                return $gateway;
+            } else {
+                return Array();
             }
         }
     }

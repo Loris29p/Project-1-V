@@ -33,6 +33,16 @@
             }
             return $array;
         }
+
+        // get function with paramameters like where, order by, limit, etc.
+        public function getWithParameters($query) {
+            $result = $this->db->query($query);
+            $array = array();
+            while ($row = $result->fetch_assoc()) {
+                $array[] = $row;
+            }
+            return $array;
+        }
  
         // Function permettant d'effectuer une insertion dans une table suivant les parametres
         public function insert($table, $parameters) {

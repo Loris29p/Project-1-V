@@ -1,0 +1,8 @@
+Name,Transit gateway attachment ID,Transit gateway ID,Resource type,Resource ID,State,Association route table ID,Association state
+ATTACH_VPC_VESA-PROD-PF,tgw-attach-0e436923fd80ed837,tgw-09bee705ee37e8cb8,VPC,vpc-00344fe8bc5e453f6,Available,tgw-rtb-0a162ee031a12ae77,Associated
+ATTACH_VPC_EOL,tgw-attach-07a204bfd9fd0e6f4,tgw-09bee705ee37e8cb8,VPC,vpc-01b88edc87fee897f,Available,tgw-rtb-0a162ee031a12ae77,Associated
+ATTACH_VPC_SERVICES_TECHNIQUES,tgw-attach-0f3b0852849e8a777,tgw-09bee705ee37e8cb8,VPC,vpc-07dbe76a0049b6630,Available,tgw-rtb-0a162ee031a12ae77,Associated
+ATTACH_VPC_VESA_INDUS,tgw-attach-08f5573fc853bddd9,tgw-09bee705ee37e8cb8,VPC,vpc-0c4bccf053441edf6,Available,tgw-rtb-0a162ee031a12ae77,Associated
+ATTACH_VPC_VERI,tgw-attach-0290917ddd9320b25,tgw-09bee705ee37e8cb8,VPC,vpc-0f94c76a,Available,tgw-rtb-0a162ee031a12ae77,Associated
+ATTACH_VPC_STREAMING,tgw-attach-050bad6518f6cf14a,tgw-09bee705ee37e8cb8,VPC,vpc-9681faf0,Available,tgw-rtb-0a162ee031a12ae77,Associated
+ATTACH_VPC_PROD,tgw-attach-06abc74bacaf16c17,tgw-09bee705ee37e8cb8,VPC,vpc-db0ba2be,Available,tgw-rtb-0a162ee031a12ae77,Associated

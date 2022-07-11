@@ -7,11 +7,11 @@
         private $read;
         private $sgbd;
 
-        public function __construct()
+        public function __construct(SGBD $sgbd)
         {
             $this->read = new Read();
             $this->BuildArray();
-            $this->sgbd = new SGBD();
+            $this->sgbd = $sgbd;
         }
 
         public function BuildArray() {
