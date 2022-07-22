@@ -25,7 +25,7 @@ var linkDataArray = []
 
 var ZonesSubnets = [
     {x: -250, y: -475},
-    {x: 250, y: -475},
+    {x: 250, y: -510},
     {x: -250, y: -100},
     {x: 250, y: -150},
     {x: -250, y: 200},
@@ -172,7 +172,7 @@ function ConstructFirstPartVPCId(vpc_id) {
                             LastInternetGateway = item2[1]['name'];
                             InternetGateways.push(item2[1])
                             var node = {
-                                key: item2[1]['name'],
+                                key: item2[1]['internet_gateway_id'],
                                 text: item2[1]['name'],
                                 source: "Src/assets/img/Res_Amazon-VPC_Internet-Gateway_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nId: " + item2[1]['internet_gateway_id'] + "\nOwner: " + item2[1]['owner'] + "\nStatus: " + item2[1]['state'] + "\nVpc Id: " + item2[1]['vpc_id'],
@@ -295,7 +295,7 @@ function ConstructFirstPartVPCId(vpc_id) {
                 }
                 linkDataArray.push(link)
             }
-            if (String(element.key).includes("IGW")) {
+            if (String(element.key).includes("igw")) {
                 var link = {
                     from: element2,
                     to: element.key,
@@ -306,15 +306,14 @@ function ConstructFirstPartVPCId(vpc_id) {
             }
         });
         InternetGateways.forEach(function(element2) {
-            console.log(element.key)
             if (String(element.key).includes("internet")) {
-                // var link = {
-                //     from: element.key,
-                //     to: element2,
-                //     color: "black",
-                //     thickness: 2,
-                // }
-                // linkDataArray.push(link)
+                var link = {
+                    from: element.key,
+                    to: element2['internet_gateway_id'],
+                    color: "black",
+                    thickness: 2,
+                }
+                linkDataArray.push(link)
             }
         });
     });
