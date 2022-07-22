@@ -46,6 +46,13 @@ myDiagram.nodeTemplate = $(go.Node, "Horizontal", {
             background: "transparent"
         },
         new go.Binding("source", "source")),
+    $(go.Picture, {
+            margin: 5,
+            width: 30,
+            height: 30,
+            background: "transparent"
+        },
+        new go.Binding("source", "block_img")),
     $(go.TextBlock, {
             font: "bold small-caps 8pt helvetica, bold arial, sans-serif",
             // margin: 7,
