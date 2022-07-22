@@ -11,6 +11,7 @@
     require_once('Src/Controller/Type/nat_gateway.php');
     require_once('Src/Controller/Type/internet_gateways.php');
     require_once('Src/Controller/Type/endpoints.php');
+    require_once('Src/Controller/Type/vpn.php');
     require_once('Src/Controller/SGBD/sgbd.php');
 
     Class Mother {
@@ -26,7 +27,7 @@
         private Internet_Gateways $internet_gateways;
         private Endpoints $endpoints;
         private SGBD $sgbd;
-        private array $vpc_array;
+        private VPN $vpn;
 
         public function __construct() {
             $this->sgbd = new SGBD();
@@ -41,9 +42,9 @@
             $this->nat_gateway = new NAT_Gateway($this->sgbd);
             $this->internet_gateways = new Internet_Gateways($this->sgbd);
             $this->endpoints = new Endpoints($this->sgbd);
+            $this->vpn = new VPN($this->sgbd);
         }
-    
-        // Envoyer les informations de touts les type dans l'affichage sous forme de tableau
+        
         public function GetAllType() {
             $vpc_array = $this->vpc->GetAllVPC();
             $route_tables_array = $this->route_tables->GetAllRoute_Tables();
@@ -56,6 +57,7 @@
             $nat_gateway_array = $this->nat_gateway->GetAllNat_Gateway();
             $internet_gateways_array = $this->internet_gateways->GetAllInternet_Gateways();
             $endpoints_array = $this->endpoints->GetAllEndpoints();
+            $vpn_array = $this->vpn->GetAllVPN();
 
             $array = array(
                 "vpc" => $vpc_array,
@@ -68,7 +70,8 @@
                 "transit_gateway_attachments" => $transit_gateway_attachments_array,
                 "nat_gateway" => $nat_gateway_array,
                 "internet_gateways" => $internet_gateways_array,
-                "endpoints" => $endpoints_array
+                "endpoints" => $endpoints_array,
+                "vpn" => $vpn_array
             );
             return $array;
         }
@@ -115,5 +118,9 @@
 
         public function UpdateEndpoints() {
             $this->endpoints->Update_SGDB();
+        }
+
+        public function UpdateVPN() {
+            $this->vpn->Update_SGDB();
         }
     }

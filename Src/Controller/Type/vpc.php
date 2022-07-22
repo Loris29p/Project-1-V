@@ -26,12 +26,13 @@
                     $cidr = $value[4];
                     $id_tables_de_routage = $value[5];
                     $id_acl = $value[6];
-                    $this->vpc_array[] = ["souscription" => $souscription, "region" => $region, "vpc" => $vpc, "vpc_id" => $vpc_id, "cidr" => $cidr, "id_table_routage" => $id_tables_de_routage, "id_acl" => $id_acl];
+                    $this->vpc_array[$vpc_id] = ["souscription" => $souscription, "region" => $region, "vpc" => $vpc, "vpc_id" => $vpc_id, "cidr" => $cidr, "id_table_routage" => $id_tables_de_routage, "id_acl" => $id_acl];
                     $this->GetEndpointsByVpcId($vpc_id);
                     $this->GetPeeringConnectionsByVpcId($vpc_id);
                     $this->GetInternetGatewaysByVpcId($vpc_id);
                     $this->GetNatGatewaysByVpcId($vpc_id);
                     $this->GetTableRoutageByVpcId($vpc_id, $id_tables_de_routage);
+                    $this->GetNetworkByVpcId($vpc_id);
                 }
             }
         }
@@ -86,6 +87,13 @@
             $table_routages = $this->sgbd->getWithParameters("SELECT * FROM route_tables WHERE id = '$table_routage'");
             if ($table_routages != Array()) {
                 $this->vpc_array[$vpc_id]['table_routages'] = $table_routages;
+            }
+        }
+
+        public function GetNetworkByVpcId($vpc_id) {
+            $network = $this->sgbd->getWithParameters("SELECT * FROM network WHERE vpc_id = '$vpc_id'");
+            if ($network != Array()) {
+                $this->vpc_array[$vpc_id]['network'] = $network;
             }
         }
 

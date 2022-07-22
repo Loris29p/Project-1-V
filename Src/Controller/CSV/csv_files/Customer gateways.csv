@@ -1,0 +1,4 @@
+Name,Customer gateway ID,State,BGP ASN,IP address,Type,Certificate ARN,Device
+–,cgw-05a6e9bd5ca3c8a4d,Available,65000,178.208.18.125,ipsec.1,–,–
+DTP_Waternamics,cgw-0f43ce64319372727,Available,65000,159.8.29.146,ipsec.1,–,–
+–,cgw-0610e16d94de720f5,Available,65000,195.68.23.66,ipsec.1,–,–

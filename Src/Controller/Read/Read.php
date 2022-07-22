@@ -53,4 +53,8 @@
             return $this->csv->GetAllCSV("Transit_Gateway_Attachments");
         }
 
+        public function ReadVpn() {
+            return $this->csv->GetAllCSV("virtual_private_gateways");
+        }
+
     }

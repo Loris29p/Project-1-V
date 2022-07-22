@@ -23,7 +23,7 @@
                     $gateway = $value[1];
                     $owner = $value[2];
                     $state = $value[3];
-                    $this->transit_gateway_array[] = ["name" => $name, "gateway" => $gateway, "owner" => $owner, "state" => $state];  
+                    $this->transit_gateway_array[$gateway] = ["name" => $name, "gateway" => $gateway, "owner" => $owner, "state" => $state];  
                     $this->GetTransitAttachmentsByVpcId($gateway);
                 }
             }

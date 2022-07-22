@@ -1,0 +1,51 @@
+body {
+    background-color: ivory;
+    margin: 0;
+    padding: 0;
+}
+
+#title {
+    position: absolute;
+    border: 1px solid rgb(0, 0, 0);
+    top: 1%;
+    left: 1%;
+    width: 5.5%;
+    height: 9%;
+    opacity: 0.5;
+}
+
+#subtitle {
+    border: 1px solid rgb(0, 0, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4%;
+    height: 8%;
+    opacity: 0.5;
+}
+
+#canvas {
+    position: absolute;
+    border: 1px solid red;
+    width: 80%;
+    height: 80%;
+}
+
+.table {
+    padding-top: 1.5rem!important;
+    padding-bottom: 1.5rem!important;
+    width: 2%;
+    height: 2%;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(228, 228, 228);
+    border-radius: 25% 10%;
+}
+
+#myDiagramDiv {
+    position: absolute;
+    border: 1px solid rgb(0, 0, 0);
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+}
