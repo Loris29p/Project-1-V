@@ -11,3 +11,7 @@
 
         return $db;
     }
+
+    function GetSouscriptionUser() {
+        return "VESA PROD";
+    }

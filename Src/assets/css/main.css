@@ -1,0 +1,413 @@
+@font-face {
+    font-family: 'Coolvetica';
+    src: url("../fonts/coolvetica rg it.otf");
+}
+
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    background-color: var(--bs-body-bg);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    src: url("../fonts/FontsFree-Net-SFProDisplay-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'SFProRounded';
+    src: url("../fonts/FontsFree-Net-SF-Pro-Rounded-Regular.ttf");
+}
+ 
+.left_bar_vpc {
+    position: relative;
+    font-family: "SFProRounded";
+    width: 17%;
+    height: 50%;
+    top: 20vh;
+    background-color: #4e4e4e;
+    border-radius: 0% 2vh 2vh 0%;
+    display: none;
+}
+
+.show-aside {
+    display: block;
+    border: none;
+    border-radius: 1vh 1vh 1vh 1vh;
+    position: relative;
+    top: 20vh;
+    width: 10vh;
+    height: 4vh;
+    background-color: #4e4e4e;
+    /* left: 1vw; */
+}
+
+.show-aside a {
+    position: relative;
+    font-family: 'SFProRounded';
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    top: 0.75vh;
+    left: 0.25vw;
+}
+
+.show-aside i {
+    position: relative;
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    top: 0.75vh;
+    left: 0.1vw;
+}
+
+.show-aside:hover + .left_bar_vpc {
+    display: block;
+}
+
+.left_bar_vpc:hover {
+    display: block;
+}
+
+.list_vpc_title {
+    position: relative;
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    left: 3.5vw;
+}
+
+.ul_vpc {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #4e4e4e;
+    top: 5vh;
+    position: relative;
+}
+
+.button_vpc {
+    padding-top: 0.5vh;
+    position: relative;
+    display: inline-block;
+    border: none;
+    border-radius: 2vh;
+    background-color: #4e4e4e;
+    color: #fff;
+    text-align: center;
+    font-size: 0.75em;
+    cursor: pointer;
+}
+
+.button_vpc_text {
+    color: #fff;
+    font-family: 'SFProRounded';
+    text-decoration: none;
+}
+
+#vpc_show_aws {
+    position: absolute;
+    border: 1px solid #4e4e4e;
+    top: 8%;
+    left: 2%;
+    width: 96%;
+    height: 90%;
+    display: block;
+}
+
+.zone_name {
+    position: absolute;
+    border: 1px solid #008cff;
+    top: 4.5%;
+    left: 1%;
+    width: 98%;
+    height: 95%;
+}
+
+.vpc_info {
+    position: absolute;
+    border: 1px solid #0f9300;
+    top: 4.5%;
+    left: 1%;
+    width: 98%;
+    height: 95%;
+}
+
+#vpc_show_aws i {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    top: 0.5vh;
+    left: -1.5vw;
+}
+
+#vpc_show_aws a {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    font-family: 'SFProRounded';
+    text-decoration: none;
+    font-size: 1em;
+    left: 2vw;
+}
+
+.vpc_info p {
+    position: absolute;
+    font-family: 'SFProRounded';
+    text-decoration: none;
+    font-size: 0.8em;
+    top: 0.75vh;
+    left: 0.25vw
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4e4e4e;
+    border-radius: 0vh 0vh 1vh 1vh;
+}
+
+.navbar-ul {
+    position: relative;
+    left: 40vw;
+    width: 20vw;
+    /* background-color: rgb(255, 0, 0); */
+}
+
+.navbar-ul ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+  
+.navbar-ul li {
+    float: left;
+}
+  
+.navbar-ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'SFProRounded';
+    font-size: 1em;
+}
+  
+.navbar-ul li a:hover {
+    background-color: #404040;
+}
+
+.dropbtn-cloud {
+    background-color: #4e4e4e;
+    color: white;
+    border: none;
+    border-radius: 1vh 1vh 1vh 1vh;
+    position: relative;
+    font-family: 'SFProRounded';
+    font-size: 1em;
+}
+
+#dropdown-cloud {
+    position: relative;
+    display: inline-block;
+    top: -4.5vh;
+    left: 1vw;
+}
+
+.dropdown-cloud-content {
+    display: none;
+    position: absolute;
+    background-color: #4e4e4e;
+    top: 3.5vh;
+    width: 12vw;
+    border-radius: 0vh 0vh 1vh 1vh;
+}
+
+.dropdown-cloud-content a {
+    position: relative;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+    left: 1vw;
+    top: -0.5vh;
+    font-family: 'SFProRounded';
+    font-size: 0.75em;
+    padding: 0px 0px 1vh 0px;
+}
+
+.dropdown-cloud-content i {
+    position: relative;
+    color: rgb(255, 255, 255);
+    font-size: 0.85em;
+    left: 0.25vw;
+    top: 1.25vh;
+}
+
+#dropdown-cloud:hover .dropdown-cloud-content {display: block;}
+
+#dropdown-cloud:hover .dropbtn-cloud {background-color: #6f6f6f;}
+
+.dropdown-cloud-content select {
+    position: absolute;
+    top: 3.5vh;
+    left: 0.5vw;
+}
+
+.dropdown-cloud-content ul {
+    position: relative;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+    margin-top: -5;
+    top: 0vh;
+    left: 0.5vw;
+}
+
+
+
+.dropbtn-elements {
+    background-color: #4e4e4e;
+    color: white;
+    border: none;
+    border-radius: 1vh 1vh 1vh 1vh;
+    position: relative;
+    font-family: 'SFProRounded';
+    font-size: 1em;
+}
+
+#dropdown-elements {
+    position: relative;
+    display: inline-block;
+    top: -4.5vh;
+    left: 0.5vw;
+}
+
+.dropdown-elements-content {
+    display: none;
+    position: absolute;
+    background-color: #4e4e4e;
+    top: 3.5vh;
+    width: 15vw;
+    border-radius: 0vh 0vh 1vh 1vh;
+}
+
+.dropdown-elements-content a {
+    position: relative;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: block;
+    left: 1vw;
+    top: -0.5vh;
+    font-family: 'SFProRounded';
+    font-size: 0.7em;
+    padding: 0px 0px 1.25vh 0px;
+}
+
+.dropdown-elements-content i {
+    position: relative;
+    color: rgb(255, 255, 255);
+    font-size: 0.85em;
+    left: 0.25vw;
+    top: 1.25vh;
+}
+
+#dropdown-elements:hover .dropdown-elements-content {display: block;}
+
+#dropdown-elements:hover .dropbtn-elements {background-color: #6f6f6f;}
+
+.dropdown-elements-content select {
+    position: absolute;
+    top: -3vh;
+    left: 5.75vw;
+}
+
+.dropdown-elements-content ul {
+    position: relative;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+    margin-top: -5;
+    top: 1.5vh;
+    left: 0.5vw;
+}
+
+#dropdown-elements:hover ~ #vpc_show_aws {display: none;}
+#dropdown-cloud:hover ~ #vpc_show_aws {display: none;}
+
+.account_name {
+    position: absolute;
+    top: 2vh;
+    left: 70vw;
+    font-family: 'SFProRounded';
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+}
+
+.aside_update_elements_bdd {
+    position: relative;
+    top: 5vh;
+    left: 34vw;
+    background-color: #4e4e4e;
+    width: 30vw;
+    height: 60vh;
+    border-radius: 1vh 1vh 1vh 1vh;
+}
+
+.aside_update_elements_bdd h3 {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    display: block;
+    left: 7.5vw;
+    top: 0vh;
+    font-family: 'SFProRounded';
+    font-size: 1.5em;
+    padding: 0px 0px 1.25vh 0px;
+}
+
+.aside_update_elements_bdd_list a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    display: block;
+    left: 1vw;
+    top: 1.5vh;
+    font-family: 'SFProRounded';
+    font-size: 1em;
+    padding: 0px 0px 1.25vh 0px;
+}
+
+.aside_update_elements_bdd_list .title {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    display: block;
+    left: 9.5vw;
+    top: -3vh;
+    font-family: 'SFProRounded';
+    font-size: 1.25em;
+    padding: 0px 0px 1.25vh 0px;
+}

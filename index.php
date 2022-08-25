@@ -39,87 +39,29 @@
     }
 ?>
 
-<!-- Initilialiser HTML -->
+
 <html>
     <head>
         <title>AWS</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./Src/Model/Style/canvas.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="./Src/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./Src/assets/css/gojs.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
+        <link rel="stylesheet" href="./Src/assets/css/main.css"> 
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
 
     <body>
-        <div id="myDiagramDiv"></div>
-        <script src="./Src/Model/Script/canvas.js"></script>
-        <script>
-            Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>);
-        </script>
-        <!-- Custom alert -->
-        <!-- Ajout d'un boutton qui renvoie sur cette page avec un aprametre en post -->
-        <!-- <form action="index.php" method="post">
-            <input type="submit" name="action" value="vpc_network_update">
-            <input type="submit" name="action" value="vpc_update">
-            <input type="submit" name="action" value="endpoints_update">
-            <input type="submit" name="action" value="internet_gateway_update">
-            <input type="submit" name="action" value="nat_gateway_update">
-            <input type="submit" name="action" value="peering_connections_update">
-            <input type="submit" name="action" value="transit_gateway_update">
-            <input type="submit" name="action" value="transit_gateway_attachments_update">
-            <input type="submit" name="action" value="network_update">
-            <input type="submit" name="action" value="private_gateway_update">
-            <input type="submit" name="action" value="route_table_update">
-            <input type="submit" name="action" value="vpn_update">
-        </form> -->
-
-        <!-- <div class="container py-4 py-xl-5">
-            <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-                <div class="col">
-                    <div>
-                        <div class="table">
-                            <h4>Lorem libero donec</h4>
-                        </div>
-                    </div>
+        <header>
+            <nav class="navbar">
+                <div class="navbar-ul">
+                    <ul>
+                        <li><a href="./index.php">Acceuil</a></li>
+                        <li><a href="./vpc.php">Elements</a></li>
+                        <li><a href="./update.php">Mise à jour</a></li>
+                    </ul>
                 </div>
-            </div>
-        </div> -->
-
-
-        <!-- <div>
-            <h1 id="title">AWS</h1>
-        </div>
-        <div>
-            <h2 id="subtitle">VPC</h2>
-        </div> -->
-
-        <!-- Affichage de tous les VPC suivant leur id sous forme de tableau -->
-        <?php
-            // $vpc = $mother->GetAllType()['vpc'];
-            // echo "<table class='table table-striped'>";
-            // echo "<tr>";
-            // echo "<th>Souscription</th>";
-            // echo "<th>Région</th>";
-            // echo "<th>VPC</th>";
-            // echo "<th>VPC ID</th>";
-            // echo "<th>CIDR</th>";
-            // echo "<th>Table de routage</th>";
-            // echo "<th>ID ACL</th>";
-            // echo "</tr>";
-            // foreach ($vpc as $key => $value) {
-            //     echo "<tr>";
-            //     echo "<td>".$value['souscription']."</td>";
-            //     echo "<td>".$value['region']."</td>";
-            //     echo "<td>".$value['vpc']."</td>";
-            //     echo "<td>".$value['vpc_id']."</td>";
-            //     echo "<td>".$value['cidr']."</td>";
-            //     echo "<td>".$value['id_table_routage']."</td>";
-            //     echo "<td>".$value['id_acl']."</td>";
-            //     echo "</tr>";
-            // }
-            // echo "</table>";
-        ?>
+            </nav>
+        </header>
     </body>

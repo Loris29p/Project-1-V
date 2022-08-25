@@ -1,11 +1,13 @@
 <?php 
     require_once('Src/Controller/Read/Read.php');
     require_once('Src/Controller/SGBD/sgbd.php');
+    require_once('Src/Model/functions.php');
 
     class VPC {
         private $vpc_array;
         private $read;
         private $sgbd;
+        private $user;
 
         public function __construct(SGBD $sgbd)
         {
@@ -18,21 +20,23 @@
             $vpc_array = $this->read->ReadVPC();
             foreach ($vpc_array as $key => $value) {
                 if ($key != 0 AND $key != count($vpc_array)) {
-                    $value = $value;
-                    $souscription = $value[0];
-                    $region = $value[1];
-                    $vpc = $value[2];
-                    $vpc_id = $value[3];
-                    $cidr = $value[4];
-                    $id_tables_de_routage = $value[5];
-                    $id_acl = $value[6];
-                    $this->vpc_array[$vpc_id] = ["souscription" => $souscription, "region" => $region, "vpc" => $vpc, "vpc_id" => $vpc_id, "cidr" => $cidr, "id_table_routage" => $id_tables_de_routage, "id_acl" => $id_acl];
-                    $this->GetEndpointsByVpcId($vpc_id);
-                    $this->GetPeeringConnectionsByVpcId($vpc_id);
-                    $this->GetInternetGatewaysByVpcId($vpc_id);
-                    $this->GetNatGatewaysByVpcId($vpc_id);
-                    $this->GetTableRoutageByVpcId($vpc_id, $id_tables_de_routage);
-                    $this->GetNetworkByVpcId($vpc_id);
+                    if (GetSouscriptionUser() == $value[0]) {
+                        $value = $value;
+                        $souscription = $value[0];
+                        $region = $value[1];
+                        $vpc = $value[2];
+                        $vpc_id = $value[3];
+                        $cidr = $value[4];
+                        $id_tables_de_routage = $value[5];
+                        $id_acl = $value[6];
+                        $this->vpc_array[$vpc_id] = ["souscription" => $souscription, "region" => $region, "vpc" => $vpc, "vpc_id" => $vpc_id, "cidr" => $cidr, "id_table_routage" => $id_tables_de_routage, "id_acl" => $id_acl];
+                        $this->GetEndpointsByVpcId($vpc_id);
+                        $this->GetPeeringConnectionsByVpcId($vpc_id);
+                        $this->GetInternetGatewaysByVpcId($vpc_id);
+                        $this->GetNatGatewaysByVpcId($vpc_id);
+                        $this->GetTableRoutageByVpcId($vpc_id, $id_tables_de_routage);
+                        $this->GetNetworkByVpcId($vpc_id);
+                    }
                 }
             }
         }
