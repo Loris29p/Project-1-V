@@ -67,18 +67,18 @@
                 <div class="icon-menu">
                     <i class="fal fa-bars"></i>
                 </div>
-                <!-- <div class="navbar2-ul">
+                <div class="navbar2-ul">
                     <ul>
                         <li>
-                            <i class="fal fa-server"></i>
-                            <a href="./index.php">Acceuil</a>
+                            <i class="fad fa-server"></i>
+                            <a href="./index.php">VPC</a>
                         </li>
                         <li>
-                            <i class="fal fa-server"></i>
-                            <a href="./index.php">Test</a>
+                            <i class="fal fa-ethernet"></i>
+                            <a href="./index.php">Transit Gateway</a>
                         </li>
                     </ul>
-                </div> -->
+                </div>
             </nav>
             <!-- <div id="dropdown-cloud">
                 <button class="dropbtn-cloud">
