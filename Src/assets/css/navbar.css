@@ -420,7 +420,7 @@
     border-radius: 100%;
 }
 
-.infos_element_top_right {
+#infos_element_top_right {
     position: absolute;
     margin-top: 0;
     display: flex;
@@ -437,14 +437,14 @@
     text-decoration: none;
 }
 
-.infos_element_top_right i {
+#infos_element_top_right i {
     font-size: 1.5em;
     color: #5f6368;
     opacity: 1;
     margin: 3px 4px;
 }
 
-.infos_element_top_right:hover {
+#infos_element_top_right:hover {
     background-color: #d3e3fd;
     border-radius: 100%;
 }
@@ -486,7 +486,7 @@
     background-color: #d3e3fd;
 }
 
-#infos_element {
+#navbar-dropdown-infos-element {
     position: absolute;
     margin-top: 0;
     display: none;
@@ -497,8 +497,86 @@
     overflow: hidden;
     z-index: 4;
     width: 250px;
-    margin-top: 236px;
-    margin-left: 68px;
+    margin-top: 35px;
+    margin-left: 80%;
     border-radius: 10px 10px 10px 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.top-class-navbar-dropdown-infos-element {
+    background-color: #eaf1fb;
+}
+
+.list-navbar-dropdown-infos-element {
+    background-color: #f0f0f0;
+}
+
+.top-class-navbar-dropdown-infos-element h2 {
+    font-size: 1em;
+    text-decoration: none;
+    font-family: 'SFProRounded';
+    letter-spacing: normal;
+    color: #1f1f1f;
+    margin-left: 90px;
+}
+
+.list-navbar-dropdown-infos-element li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding-bottom: 7px;
+}
+
+.list-navbar-dropdown-infos-element ul {
+    position: relative;
+    list-style-type: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 80%;
+    margin-left: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.list-navbar-dropdown-infos-element i {
+    position: relative;
+    font-size: 1.5em;
+    color: #5f6368;
+    opacity: 1;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.list-navbar-dropdown-infos-element ul li a {
+    position: relative;
+    font-size: 1em;
+    text-decoration: none;
+    font-family: 'SFProRounded';
+    letter-spacing: normal;
+    color: #1f1f1f;
+    cursor: pointer;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.list-navbar-dropdown-infos-element ul li i {
+    position: absolute;
+    font-size: 1em;
+    text-decoration: none;
+    letter-spacing: normal;
+    color: #5f6368;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin-left: -30px;
+    margin-top: 1px;
+}
+
+.list-navbar-dropdown-infos-element ul li a:hover {
+    background-color: #d3e3fd;
+    border-radius: 5px;
 }

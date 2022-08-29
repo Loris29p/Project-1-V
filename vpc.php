@@ -58,7 +58,7 @@
                 <a href="./index.php" class="settings">
                     <i class="fad fa-cog"></i>
                 </a>
-                <a href="./index.php" class="infos_element_top_right">
+                <a href="./index.php" id="infos_element_top_right">
                     <i class="fad fa-align-center"></i>
                 </a>
                 <div class="account_top_right">
@@ -164,8 +164,33 @@
                     </div>
                 </div>
 
-                <div id="infos_element">
-                    
+                <div id="navbar-dropdown-infos-element">
+                    <div class="top-class-navbar-dropdown-infos-element">
+                        <h2>Informations</h2>
+                    </div>
+                    <div class="list-navbar-dropdown-infos-element">
+                        <div>
+                            <i class="fab fa-aws"></i>
+                            <ul>
+                                <li>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./vpc.php?account=VESA PROD&aside=vpc">VESA PROD</a>
+                                </li>
+                                <li>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./vpc.php?account=VESA ACCESS&aside=vpc">VESA ACCESS</a>
+                                </li>
+                                <li>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./vpc.php?account=VESA MANAGEMENT&aside=vpc">VESA MANAGEMENT</a>
+                                </li>
+                                <li>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./vpc.php?account=VESA TRANSIT&aside=vpc">VESA TRANSIT</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
