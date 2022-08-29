@@ -6,6 +6,8 @@ let navbar_dropdown_cloud_li = document.getElementById("navbar-dropdown-cloud-li
 let navbar_dropdown_vpc_li = document.getElementById("navbar-dropdown-vpc-li");
 let navbar_dropdown_transit_gateway_li = document.getElementById("navbar-dropdown-transit-gateway-li");
 
+let vpc_show_aws = document.getElementById("vpc_show_aws");
+
 navbar_dropdown_cloud_li.addEventListener("mouseenter", function( event ) {
     navbar_dropdown_cloud.animate([
         { opacity: '0' },
@@ -14,6 +16,11 @@ navbar_dropdown_cloud_li.addEventListener("mouseenter", function( event ) {
         duration: 300,
     });
     navbar_dropdown_cloud.style.display = "flex";
+
+    if (vpc_show_aws) {
+        vpc_show_aws.style.left = "25%";
+        vpc_show_aws.style.width = "70%";
+    }
 }, false);
 
 navbar_dropdown_cloud_li.addEventListener("mouseleave", function( event ) {
