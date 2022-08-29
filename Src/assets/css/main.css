@@ -177,47 +177,6 @@ body {
     left: 0.25vw
 }
 
-.navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #4e4e4e;
-    border-radius: 0vh 0vh 1vh 1vh;
-}
-
-.navbar-ul {
-    position: relative;
-    left: 40vw;
-    width: 20vw;
-    /* background-color: rgb(255, 0, 0); */
-}
-
-.navbar-ul ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-  
-.navbar-ul li {
-    float: left;
-}
-  
-.navbar-ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family: 'SFProRounded';
-    font-size: 1em;
-}
-  
-.navbar-ul li a:hover {
-    background-color: #404040;
-}
-
 .dropbtn-cloud {
     background-color: #4e4e4e;
     color: white;
