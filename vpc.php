@@ -53,6 +53,19 @@
     <body>
 
         <header>
+
+            <div class="navbar_top_right">
+                <a href="./index.php" class="settings">
+                    <i class="fad fa-cog"></i>
+                </a>
+                <a href="./index.php" class="infos_element_top_right">
+                    <i class="fad fa-align-center"></i>
+                </a>
+                <div class="account_top_right">
+                    <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
+                    <i class="fad fa-user-circle"></i>
+                </div>
+            </div>
             
             <div class="big_navbar">
                 <nav class="navbar2">
@@ -149,6 +162,10 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+
+                <div id="infos_element">
+                    
                 </div>
             </div>
         </header>

@@ -15,6 +15,7 @@
 }
 
 body {
+    background-color: #f0f0f0;
     margin: 0;
     font-family: var(--bs-body-font-family);
     font-size: var(--bs-body-font-size);
@@ -22,7 +23,6 @@ body {
     line-height: var(--bs-body-line-height);
     color: var(--bs-body-color);
     text-align: var(--bs-body-text-align);
-    background-color: var(--bs-body-bg);
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
 }
@@ -127,8 +127,12 @@ body {
 #vpc_show_aws {
     position: absolute;
     border: 1px solid #4e4e4e;
-    top: 8%;
-    left: 2%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin-top: 80px;
+    margin-left: 70px;
     width: 96%;
     height: 90%;
     display: block;
