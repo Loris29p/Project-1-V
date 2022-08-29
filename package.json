@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "gojs": "^2.2.12"
+    "gojs": "^2.2.12",
+    "jquery": "^3.6.1"
   }
 }

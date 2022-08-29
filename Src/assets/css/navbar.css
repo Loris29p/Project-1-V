@@ -48,7 +48,7 @@ body {
 }
 
 .navbar2 {
-    position: relative;
+    position: absolute;
     margin-top: 0;
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@ body {
     transition-timing-function: cubic-bezier(0.4,0,0.2,1);
     z-index: 4;
     height: 100%;
-    width: 187px;
+    width: 68px;
     border-radius: 0 15px 15px 0;
 }
 
@@ -72,7 +72,6 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    height: 60%;
     width: 100%;
     margin-top: 100px;
 }
@@ -107,10 +106,14 @@ body {
     position: relative;
     font-size: 1.15em;
     color: #1f1f1f;
-    cursor: pointer;
     font-weight: 400;
     margin-left: 0px;
     margin-top: 5px;
+}
+
+.navbar2-ul li:hover {
+    background-color: #d3e3fd;
+    border-radius: 20px;
 }
 
 .icon-menu i {
@@ -122,7 +125,51 @@ body {
     top: 15px;
 } 
 
-.navbar2-ul li:hover {
-    background-color: #d3e3fd;
-    border-radius: 20px;
+#navbar-dropdown-cloud {
+    position: absolute;
+    margin-top: 0;
+    display: none;
+    flex-direction: column;
+    flex-shrink: 0;
+    max-width: 300px!important;
+    min-width: 300px!important;
+    overflow: hidden;
+    /* background-color: #eaf1fb; */
+    transition-property: background-color,box-shadow;
+    transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+    z-index: 4;
+    width: 250px;
+    margin-top: 100px;
+    margin-left: 68px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.top-class-navbar-dropdown-cloud {
+    background-color: #eaf1fb;
+}
+
+.list-navbar-dropdown-cloud {
+    background-color: #ffffff;
+}
+
+.top-class-navbar-dropdown-cloud h2 {
+    font-size: 1em;
+    text-decoration: none;
+    font-family: 'SFProRounded';
+    letter-spacing: normal;
+    color: #1f1f1f;
+    margin-left: 125px;
+}
+
+.list-navbar-dropdown-cloud li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    height: 48px;
+    width: 250px;
+    margin-left: -40px;
+    padding-bottom: 20px;
+    text-align: center;
 }

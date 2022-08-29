@@ -41,7 +41,8 @@
         <title>AWS</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <script src="./node_modules/jquery/dist/jquery.js"></script>
         <link rel="stylesheet" href="./Src/assets/css/gojs.css">
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
@@ -70,7 +71,7 @@
                     </div>
                     <div class="navbar2-ul">
                         <ul>
-                            <li>
+                            <li id="navbar-dropdown-cloud-li">
                                 <i class="fad fa-cloud"></i>
                                 <a href="./index.php">Cloud</a>
                             </li>
@@ -85,7 +86,45 @@
                         </ul>
                     </div>
                 </nav>
+
+                <div id="navbar-dropdown-cloud">
+                    <div class="top-class-navbar-dropdown-cloud">
+                        <h2>Cloud</h2>
+                    </div>
+                    <div class="list-navbar-dropdown-cloud">
+                        <div>
+                            <i class="fab fa-aws"></i>
+                            <a>AWS</a>
+                            <ul>
+                                <li>
+                                    <a href="./vpc.php?account=VESA PROD&aside=vpc">- VESA PROD</a>
+                                </li>
+                                <li>
+                                    <a href="./vpc.php?account=VESA ACCESS&aside=vpc">- VESA ACCESS</a>
+                                </li>
+                                <li>
+                                    <a href="./vpc.php?account=VESA MANAGEMENT&aside=vpc">- VESA MANAGEMENT</a>
+                                </li>
+                                <li>
+                                    <a href="./vpc.php?account=VESA TRANSIT&aside=vpc">- VESA TRANSIT</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <i class="fa fa-caret-right"></i>
+                            <a>Azure</a>
+                            <ul>
+                                <li>
+                                    <a href="./vpc.php?account=VESA PROD&aside=vpc">- Aucun</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="./Src/assets/script/main.js"></script>
             </div>
+            
             <!-- <div id="dropdown-cloud">
                 <button class="dropbtn-cloud">
                     Cloud
@@ -162,5 +201,3 @@
 
         </header>
     </body>
-
-    <script src="./Src/assets/script/test.js"></script>
