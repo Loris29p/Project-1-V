@@ -53,16 +53,6 @@
     <body>
 
         <header>
-            <nav class="navbar">
-                <!-- <div class="navbar-ul">
-                    <ul>
-                        <li><a href="./index.php">Acceuil</a></li>
-                        <li><a href="./vpc.php">Elements</a></li>
-                        <li><a href="./update.php">Mise à jour</a></li>
-                    </ul> -->
-                </div>
-            </nav>
-
             
             <div class="big_navbar">
                 <nav class="navbar2">
@@ -75,14 +65,19 @@
                                 <i class="fad fa-cloud"></i>
                                 <a href="./index.php">Cloud</a>
                             </li>
-                            <li>
-                                <i class="fad fa-server"></i>
-                                <a href="./index.php">VPC</a>
-                            </li>
-                            <li>
-                                <i class="fal fa-ethernet"></i>
-                                <a href="./index.php">Transit Gateway</a>
-                            </li>
+                            <?php if (isset($_GET['account'])) {
+                            ?>
+                                <li id="navbar-dropdown-vpc-li">
+                                    <i class="fad fa-server"></i>
+                                    <a href="./index.php">VPC</a>
+                                </li>
+                                <li id="navbar-dropdown-transit-gateway-li">
+                                    <i class="fal fa-ethernet"></i>
+                                    <a href="./index.php">Transit Gateway</a>
+                                </li>
+                                <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </nav>
@@ -94,29 +89,63 @@
                     <div class="list-navbar-dropdown-cloud">
                         <div>
                             <i class="fab fa-aws"></i>
-                            <a>AWS</a>
                             <ul>
                                 <li>
-                                    <a href="./vpc.php?account=VESA PROD&aside=vpc">- VESA PROD</a>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./vpc.php?account=VESA PROD&aside=vpc">VESA PROD</a>
                                 </li>
                                 <li>
-                                    <a href="./vpc.php?account=VESA ACCESS&aside=vpc">- VESA ACCESS</a>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./vpc.php?account=VESA ACCESS&aside=vpc">VESA ACCESS</a>
                                 </li>
                                 <li>
-                                    <a href="./vpc.php?account=VESA MANAGEMENT&aside=vpc">- VESA MANAGEMENT</a>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./vpc.php?account=VESA MANAGEMENT&aside=vpc">VESA MANAGEMENT</a>
                                 </li>
                                 <li>
-                                    <a href="./vpc.php?account=VESA TRANSIT&aside=vpc">- VESA TRANSIT</a>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./vpc.php?account=VESA TRANSIT&aside=vpc">VESA TRANSIT</a>
                                 </li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+
+                <div id="navbar-dropdown-vpc">
+                    <div class="top-class-navbar-dropdown-vpc">
+                        <h2>VPC</h2>
+                    </div>
+                    <div class="list-navbar-dropdown-vpc">
                         <div>
-                            <i class="fa fa-caret-right"></i>
-                            <a>Azure</a>
                             <ul>
-                                <li>
-                                    <a href="./vpc.php?account=VESA PROD&aside=vpc">- Aucun</a>
-                                </li>
+                                <?php 
+                                    foreach ($vpcArray as $vpc) {
+                                        echo '<li>';
+                                        echo '<i class="fad fa-stream"></i>';
+                                        echo '<a href="./vpc.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'">- ' . $vpc['vpc'] . '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+
+                <div id="navbar-dropdown-transit-gateway">
+                    <div class="top-class-navbar-dropdown-transit-gateway">
+                        <h2>Transit Gateway</h2>
+                    </div>
+                    <div class="list-navbar-dropdown-transit-gateway">
+                        <div>
+                            <ul>
+                                <?php
+                                    foreach ($transitGatewayArray as $transit) {
+                                        echo '<li>';
+                                        echo '<i class="fad fa-stream"></i>';
+                                        echo '<a class="button_vpc_text" href="./vpc.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'">' . $transit['gateway'] . '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -124,80 +153,75 @@
 
                 <script src="./Src/assets/script/main.js"></script>
             </div>
-            
-            <!-- <div id="dropdown-cloud">
-                <button class="dropbtn-cloud">
-                    Cloud
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-cloud-content">
-                    <div>
-                        <i class="fa fa-caret-right"></i>
-                        <a>AWS</a>
-                        <ul>
-                            <li>
-                                <a href="./vpc.php?account=VESA PROD&aside=vpc">- VESA PROD</a>
-                            </li>
-                            <li>
-                                <a href="./vpc.php?account=VESA ACCESS&aside=vpc">- VESA ACCESS</a>
-                            </li>
-                            <li>
-                                <a href="./vpc.php?account=VESA MANAGEMENT&aside=vpc">- VESA MANAGEMENT</a>
-                            </li>
-                            <li>
-                                <a href="./vpc.php?account=VESA TRANSIT&aside=vpc">- VESA TRANSIT</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <i class="fa fa-caret-right"></i>
-                        <a>Azure</a>
-                        <ul>
-                            <li>
-                                <a href="./vpc.php?account=VESA PROD&aside=vpc">- Aucun</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- <?php if (isset($_GET['account'])) {
-                ?>
-                <div id="dropdown-elements">
-                    <button class="dropbtn-elements">
-                        Elements
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-elements-content">
-                        <select onchange="location = this.value" onclick="location = this.value">
-                            <option value="./vpc.php?account=<?php echo $_GET['account']; ?>&aside=vpc" <?php if ($data_show_aside != "" && $data_show_aside == "vpc") { echo "selected"; } ?>>VPC</option>
-                            <option value="./vpc.php?account=<?php echo $_GET['account']; ?>&aside=transit_gateway" <?php if ($data_show_aside != "" && $data_show_aside == "transit_gateway") { echo "selected"; } ?>>Transit Gateway</option>
-                        </select>
-                        <ul>
-                            <?php 
-                                if ($data_show_aside != "transit_gateway") {
-                                    foreach ($vpcArray as $vpc) {
-                                        echo '<li>';
-                                        echo '<a href="./vpc.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'">- ' . $vpc['vpc'] . '</a>';
-                                        echo '</li>';
-                                    }
-                                } elseif ($data_show_aside == "transit_gateway") {
-                                    foreach ($transitGatewayArray as $transit) {
-                                        echo '<li>';
-                                        echo '<a class="button_vpc_text" href="./vpc.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'">' . $transit['gateway'] . '</a>';
-                                        echo '</li>';
-                                    }
-                                }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-                <div class="account_name">
-                    <a>Compte: <?php echo $_GET['account']; ?></a>
-                </div>
-                <?php
-            }
-            ?> -->
 
         </header>
+
+        <?php 
+                if (isset($_GET['vpc'])) {
+                    $vpc_id = "'".$_GET['vpc']."'";
+                    ?>
+                        <div id="vpc_show_aws">
+                            <a>
+                                <i class="fab fa-aws"></i>
+                                AWS Cloud
+                            </a>
+                            <div class="zone_name">
+                                <a>
+                                    <i class="fal fa-flag"></i>
+                                    <?php echo GetInfosOfVPC($_GET['vpc'])['region']; ?>
+                                </a>
+                                <div class="vpc_info">
+                                    <a>
+                                    <i class="fal fa-network-wired"></i>
+                                        <?php echo GetInfosOfVPC($_GET['vpc'])['vpc']; ?>
+                                        <p><?php echo GetInfosOfVPC($_GET['vpc'])['cidr']; ?></p>
+                                    </a>
+                                    <div id="myDiagramDiv"></div>
+                                    <script src="./Src/assets/script/gojs.js"></script>
+                                    <div>
+                                        <script>
+                                            Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>);
+                                            ConstructFirstPartVPCId(<?php echo $vpc_id; ?>);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                } elseif (isset($_GET['account']) && !isset($_GET['vpc']) && !isset($_GET['transit_gateway'])) {
+                ?>
+                    <div id="vpc_show_aws">
+                        <a>
+                            <i class="fab fa-aws"></i>
+                            AWS Cloud
+                        </a>
+                        <div id="myDiagramDiv"></div>
+                        <script src="./Src/assets/script/gojs.js"></script>
+                        <div>
+                            <script>
+                                Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>, true);
+                            </script>
+                        </div>
+                    </div>
+                <?php
+                } elseif (isset($_GET['transit_gateway'])) {
+                    $transit_gateway_id = "'".$_GET['transit_gateway']."'";
+                    ?>
+                        <div id="vpc_show_aws">
+                            <a>
+                                <i class="fab fa-aws"></i>
+                                AWS Cloud
+                            </a>
+                            <div id="myDiagramDiv"></div>
+                            <script src="./Src/assets/script/gojs.js"></script>
+                            <div>
+                                <script>
+                                    Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>);
+                                    ConstructFirstPartTransitGatewayId(<?php echo $transit_gateway_id; ?>);
+                                </script>
+                            </div>
+                        </div>
+                    <?php
+                }
+            ?>
     </body>
