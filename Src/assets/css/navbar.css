@@ -84,12 +84,12 @@ body {
     flex-shrink: 0;
     height: 48px;
     width: 68px;
-    margin-left: -50px;
-    padding-bottom: 15px;
+    margin-left: -52.5px;
+    padding-bottom: 20px;
     text-align: center;
 }
 
-.navbar2-ul li a {
+.navbar2-ul ul a {
     position: relative;
     font-size: .75em;
     text-decoration: none;
@@ -100,7 +100,7 @@ body {
     font-weight: 400;
     /* margin-left: 15px; */
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 23px;
 }
 
 .navbar2-ul li i {
