@@ -63,23 +63,29 @@
             </nav>
 
             
-            <nav class="navbar2">
-                <div class="icon-menu">
-                    <i class="fal fa-bars"></i>
-                </div>
-                <div class="navbar2-ul">
-                    <ul>
-                        <li>
-                            <i class="fad fa-server"></i>
-                            <a href="./index.php">VPC</a>
-                        </li>
-                        <li>
-                            <i class="fal fa-ethernet"></i>
-                            <a href="./index.php">Transit Gateway</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <div class="big_navbar">
+                <nav class="navbar2">
+                    <div class="icon-menu">
+                        <i class="fal fa-bars"></i>
+                    </div>
+                    <div class="navbar2-ul">
+                        <ul>
+                            <li>
+                                <i class="fad fa-cloud"></i>
+                                <a href="./index.php">Cloud</a>
+                            </li>
+                            <li>
+                                <i class="fad fa-server"></i>
+                                <a href="./index.php">VPC</a>
+                            </li>
+                            <li>
+                                <i class="fal fa-ethernet"></i>
+                                <a href="./index.php">Transit Gateway</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
             <!-- <div id="dropdown-cloud">
                 <button class="dropbtn-cloud">
                     Cloud

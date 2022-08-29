@@ -84,12 +84,12 @@ body {
     flex-shrink: 0;
     height: 48px;
     width: 68px;
-    margin-left: -52.5px;
+    margin-left: -40px;
     padding-bottom: 20px;
     text-align: center;
 }
 
-.navbar2-ul ul a {
+.navbar2-ul li a {
     position: relative;
     font-size: .75em;
     text-decoration: none;
@@ -98,9 +98,9 @@ body {
     color: #1f1f1f;
     cursor: pointer;
     font-weight: 400;
-    /* margin-left: 15px; */
     margin-top: 10px;
-    margin-left: 23px;
+    margin-left: 0px;
+    font-weight: 500;
 }
 
 .navbar2-ul li i {
@@ -109,7 +109,7 @@ body {
     color: #1f1f1f;
     cursor: pointer;
     font-weight: 400;
-    margin-left: 23px;
+    margin-left: 0px;
     margin-top: 5px;
 }
 
@@ -118,6 +118,11 @@ body {
     font-size: 1.5em;
     color: #5f6368;
     opacity: 1;
-    left: 22px;
+    left: 23px;
     top: 15px;
 } 
+
+.navbar2-ul li:hover {
+    background-color: #d3e3fd;
+    border-radius: 20px;
+}
