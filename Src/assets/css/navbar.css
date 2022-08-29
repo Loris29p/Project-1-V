@@ -387,7 +387,7 @@
     z-index: 4;
     height: 40px;
     width: 200px;
-    margin-left: 86.75%;
+    margin-left: 80%;
     border-radius: 0 0 15px 15px;
 }
 
@@ -403,7 +403,7 @@
     width: 30px;
     margin-left: 5px;
     margin-top: 5px;
-    border-radius: 100%;
+    border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     text-decoration: none;
 }
@@ -417,7 +417,6 @@
 
 .settings:hover {
     background-color: #d3e3fd;
-    border-radius: 100%;
 }
 
 #infos_element_top_right {
@@ -432,7 +431,7 @@
     width: 30px;
     margin-left: 50px;
     margin-top: 5px;
-    border-radius: 100%;
+    border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     text-decoration: none;
 }
@@ -446,7 +445,6 @@
 
 #infos_element_top_right:hover {
     background-color: #d3e3fd;
-    border-radius: 100%;
 }
 
 .account_top_right {
@@ -497,7 +495,7 @@
     overflow: hidden;
     z-index: 4;
     width: 250px;
-    margin-top: 35px;
+    margin-top: 35.5px;
     margin-left: 80%;
     border-radius: 10px 10px 10px 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
