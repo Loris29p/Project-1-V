@@ -1,3 +1,5 @@
+$(document.body).css("zoom", document.body.clientWidth / 1920);
+
 let navbar_dropdown_cloud = document.getElementById("navbar-dropdown-cloud");
 let navbar_dropdown_vpc = document.getElementById("navbar-dropdown-vpc");
 let navbar_dropdown_transit_gateway = document.getElementById("navbar-dropdown-transit-gateway");
