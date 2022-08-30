@@ -40,7 +40,7 @@
                 $this->sgbd->truncate("internet_gateways");
                 sleep(1);
                 foreach ($this->internet_gateways_array as $key => $value) {
-                    $this->sgbd->insert('internet_gateways', $value);
+                    $this->sgbd->InsertWithParameters('internet_gateways', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";

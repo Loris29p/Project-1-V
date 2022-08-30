@@ -37,7 +37,7 @@
                 $this->sgbd->truncate("vpc_network");
                 sleep(1);
                 foreach ($this->vpc_network_array as $key => $value) {
-                    $this->sgbd->insert('vpc_network', $value);
+                    $this->sgbd->InsertWithParameters('vpc_network', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";

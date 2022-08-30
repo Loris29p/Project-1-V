@@ -47,7 +47,7 @@
                 $this->sgbd->truncate("network");
                 sleep(1);
                 foreach ($this->network_array as $key => $value) {
-                    $this->sgbd->insert('network', $value);
+                    $this->sgbd->InsertWithParameters('network', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";

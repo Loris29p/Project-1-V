@@ -42,7 +42,7 @@
                 $this->sgbd->truncate("route_tables");
                 sleep(1);
                 foreach ($this->route_array as $key => $value) {
-                    $this->sgbd->insert('route_tables', $value);
+                    $this->sgbd->InsertWithParameters('route_tables', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";

@@ -47,7 +47,7 @@
                 $this->sgbd->truncate("nat_gateway");
                 sleep(1);
                 foreach ($this->nat_gateway_array as $key => $value) {
-                    $this->sgbd->insert('nat_gateway', $value);
+                    $this->sgbd->InsertWithParameters('nat_gateway', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";

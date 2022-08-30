@@ -48,7 +48,7 @@
                 $this->sgbd->truncate("peering_connections");
                 sleep(1);
                 foreach ($this->peering_connections_array as $key => $value) {
-                    $this->sgbd->insert('peering_connections', $value);
+                    $this->sgbd->InsertWithParameters('peering_connections', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";

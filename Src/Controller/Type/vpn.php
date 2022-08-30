@@ -41,7 +41,7 @@
                 $this->sgbd->truncate("vpn");
                 sleep(1);
                 foreach ($this->vpn_array as $key => $value) {
-                    $this->sgbd->insert('vpn', $value);
+                    $this->sgbd->InsertWithParameters('vpn', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";

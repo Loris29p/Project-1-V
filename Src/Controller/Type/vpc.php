@@ -52,7 +52,7 @@
                 $this->sgbd->truncate("vpc");
                 sleep(1);
                 foreach ($this->vpc_array as $key => $value) {
-                    $this->sgbd->insert('vpc', $value);
+                    $this->sgbd->InsertWithParameters('vpc', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";

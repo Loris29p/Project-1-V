@@ -24,6 +24,11 @@
             $this->db->close();
         }
 
+        public function insert($query) {
+            $result = $this->db->query($query);
+            return $result;
+        }
+
         public function get($table) {
             $query = "SELECT * FROM $table";
             $result = $this->db->query($query);
@@ -45,7 +50,7 @@
         }
  
         // Function permettant d'effectuer une insertion dans une table suivant les parametres
-        public function insert($table, $parameters) {
+        public function InsertWithParameters($table, $parameters) {
             $query = "INSERT INTO $table (";
             foreach ($parameters as $key => $value) {
                 $query .= $key . ", ";

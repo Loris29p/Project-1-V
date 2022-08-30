@@ -1,5 +1,5 @@
 <?php
-    require_once("./Config/Config.php");
+    // require_once("./Config/Config.php");
     require_once("./Src/Controller/User/User.php");
     require_once('./Src/Model/functions.php');
     require_once('./Src/Controller/Mother.php');
@@ -41,7 +41,6 @@
         <title>AWS</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
         <script src="./node_modules/jquery/dist/jquery.js"></script>
         <link rel="stylesheet" href="./Src/assets/css/gojs.css">
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
@@ -58,9 +57,9 @@
                 <a href="./index.php" class="settings">
                     <i class="fad fa-cog"></i>
                 </a>
-                <a href="./index.php" id="infos_element_top_right">
+                <div id="infos_element_top_right">
                     <i class="fad fa-align-center"></i>
-                </a>
+                </div>
                 <div class="account_top_right">
                     <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
                     <i class="fad fa-user-circle"></i>
@@ -69,9 +68,9 @@
             
             <div class="big_navbar">
                 <nav class="navbar2">
-                    <div class="icon-menu">
-                        <i class="fal fa-bars"></i>
-                    </div>
+                    <a class="icon-menu" href="./index.php">
+                        <i class="fad fa-home"></i>
+                    </a>
                     <div class="navbar2-ul">
                         <ul>
                             <li id="navbar-dropdown-cloud-li">
@@ -170,25 +169,10 @@
                     </div>
                     <div class="list-navbar-dropdown-infos-element">
                         <div>
-                            <i class="fab fa-aws"></i>
-                            <ul>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./vpc.php?account=VESA PROD&aside=vpc">VESA PROD</a>
-                                </li>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./vpc.php?account=VESA ACCESS&aside=vpc">VESA ACCESS</a>
-                                </li>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./vpc.php?account=VESA MANAGEMENT&aside=vpc">VESA MANAGEMENT</a>
-                                </li>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./vpc.php?account=VESA TRANSIT&aside=vpc">VESA TRANSIT</a>
-                                </li>
-                            </ul>
+                            <a><?php echo $_GET['vpc']; ?></a>
+                            <div class="description_informations_element">
+                                <a>Test</a>
+                            </div>
                         </div>
                     </div>
                 </div>

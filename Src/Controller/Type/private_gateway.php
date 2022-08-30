@@ -41,7 +41,7 @@
                 $this->sgbd->truncate("private_gateway");
                 sleep(1);
                 foreach ($this->private_gateway_array as $key => $value) {
-                    $this->sgbd->insert('private_gateway', $value);
+                    $this->sgbd->InsertWithParameters('private_gateway', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";

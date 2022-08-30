@@ -43,7 +43,7 @@
                 $this->sgbd->truncate("transit_gateway_attachments");
                 sleep(1);
                 foreach ($this->transit_gateway_attachments_array as $key => $value) {
-                    $this->sgbd->insert('transit_gateway_attachments', $value);
+                    $this->sgbd->InsertWithParameters('transit_gateway_attachments', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";

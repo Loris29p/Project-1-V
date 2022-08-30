@@ -39,7 +39,7 @@
     //             $this->sgbd->truncate("transit_gateway");
     //             sleep(1);
     //             foreach ($this->subnets_array as $key => $value) {
-    //                 $this->sgbd->insert('transit_gateway', $value);
+    //                 $this->sgbd->InsertWithParameters('transit_gateway', $value);
     //             }
     //         } else {
     //             echo "Aucune mise à jour disponible";

@@ -45,7 +45,7 @@
                 $this->sgbd->truncate("endpoints");
                 sleep(1);
                 foreach ($this->endpoints_array as $key => $value) {
-                    $this->sgbd->insert('endpoints', $value);
+                    $this->sgbd->InsertWithParameters('endpoints', $value);
                 }
             } else {
                 echo "Aucune mise à jour disponible";
