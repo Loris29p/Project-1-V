@@ -66,11 +66,17 @@ myDiagram.addDiagramListener("ObjectDoubleClicked", function(e) {
     }
 });
 
+
 myDiagram.addDiagramListener("ObjectContextClicked", function(e) {
     var clicked = e.subject.part;
     if (clicked instanceof go.Node) {
         var node = clicked.data;
-        alert(node.description);
+        // alert(node.description);
+        var navbar_dropdown_infos_element = document.getElementById("navbar-dropdown-infos-element");
+        if (navbar_dropdown_infos_element != null) {
+            navbar_dropdown_infos_element.style.display = "flex";
+            navbar_dropdown_infos_element.append(node.description);
+        }
     }
 });
 var bluegrad = diagram(go.Brush, "Linear", { 0: "#00c3ff46", 1: "#22afda3b" });

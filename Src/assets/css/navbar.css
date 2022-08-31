@@ -78,7 +78,7 @@
 
 .show_more_elements_navbar_cloud_3 ul li a {
     position: relative;
-    font-size: 1em;
+    font-size: .85em;
     text-decoration: none;
     font-family: 'SFProRounded';
     letter-spacing: normal;
@@ -103,7 +103,7 @@
 }
 
 .show_more_elements_navbar_cloud_3 ul li a:hover {
-    background-color: #f5f5f5;
+    background-color: #fcfcfc;
     border-radius: 5px;
 }
 
@@ -561,8 +561,8 @@
     overflow: hidden;
     z-index: 4;
     width: 250px;
-    margin-top: 35.5px;
-    margin-left: 76%;
+    margin-top: 40px;
+    margin-left: 1610px;
     border-radius: 10px 10px 10px 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     text-align: center;
@@ -578,7 +578,6 @@
     font-family: 'SFProRounded';
     letter-spacing: normal;
     color: #1f1f1f;
-    /* margin-left: 100px; */
 }
 
 .list-navbar-dropdown-infos-element {
@@ -586,7 +585,6 @@
 }
 
 .list-navbar-dropdown-infos-element li {
-    position: relative;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -594,26 +592,22 @@
 }
 
 .list-navbar-dropdown-infos-element i {
-    position: relative;
     font-size: 1.5em;
     color: #5f6368;
     opacity: 1;
-    margin-left: 15px;
     margin-top: 10px;
 }
 
 .list-navbar-dropdown-infos-element a {
-    position: relative;
     font-size: 1em;
     font-family: 'SFProRounded';
     color: #1f1f1f;
     opacity: 1;
-    /* margin-left: 15px; */
     margin-top: 15px;
 }
 
 .description_informations_element {
-    position: relative;
+    background-color: #1a73e8;
     list-style-type: none;
     overflow: hidden;
     display: flex;
@@ -966,7 +960,7 @@
 
 .show_more_elements_navbar_vpc_3 ul li a {
     position: relative;
-    font-size: 1em;
+    font-size: .85em;
     text-decoration: none;
     font-family: 'SFProRounded';
     letter-spacing: normal;
@@ -991,7 +985,7 @@
 }
 
 .show_more_elements_navbar_vpc_3 ul li a:hover {
-    background-color: #f5f5f5;
+    background-color: #fcfcfc;
     border-radius: 5px;
 }
 
@@ -1073,7 +1067,7 @@
 
 .show_more_elements_navbar_transit_gateway_3 ul li a {
     position: relative;
-    font-size: 1em;
+    font-size: .85em;
     text-decoration: none;
     font-family: 'SFProRounded';
     letter-spacing: normal;
@@ -1098,7 +1092,7 @@
 }
 
 .show_more_elements_navbar_transit_gateway_3 ul li a:hover {
-    background-color: #f5f5f5;
+    background-color: #fcfcfc;
     border-radius: 5px;
 }
 

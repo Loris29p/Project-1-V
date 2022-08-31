@@ -237,32 +237,13 @@
                     </div>
                 </div>
 
-                <div id="navbar-dropdown-vpc">
-                    <div class="top-class-navbar-dropdown-vpc">
-                        <h2>VPC</h2>
-                    </div>
-                    <div class="list-navbar-dropdown-vpc">
-                        <div>
-                            <ul>
-                                <?php 
-                                    foreach ($vpcArray as $vpc) {
-                                        echo '<li>';
-                                        echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
-                                        echo '</li>';
-                                    }
-                                ?>
-                            </ul>   
-                        </div>
-                    </div>
-                </div>
-
                 <div id="navbar-dropdown-infos-element">
                     <div class="top-class-navbar-dropdown-infos-element">
                         <h2>Informations</h2>
                     </div>
                     <div class="list-navbar-dropdown-infos-element">
                         <div>
+                            <a><?php echo $_GET['vpc']; ?></a>
                             <div class="description_informations_element">
                                 <a>Test</a>
                             </div>
