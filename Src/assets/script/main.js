@@ -15,50 +15,29 @@ let navbar_dropdown_transit_gateway_li = document.getElementById("navbar-dropdow
 
 let vpc_show_aws = document.getElementById("vpc_show_aws");
 
-let infos_element_top_right = document.getElementById("infos_element_top_right");
-let navbar_dropdown_infos_element = document.getElementById("navbar-dropdown-infos-element");
+if (navbar_dropdown_cloud_li != null) {
+    navbar_dropdown_cloud_li.addEventListener("mouseenter", function( event ) {
+        navbar_dropdown_cloud.animate([
+            { opacity: '0' },
+            { opacity: '1' }
+        ], {
+            duration: 300,
+        });
+        navbar_dropdown_cloud.style.display = "flex";
+    }, false);
 
-navbar_dropdown_cloud_li.addEventListener("mouseenter", function( event ) {
-    navbar_dropdown_cloud.animate([
-        { opacity: '0' },
-        { opacity: '1' }
-    ], {
-        duration: 300,
-    });
-    navbar_dropdown_cloud.style.display = "flex";
-
-    if (vpc_show_aws) {
-        vpc_show_aws.style.marginLeft = "370px";
-        vpc_show_aws.style.width = "75%";
-    }
-}, false);
-
-navbar_dropdown_cloud_li.addEventListener("mouseleave", function( event ) {
-    navbar_dropdown_cloud.style.display = "none";
-
-    if (vpc_show_aws) {
-        vpc_show_aws.style.marginLeft = "70px";
-        vpc_show_aws.style.width = "96%";
-    }
-}, false);
-
-navbar_dropdown_cloud.addEventListener("mouseenter", function( event ) {
-    navbar_dropdown_cloud.style.display = "flex";
-
-    if (vpc_show_aws) {
-        vpc_show_aws.style.marginLeft = "370px";
-        vpc_show_aws.style.width = "75%";
-    }
-}, false);
-
-navbar_dropdown_cloud.addEventListener("mouseleave", function( event ) {
-    navbar_dropdown_cloud.style.display = "none";
-
-    if (vpc_show_aws) {
-        vpc_show_aws.style.marginLeft = "70px";
-        vpc_show_aws.style.width = "96%";
-    }
-}, false);
+    navbar_dropdown_cloud_li.addEventListener("mouseleave", function( event ) {
+        navbar_dropdown_cloud.style.display = "none";
+    }, false);
+    
+    navbar_dropdown_cloud.addEventListener("mouseenter", function( event ) {
+        navbar_dropdown_cloud.style.display = "flex";
+    }, false);
+    
+    navbar_dropdown_cloud.addEventListener("mouseleave", function( event ) {
+        navbar_dropdown_cloud.style.display = "none";
+    }, false);
+}
 
 
 if (navbar_dropdown_vpc_li != null) {
@@ -71,37 +50,37 @@ if (navbar_dropdown_vpc_li != null) {
         });
         navbar_dropdown_vpc.style.display = "flex";
 
-        if (vpc_show_aws) {
-            vpc_show_aws.style.marginLeft = "370px";
-            vpc_show_aws.style.width = "75%";
-        }
+        // if (vpc_show_aws) {
+        //     vpc_show_aws.style.marginLeft = "370px";
+        //     vpc_show_aws.style.width = "75%";
+        // }
     }, false);
     
     navbar_dropdown_vpc_li.addEventListener("mouseleave", function( event ) {
         navbar_dropdown_vpc.style.display = "none";
 
-        if (vpc_show_aws) {
-            vpc_show_aws.style.marginLeft = "70px";
-            vpc_show_aws.style.width = "96%";
-        }
+        // if (vpc_show_aws) {
+        //     vpc_show_aws.style.marginLeft = "70px";
+        //     vpc_show_aws.style.width = "96%";
+        // }
     }, false);
     
     navbar_dropdown_vpc.addEventListener("mouseenter", function( event ) {
         navbar_dropdown_vpc.style.display = "flex";
 
-        if (vpc_show_aws) {
-            vpc_show_aws.style.marginLeft = "370px";
-            vpc_show_aws.style.width = "75%";
-        }
+        // if (vpc_show_aws) {
+        //     vpc_show_aws.style.marginLeft = "370px";
+        //     vpc_show_aws.style.width = "75%";
+        // }
     }, false);
     
     navbar_dropdown_vpc.addEventListener("mouseleave", function( event ) {
         navbar_dropdown_vpc.style.display = "none";
 
-        if (vpc_show_aws) {
-            vpc_show_aws.style.marginLeft = "70px";
-            vpc_show_aws.style.width = "96%";
-        }
+        // if (vpc_show_aws) {
+        //     vpc_show_aws.style.marginLeft = "70px";
+        //     vpc_show_aws.style.width = "96%";
+        // }
     }, false);
 }
 
@@ -116,61 +95,37 @@ if (navbar_dropdown_transit_gateway_li != null) {
         });
         navbar_dropdown_transit_gateway.style.display = "flex";
 
-        if (vpc_show_aws) {
-            vpc_show_aws.style.marginLeft = "370px";
-            vpc_show_aws.style.width = "75%";
-        }
+        // if (vpc_show_aws) {
+        //     vpc_show_aws.style.marginLeft = "370px";
+        //     vpc_show_aws.style.width = "75%";
+        // }
     }, false);
     
     navbar_dropdown_transit_gateway_li.addEventListener("mouseleave", function( event ) {
         navbar_dropdown_transit_gateway.style.display = "none";
         
-        if (vpc_show_aws) {
-            vpc_show_aws.style.marginLeft = "70px";
-            vpc_show_aws.style.width = "96%";
-        }
+        // if (vpc_show_aws) {
+        //     vpc_show_aws.style.marginLeft = "70px";
+        //     vpc_show_aws.style.width = "96%";
+        // }
     }, false);
     
     navbar_dropdown_transit_gateway.addEventListener("mouseenter", function( event ) {
         navbar_dropdown_transit_gateway.style.display = "flex";
 
-        if (vpc_show_aws) {
-            vpc_show_aws.style.marginLeft = "370px";
-            vpc_show_aws.style.width = "75%";
-        }
+        // if (vpc_show_aws) {
+        //     vpc_show_aws.style.marginLeft = "370px";
+        //     vpc_show_aws.style.width = "75%";
+        // }
     }, false);
     
     navbar_dropdown_transit_gateway.addEventListener("mouseleave", function( event ) {
         navbar_dropdown_transit_gateway.style.display = "none";
 
-        if (vpc_show_aws) {
-            vpc_show_aws.style.marginLeft = "70px";
-            vpc_show_aws.style.width = "96%";
-        }
-    }, false);
-}
-
-if (infos_element_top_right != null) {
-    infos_element_top_right.addEventListener("mouseenter", function( event ) {
-        navbar_dropdown_infos_element.animate([
-            { opacity: '0' },
-            { opacity: '1' }
-        ], {
-            duration: 300,
-        });
-        navbar_dropdown_infos_element.style.display = "flex";
-    }, false);
-    
-    infos_element_top_right.addEventListener("mouseleave", function( event ) {
-        navbar_dropdown_infos_element.style.display = "none";
-    }, false);
-    
-    navbar_dropdown_infos_element.addEventListener("mouseenter", function( event ) {
-        navbar_dropdown_infos_element.style.display = "flex";
-    }, false);
-    
-    navbar_dropdown_infos_element.addEventListener("mouseleave", function( event ) {
-        navbar_dropdown_infos_element.style.display = "none";
+        // if (vpc_show_aws) {
+        //     vpc_show_aws.style.marginLeft = "70px";
+        //     vpc_show_aws.style.width = "96%";
+        // }
     }, false);
 }
 
@@ -194,8 +149,42 @@ if (account_top_right != null) {
 }
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
-  
     if (!account_top_right.contains(event.target) && !navbar_dropdown_account.contains(event.target)) {
         navbar_dropdown_account.style.display = 'none';
     }
 });
+
+let icon_menu = document.getElementById("icon-menu");
+let show_more_elements_navbar = document.getElementById("show_more_elements_navbar");
+
+if (icon_menu != null) {
+    icon_menu.addEventListener("click", function( event ) {
+        if (show_more_elements_navbar.style.display != "flex") {
+            show_more_elements_navbar.animate([
+                { opacity: '0' },
+                { opacity: '1' }
+            ], {
+                duration: 300,
+            });
+            
+            show_more_elements_navbar.style.display = "flex";
+            if (vpc_show_aws) {
+                vpc_show_aws.animate([
+                    { transform: 'translateX(240px)' },
+                ], {
+                    duration: 150,
+                });
+                setTimeout(function() {
+                    vpc_show_aws.style.marginLeft = "330px";
+                    vpc_show_aws.style.width = "1560px";
+                }, 150);
+            }
+        } else {
+            show_more_elements_navbar.style.display = "none";
+            if (vpc_show_aws) {
+                vpc_show_aws.style.marginLeft = "90px";
+                vpc_show_aws.style.width = "1800px";
+            }
+        }
+    }, false);
+}

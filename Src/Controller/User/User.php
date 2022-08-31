@@ -16,43 +16,43 @@
         }
         
         public function getAll() {
-            $query = "SELECT * FROM user";
+            $query = "SELECT * FROM users";
             $result = $this->sgbd->getWithParameters($query);
             return $result;
         }
 
         public function getById($id) {
-            $query = "SELECT * FROM user WHERE id = $id";
+            $query = "SELECT * FROM users WHERE id = $id";
             $result = $this->sgbd->getWithParameters($query);
             return $result;
         }
 
         public function getByEmail($email) {
-            $query = "SELECT * FROM user WHERE email = '$email'";
+            $query = "SELECT * FROM users WHERE email = '$email'";
             $result = $this->sgbd->getWithParameters($query);
             return $result;
         }
 
         public function Create($first_name, $last_name, $email, $password, $picture, $role) {
-            $query = "INSERT INTO user (first_name, last_name, email, password, picture, role) VALUES ('$first_name', '$last_name', '$email', '$password', '$picture', '$role')";
+            $query = "INSERT INTO users (first_name, last_name, email, password, picture, role) VALUES ('$first_name', '$last_name', '$email', '$password', '$picture', '$role')";
             $result = $this->sgbd->insert($query);
             return $result;
         }
 
         public function Update($id, $first_name, $last_name, $email, $password, $picture, $role) {
-            $query = "UPDATE user SET first_name = '$first_name', last_name = '$last_name', email = '$email', password = '$password', picture = '$picture', role = '$role' WHERE id = $id";
+            $query = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', email = '$email', password = '$password', picture = '$picture', role = '$role' WHERE id = $id";
             $result = $this->sgbd->insert($query);
             return $result;
         }
 
         public function Delete($id) {
-            $query = "DELETE FROM user WHERE id = $id";
+            $query = "DELETE FROM users WHERE id = $id";
             $result = $this->sgbd->insert($query);
             return $result;
         }
 
         public function AccountExists($email) {
-            $query = "SELECT * FROM user WHERE email = '$email'";
+            $query = "SELECT * FROM users WHERE email = '$email'";
             $result = $this->sgbd->get($query);
             if (count($result) > 0) {
                 return true;
@@ -63,7 +63,7 @@
 
         // Function permettant de verifier si le mot de passe est correct
         public function CheckPassword($email, $password) {
-            $query = "SELECT * FROM user WHERE email = '$email'";
+            $query = "SELECT * FROM users WHERE email = '$email'";
             $result = $this->sgbd->get($query);
             if (count($result) > 0) {
                 if ($result[0]['password'] == $password) {
@@ -84,6 +84,9 @@
         }
         public function getLastName() {
             return $this->last_name;
+        }
+        public function getFullName() {
+            return $this->first_name . " " . $this->last_name;
         }
         public function getEmail() {
             return $this->email;

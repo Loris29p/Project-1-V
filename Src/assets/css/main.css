@@ -132,9 +132,11 @@ body {
     flex-direction: column;
     flex-shrink: 0;
     margin-top: 80px;
-    margin-left: 70px;
-    width: 96%;
-    height: 90%;
+    margin-left: 90px;
+    /* width: 96%;
+    height: 90%; */
+    width: 1800px;
+    height: 950px;
     display: block;
 }
 

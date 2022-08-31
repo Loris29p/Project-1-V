@@ -29,8 +29,7 @@
             return $result;
         }
 
-        public function get($table) {
-            $query = "SELECT * FROM $table";
+        public function get($query) {
             $result = $this->db->query($query);
             $array = array();
             while ($row = $result->fetch_assoc()) {

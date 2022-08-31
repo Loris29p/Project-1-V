@@ -1,6 +1,6 @@
-const $ = go.GraphObject.make;
+const diagram = go.GraphObject.make;
 
-const myDiagram = $(go.Diagram, "myDiagramDiv", // must name or refer to the DIV HTML element
+const myDiagram = diagram(go.Diagram, "myDiagramDiv", // must name or refer to the DIV HTML element
     {
         "animationManager.initialAnimationStyle": go.AnimationManager.None,
         "InitialAnimationStarting": e => {
@@ -26,7 +26,7 @@ var TransitGateway = []
 var nodeDataArray = []
 var linkDataArray = []
 
-myDiagram.nodeTemplate = $(go.Node, "Horizontal", {
+myDiagram.nodeTemplate = diagram(go.Node, "Horizontal", {
         background: "rgb(228, 228, 228)",
         locationSpot: go.Spot.Center,
         width: 200,
@@ -34,14 +34,14 @@ myDiagram.nodeTemplate = $(go.Node, "Horizontal", {
         movable: false,
     },
     new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
-    $(go.Picture, {
+    diagram(go.Picture, {
             margin: 5,
             width: 30,
             height: 30,
             background: "transparent"
         },
         new go.Binding("source", "source")),
-    $(go.TextBlock, {
+    diagram(go.TextBlock, {
             font: "bold small-caps 8pt helvetica, bold arial, sans-serif",
             // margin: 7,
             stroke: "rgba(0, 0, 0, .87)",
@@ -73,26 +73,26 @@ myDiagram.addDiagramListener("ObjectContextClicked", function(e) {
         alert(node.description);
     }
 });
-var bluegrad = $(go.Brush, "Linear", { 0: "#00c3ff46", 1: "#22afda3b" });
+var bluegrad = diagram(go.Brush, "Linear", { 0: "#00c3ff46", 1: "#22afda3b" });
 
-myDiagram.groupTemplate = $(go.Group, "Auto",
+myDiagram.groupTemplate = diagram(go.Group, "Auto",
     { deletable: false, layout: makeGroupLayout(), movable: false, isShadowed: true, shadowColor: "#888",  shadowOffset: new go.Point(2, 2),  },
     new go.Binding("position", "xy", go.Point.parse).makeTwoWay(go.Point.stringify),
     new go.Binding("layout", "width", makeGroupLayout),
-    $(go.Shape, { fill: bluegrad, stroke: null }),
-    $(go.Panel, "Vertical",
+    diagram(go.Shape, { fill: bluegrad, stroke: null }),
+    diagram(go.Panel, "Vertical",
     { defaultAlignment: go.Spot.Left },
-    $(go.TextBlock,
+    diagram(go.TextBlock,
         { font: "bold 14pt sans-serif", margin: new go.Margin(5, 5, 0, 5), stroke: "#177592a8", margin: new go.Margin(5, 0, 0, 50) },
         new go.Binding("text")),
-    $(go.Placeholder, { padding: 5 })
+    diagram(go.Placeholder, { padding: 5 })
     )
 );
 
 var ROUTINGSTYLE = "ToGroup";
 
 function makeGroupLayout() {
-    return $(go.TreeLayout,  // taken from samples/treeView.html
+    return diagram(go.TreeLayout,  // taken from samples/treeView.html
       {
         alignment: go.TreeLayout.AlignmentStart,
         angle: 0,

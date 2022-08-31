@@ -11,9 +11,9 @@
     $data_show_aside = "";
 
     $data_type_cloud = [
-        "AWS",
-        "Azure",
-        "GCP",
+        ["name"=> "Aws", "img"=>"1280px-Amazon_Web_Services_Logo.png"],
+        ["name"=> "Azure", "img"=>"Microsoft-Azure.png"],
+        ["name"=> "GCP", "img"=>"Google-cloud-platform.png"],
     ];
 
     function GetInfosOfVPC($vpcId) {
@@ -59,28 +59,25 @@
         <header>
 
             <div class="navbar_top_right">
-                <a href="./index.php" class="settings">
-                    <i class="fad fa-cog"></i>
-                </a>
-                <div id="infos_element_top_right">
-                    <i class="fad fa-align-center"></i>
-                </div>
                 <div id="account_top_right">
                     <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
                     <i class="fad fa-user-circle"></i>
                 </div>
+                <a class="icon-menu2" href="./index.php">
+                    <i class="fad fa-home"></i>
+                </a>
             </div>
             
             <div class="big_navbar">
                 <nav class="navbar2">
-                    <a class="icon-menu" href="./index.php">
-                        <i class="fad fa-home"></i>
+                    <a id="icon-menu">
+                        <i class="fad fa-bars"></i>
                     </a>
                     <div class="navbar2-ul">
                         <ul>
                             <li id="navbar-dropdown-cloud-li">
                                 <i class="fad fa-cloud"></i>
-                                <a href="./index.php">Cloud</a>
+                                <a href="./index.php">Comptes</a>
                             </li>
                             <?php if (isset($_GET['account'])) {
                             ?>
@@ -99,9 +96,38 @@
                     </div>
                 </nav>
 
+                <div id="show_more_elements_navbar">
+                    <div class="show_more_elements_navbar_2">
+                        <h2>Comptes</h2>
+                    </div>
+                    <div class="show_more_elements_navbar_3">
+                        <div>
+                            <i class="fab fa-aws"></i>
+                            <ul>
+                                <li>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./index.php?account=VESA PROD&aside=vpc">VESA PROD</a>
+                                </li>
+                                <li>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./index.php?account=VESA ACCESS&aside=vpc">VESA ACCESS</a>
+                                </li>
+                                <li>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./index.php?account=VESA MANAGEMENT&aside=vpc">VESA MANAGEMENT</a>
+                                </li>
+                                <li>
+                                    <i class="fad fa-users"></i>
+                                    <a href="./index.php?account=VESA TRANSIT&aside=vpc">VESA TRANSIT</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="navbar-dropdown-cloud">
                     <div class="top-class-navbar-dropdown-cloud">
-                        <h2>Cloud</h2>
+                        <h2>Comptes</h2>
                     </div>
                     <div class="list-navbar-dropdown-cloud">
                         <div>
@@ -262,7 +288,7 @@
 
         <main>
             <?php 
-            if (isset($_GET['vpc']) && isset($_SESSION['id'])) {
+            if (isset($_GET['vpc'])) {
                 $vpc_id = "'".$_GET['vpc']."'";
                 ?>
                     <div id="vpc_show_aws">
@@ -293,7 +319,7 @@
                         </div>
                     </div>
                 <?php
-            } elseif (isset($_GET['account']) && !isset($_GET['vpc']) && !isset($_GET['transit_gateway']) && isset($_SESSION['id'])) {
+            } elseif (isset($_GET['account']) && !isset($_GET['vpc']) && !isset($_GET['transit_gateway'])) {
             ?>
                 <div id="vpc_show_aws">
                     <a>
@@ -309,7 +335,7 @@
                     </div>
                 </div>
             <?php
-            } elseif (isset($_GET['transit_gateway']) && isset($_SESSION['id'])) {
+            } elseif (isset($_GET['transit_gateway'])) {
                 $transit_gateway_id = "'".$_GET['transit_gateway']."'";
                 ?>
                     <div id="vpc_show_aws">
@@ -327,22 +353,20 @@
                         </div>
                     </div>
                 <?php
-            } elseif (isset($_SESSION['id']) && !isset($_GET['account']) && !isset($_GET['vpc']) && !isset($_GET['transit_gateway'])) {
+            } elseif (true) {
                 ?>
                 <div class="encadre_type_cloud">
                     <p>Veuillez sélectionner l'environnement cloud à utiliser:</p>
-                    <a class="encadre_type_cloud_div" href="./index.php" style="opacity: 0.3;">
-                        <h2>AWS</h2>
-                        <img src="./Src/assets/img/1280px-Amazon_Web_Services_Logo.png"/>
-                    </a>
-                    <a class="encadre_type_cloud_div" href="./index.php">
-                        <h2>Azure</h2>
-                        <img src="./Src/assets/img/Microsoft-Azure.png"/>
-                    </a>
-                    <a class="encadre_type_cloud_div" href="./index.php">
-                        <h2>GCP</h2>
-                        <img src="./Src/assets/img/Google-cloud-platform.png"/>
-                    </a>
+                    <?php 
+                    foreach ($data_type_cloud as $key => $value) {
+                        ?>
+                        <a class="encadre_type_cloud_div" href="./index.php?cloud=<?php echo $value['name']; ?>">
+                            <h2><?php echo $value['name']; ?></h2>
+                            <img src="./Src/assets/img/<?php echo $value['img']; ?>"/>
+                        </a>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <?php
             }
