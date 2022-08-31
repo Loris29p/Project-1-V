@@ -16,6 +16,13 @@
         ["name"=> "GCP", "img"=>"Google-cloud-platform.png"],
     ];
 
+    $accounts = [
+        ["name"=> "VESA PROD"],
+        ["name"=> "VESA ACCESS"],
+        ["name"=> "VESA MANAGEMENT"],
+        ["name"=> "VESA TRANSIT"],
+    ];
+
     function GetInfosOfVPC($vpcId) {
         $mother = new Mother();
         $vpcArray = $mother->GetAllType()['vpc'];
@@ -75,19 +82,25 @@
                     </a>
                     <div class="navbar2-ul">
                         <ul>
-                            <li id="navbar-dropdown-cloud-li">
-                                <i class="fad fa-cloud"></i>
-                                <a href="./index.php">Comptes</a>
-                            </li>
+                            <?php 
+                            if (isset($_GET['cloud'])) {
+                                ?>
+                                <li id="navbar-dropdown-cloud-li">
+                                    <i class="fad fa-cloud"></i>
+                                    <a>Comptes</a>
+                                </li>
+                                <?php
+                            }
+                            ?>
                             <?php if (isset($_GET['account'])) {
                             ?>
                                 <li id="navbar-dropdown-vpc-li">
                                     <i class="fad fa-server"></i>
-                                    <a href="./index.php">VPC</a>
+                                    <a>VPC</a>
                                 </li>
                                 <li id="navbar-dropdown-transit-gateway-li">
                                     <i class="fal fa-ethernet"></i>
-                                    <a href="./index.php">Transit Gateway</a>
+                                    <a>Transit Gateway</a>
                                 </li>
                                 <?php
                             }
@@ -104,22 +117,16 @@
                         <div>
                             <i class="fab fa-aws"></i>
                             <ul>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./index.php?account=VESA PROD&aside=vpc">VESA PROD</a>
-                                </li>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./index.php?account=VESA ACCESS&aside=vpc">VESA ACCESS</a>
-                                </li>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./index.php?account=VESA MANAGEMENT&aside=vpc">VESA MANAGEMENT</a>
-                                </li>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./index.php?account=VESA TRANSIT&aside=vpc">VESA TRANSIT</a>
-                                </li>
+                                <?php 
+                                foreach ($accounts as $account) {
+                                    ?>
+                                    <li>
+                                        <i class="fad fa-users"></i>
+                                        <a href="./index.php?account=<?php echo $account['name']; ?>&aside=vpc&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
+                                    </li>
+                                    <?php
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -133,22 +140,16 @@
                         <div>
                             <i class="fab fa-aws"></i>
                             <ul>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./index.php?account=VESA PROD&aside=vpc">VESA PROD</a>
-                                </li>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./index.php?account=VESA ACCESS&aside=vpc">VESA ACCESS</a>
-                                </li>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./index.php?account=VESA MANAGEMENT&aside=vpc">VESA MANAGEMENT</a>
-                                </li>
-                                <li>
-                                    <i class="fad fa-users"></i>
-                                    <a href="./index.php?account=VESA TRANSIT&aside=vpc">VESA TRANSIT</a>
-                                </li>
+                                <?php 
+                                foreach ($accounts as $account) {
+                                    ?>
+                                    <li>
+                                        <i class="fad fa-users"></i>
+                                        <a href="./index.php?account=<?php echo $account['name']; ?>&aside=vpc&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
+                                    </li>
+                                    <?php
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -165,7 +166,7 @@
                                     foreach ($vpcArray as $vpc) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'">- ' . $vpc['vpc'] . '</a>';
+                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -185,7 +186,7 @@
                                     foreach ($transitGatewayArray as $transit) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a class="button_vpc_text" href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'">' . $transit['gateway'] . '</a>';
+                                        echo '<a class="button_vpc_text" href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">' . $transit['gateway'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>

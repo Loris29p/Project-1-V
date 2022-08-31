@@ -17,6 +17,9 @@ let vpc_show_aws = document.getElementById("vpc_show_aws");
 
 if (navbar_dropdown_cloud_li != null) {
     navbar_dropdown_cloud_li.addEventListener("mouseenter", function( event ) {
+        if (show_more_elements_navbar.style.display == "flex") {
+            return;
+        }
         navbar_dropdown_cloud.animate([
             { opacity: '0' },
             { opacity: '1' }
@@ -31,6 +34,9 @@ if (navbar_dropdown_cloud_li != null) {
     }, false);
     
     navbar_dropdown_cloud.addEventListener("mouseenter", function( event ) {
+        if (show_more_elements_navbar.style.display == "flex") {
+            return;
+        }
         navbar_dropdown_cloud.style.display = "flex";
     }, false);
     
@@ -42,6 +48,9 @@ if (navbar_dropdown_cloud_li != null) {
 
 if (navbar_dropdown_vpc_li != null) {
     navbar_dropdown_vpc_li.addEventListener("mouseenter", function( event ) {
+        if (show_more_elements_navbar.style.display == "flex") {
+            return;
+        }
         navbar_dropdown_vpc.animate([
             { opacity: '0' },
             { opacity: '1' }
@@ -49,44 +58,30 @@ if (navbar_dropdown_vpc_li != null) {
             duration: 300,
         });
         navbar_dropdown_vpc.style.display = "flex";
-
-        // if (vpc_show_aws) {
-        //     vpc_show_aws.style.marginLeft = "370px";
-        //     vpc_show_aws.style.width = "75%";
-        // }
     }, false);
     
     navbar_dropdown_vpc_li.addEventListener("mouseleave", function( event ) {
         navbar_dropdown_vpc.style.display = "none";
-
-        // if (vpc_show_aws) {
-        //     vpc_show_aws.style.marginLeft = "70px";
-        //     vpc_show_aws.style.width = "96%";
-        // }
     }, false);
     
     navbar_dropdown_vpc.addEventListener("mouseenter", function( event ) {
+        if (show_more_elements_navbar.style.display == "flex") {
+            return;
+        }
         navbar_dropdown_vpc.style.display = "flex";
-
-        // if (vpc_show_aws) {
-        //     vpc_show_aws.style.marginLeft = "370px";
-        //     vpc_show_aws.style.width = "75%";
-        // }
     }, false);
     
     navbar_dropdown_vpc.addEventListener("mouseleave", function( event ) {
         navbar_dropdown_vpc.style.display = "none";
-
-        // if (vpc_show_aws) {
-        //     vpc_show_aws.style.marginLeft = "70px";
-        //     vpc_show_aws.style.width = "96%";
-        // }
     }, false);
 }
 
 
 if (navbar_dropdown_transit_gateway_li != null) {
     navbar_dropdown_transit_gateway_li.addEventListener("mouseenter", function( event ) {
+        if (show_more_elements_navbar.style.display == "flex") {
+            return;
+        }
         navbar_dropdown_transit_gateway.animate([
             { opacity: '0' },
             { opacity: '1' }
@@ -94,38 +89,21 @@ if (navbar_dropdown_transit_gateway_li != null) {
             duration: 300,
         });
         navbar_dropdown_transit_gateway.style.display = "flex";
-
-        // if (vpc_show_aws) {
-        //     vpc_show_aws.style.marginLeft = "370px";
-        //     vpc_show_aws.style.width = "75%";
-        // }
     }, false);
     
     navbar_dropdown_transit_gateway_li.addEventListener("mouseleave", function( event ) {
         navbar_dropdown_transit_gateway.style.display = "none";
-        
-        // if (vpc_show_aws) {
-        //     vpc_show_aws.style.marginLeft = "70px";
-        //     vpc_show_aws.style.width = "96%";
-        // }
     }, false);
     
     navbar_dropdown_transit_gateway.addEventListener("mouseenter", function( event ) {
+        if (show_more_elements_navbar.style.display == "flex") {
+            return;
+        }
         navbar_dropdown_transit_gateway.style.display = "flex";
-
-        // if (vpc_show_aws) {
-        //     vpc_show_aws.style.marginLeft = "370px";
-        //     vpc_show_aws.style.width = "75%";
-        // }
     }, false);
     
     navbar_dropdown_transit_gateway.addEventListener("mouseleave", function( event ) {
         navbar_dropdown_transit_gateway.style.display = "none";
-
-        // if (vpc_show_aws) {
-        //     vpc_show_aws.style.marginLeft = "70px";
-        //     vpc_show_aws.style.width = "96%";
-        // }
     }, false);
 }
 
