@@ -109,11 +109,57 @@
                     </div>
                 </nav>
 
-                <div id="show_more_elements_navbar">
-                    <div class="show_more_elements_navbar_2">
+                <div id="show_more_elements_navbar_cloud">
+                    <div class="show_more_elements_navbar_cloud_2">
                         <h2>Comptes</h2>
                     </div>
-                    <div class="show_more_elements_navbar_3">
+                    <div class="show_more_elements_navbar_cloud_3">
+                        <div>
+                            <i class="fab fa-aws"></i>
+                            <ul>
+                                <?php 
+                                foreach ($accounts as $account) {
+                                    ?>
+                                    <li>
+                                        <i class="fad fa-users"></i>
+                                        <a href="./index.php?account=<?php echo $account['name']; ?>&aside=vpc&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
+                                    </li>
+                                    <?php
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="show_more_elements_navbar_vpc">
+                    <div class="show_more_elements_navbar_vpc_2">
+                        <h2>VPC</h2>
+                    </div>
+                    <div class="show_more_elements_navbar_vpc_3">
+                        <div>
+                            <i class="fab fa-aws"></i>
+                            <ul>
+                                <?php 
+                                foreach ($accounts as $account) {
+                                    ?>
+                                    <li>
+                                        <i class="fad fa-users"></i>
+                                        <a href="./index.php?account=<?php echo $account['name']; ?>&aside=vpc&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
+                                    </li>
+                                    <?php
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="show_more_elements_navbar_transit_gateway">
+                    <div class="show_more_elements_navbar_transit_gateway_2">
+                        <h2>Transit Gateway</h2>
+                    </div>
+                    <div class="show_more_elements_navbar_transit_gateway_3">
                         <div>
                             <i class="fab fa-aws"></i>
                             <ul>

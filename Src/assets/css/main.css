@@ -131,12 +131,12 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    margin-top: 80px;
+    margin-top: 60px;
     margin-left: 90px;
     /* width: 96%;
     height: 90%; */
     width: 1800px;
-    height: 950px;
+    height: 920px;
     display: block;
 }
 
@@ -154,8 +154,8 @@ body {
     border: 1px solid #0f9300;
     top: 4.5%;
     left: 1%;
-    width: 98%;
-    height: 95%;
+    width: 95%;
+    height: 92%;
 }
 
 #vpc_show_aws i {
