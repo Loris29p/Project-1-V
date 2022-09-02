@@ -4,6 +4,10 @@
     require_once('./Src/Controller/SGBD/sgbd.php');
     require_once('./Config/Config.php');
     require_once('./Src/Controller/Informations/Informations.class.php');
+
+    $informations = new Informations();
+
+    $infos_to_show = $informations->getInformations($_GET['type'], $_GET['id']);
 ?>
 
 <html>
@@ -215,33 +219,6 @@
                     </div>
                 </div>
 
-                <div id="navbar-dropdown-infos-elements">
-                    <div class="top-class-navbar-dropdown-infos-elements">
-                        <h2>Informations</h2>
-                        <i id="icon-menu-close-infos-element" class="fad fa-times"></i>
-                        <a href="./informations.php?vpc=<?php echo $vpc['vpc_id']; ?>&account=<?php echo $_GET['account'] ?>&aside=<?php echo $_GET['aside'] ?>&cloud=<?php echo $_GET['cloud'] ?>&vpc=<?php echo $_GET['vpc'] ?>">
-                            <i id="icon-menu-shwo-more-infos-element" class="fad fa-info-circle"></i>
-                        </a>
-                    </div>
-                    <div id="list-navbar-dropdown-infos-elements">
-                        <!-- create table -->
-                        <table>
-                            <tr>
-                                <th>Mois</th>
-                                <th>Data</th>
-                            </tr>
-                            <tr>
-                                <td>Janvier</td>
-                                <td>10.01.2014</td>
-                            </tr>
-                            <tr>
-                                <td>Février</td>
-                                <td>10.01.2014</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
                 <div id="navbar-dropdown-account">
                     <div class="message_advert_account">
                         <span class="message_advert_account_first_span">
@@ -327,7 +304,16 @@
                     <h2>Informations</h2>
                 </div>
                 <div id="list-infos-elements">
-                        
+                    <table>
+                        <?php 
+                        foreach ($infos_to_show as $key => $value) {
+                            echo "<tr>";
+                            echo "<td>$key</td>";
+                            echo "<td>$value</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </table>
                 </div>
             </div>
         </main>

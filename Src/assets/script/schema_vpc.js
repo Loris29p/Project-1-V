@@ -295,7 +295,7 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                                 description: "Nom: " + item2[1]['name'] + "\nId: " + item2[1]['id'] + "\nDestination: " + item2[1]['detination'] + "\nPrivate Gateway: " + item2[1]['private_gateway'] + "\nPropagé: " + item2[1]['propagated'] + "\nStatus" + item2[1]['status'] + "\nCible: " + item2[1]['target'],
                                 data: item2[1],
                                 loc: "0 150",
-                                url: "./informations.php?vpc="+vpc_id+"&account="+account+"&cloud="+cloud+"&type=table_routage&id="+item2[1]['id'],
+                                url: "./informations.php?account="+account+"&cloud="+cloud+"&type=ROUTE_TABLES_ARRAY&id="+item2[1]['id'],
                             }
                             nodeDataArray.push(node)
                         }
@@ -317,6 +317,7 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                                 description: "Nom: " + item2[1]['name'] + "\nEndpoint Id: " + item2[1]['endpoint_id'] + "\nVpc Id:" + item2[1]['vpc_id'] + "\nNom du service: " + item2[1]['service_name'] + "\nType: " + item2[1]['endoint_type'] + "\nNetwork Interfaces: " + item2[1]['network_interfaces'] + "\nTable de routage: " + item2[1]['route_tables'] + "\nSubnets: " + item2[1]['subnets'],
                                 data: item2[1],
                                 loc: "0 200",
+                                url: "./informations.php?account="+account+"&cloud="+cloud+"&type=ENDPOINTS_ARRAY&id="+item2[1]['endpoint_id'],
                             }
                             nodeDataArray.push(node)
                         }
@@ -337,7 +338,8 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                                 source: "Src/assets/img/Res_Amazon-VPC_Peering-Connection_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nPeering Connection Id: " + item2[1]['peering_connection_id'] + "\nMain: " + item2[1]['main'] + "\nStatus: " + item2[1]['status'] + "\nVpc Id: " + item2[1]['vpc_id'] + "\nTable de Routage: " + item2[1]['route_table_id'] + "\nRequester CIDR: " + item2[1]['requester_cidr'] + "\nRequester Owner: " + item2[1]['requester_owner_id'] + "\nRequester VPC: " + item2[1]['requester_vpc'] + "\nAccepter CIDR: " + item2[1]['accepter_cidr'] + "\nAccepter Owner: " + item2[1]['accepter_owner_id'] + "\nAccepter VPC: " + item2[1]['accepter_vpc'] + "\nAssocié avec: " + item2[1]['associated_with'],
                                 data: item2[1],
-                                loc: "0 250"
+                                loc: "0 250",
+                                url: "./informations.php?account="+account+"&cloud="+cloud+"&type=PEERING_CONNECTIONS_ARRAY&id="+item2[1]['peering_connection_id'],
                             }
                             nodeDataArray.push(node)
                         }
@@ -358,7 +360,8 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                                 source: "Src/assets/img/Res_Amazon-VPC_Internet-Gateway_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nId: " + item2[1]['internet_gateway_id'] + "\nOwner: " + item2[1]['owner'] + "\nStatus: " + item2[1]['state'] + "\nVpc Id: " + item2[1]['vpc_id'],
                                 data: item2[1],
-                                loc: "0 50"
+                                loc: "0 50",
+                                url: "./informations.php?account="+account+"&cloud="+cloud+"&type=INTERNET_GATEWAYS_ARRAY&id="+item2[1]['internet_gateway_id'],
                             }
                             nodeDataArray.push(node)
                         }
@@ -379,7 +382,8 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                                 source: "Src/assets/img/Res_Amazon-VPC_NAT-Gateway_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nNat Gateway Id: " + item2[1]['nat_gateway_id'] + "\nConnectivity Type: " + item2[1]['connectivity_type'] + "\nCreated: " + item2[1]['created'] + "\nDeleted: " + item2[1]['deleted'] + "\nElastic Ip Adress: " + item2[1]['elastic_ip_address'] + "\nNetwork Interface Id: " + item2[1]['network_interface_id'] + "\nPrivate Ip Adresse: " + item2[1]['private_ip_address'] + "\nStatus: " + item2[1]['state'] + "\nMessage Status: " + item2[1]['state_message'] + "\nSubnet: " + item2[1]['subnet'] + "\nVPC: " + item2[1]['vpc'],
                                 data: item2[1],
-                                loc: "0 300"
+                                loc: "0 300",
+                                url: "./informations.php?account="+account+"&cloud="+cloud+"&type=NAT_GATEWAYS_ARRAY&id="+item2[1]['nat_gateway_id'],
                             }
                             nodeDataArray.push(node)
                         }
@@ -453,7 +457,8 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                                         data: item2[1],
                                         loc: loc,
                                         group: ZonesSubnets[index3].group,
-                                        stroke: stroke
+                                        stroke: stroke,
+                                        url: "./informations.php?account="+account+"&cloud="+cloud+"&type=NETWORK_ARRAY&id="+item2[1]['network_id'],
                                     }
                                     nodeDataArray.push(node)
                                 }
@@ -479,7 +484,8 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                         source: "Src/assets/img/Arch_AWS-Transit-Gateway_64@5x.png",
                         description: "Nom: " + element2['name'] + "\nTransit Gateway Attachments Id" + element2['transit_gateway_attachment_ID'] + "\nTransit Gateway Id" + element2['transit_gateway_ID'] + "\nId Table Routage Associé: " + element2['association_route_table_ID'] + "\nStatus Associé: " + element2['association_state'] + "\nResource ID: " + element2['resource_ID'] + "\nResource Type: " + element2['resource_type'] + "\nStatus: " + element2['state'],
                         data: element2,
-                        loc: "0 100"
+                        loc: "0 100",
+                        url: "./informations.php?account="+account+"&cloud="+cloud+"&type=TRANSIT_GATEWAY_ATTACHMENT_ARRAY&id="+element2['transit_gateway_attachment_ID'],
                     }
                     transit_gateway_array.push(element[0])
                     nodeDataArray.push(node)
@@ -559,6 +565,7 @@ function ConstructFirstPartTransitGatewayId(transit_gateway_id) {
                                 source: "Src/assets/img/Arch_AWS-Transit-Gateway_64@5x.png",
                                 description: "Nom: " + item2[1]['name'] + "\nTransit Gateway Attachments Id" + item2[1]['transit_gateway_attachment_ID'] + "\nTransit Gateway Id" + item2[1]['transit_gateway_ID'] + "\nId Table Routage Associé: " + item2[1]['association_route_table_ID'] + "\nStatus Associé: " + item2[1]['association_state'] + "\nResource ID: " + item2[1]['resource_ID'] + "\nResource Type: " + item2[1]['resource_type'] + "\nStatus: " + item2[1]['state'],
                                 data: item2[1],
+                                url: "./informations.php?&account="+account+"&cloud="+cloud+"&type=TRANSIT_GATEWAY_ATTACHMENT_ARRAY&id="+item2[1]['transit_gateway_attachment_ID'],
                             }
                             nodeDataArray.push(node)
                         }
@@ -571,7 +578,7 @@ function ConstructFirstPartTransitGatewayId(transit_gateway_id) {
     myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
 }
 
-function Construct(vpc, transit_gateway, home_page) {
+function Construct(vpc, transit_gateway, home_page, account, cloud) {
     VPC = vpc
     TransitGateway = transit_gateway
     var array = Object.entries(vpc)
@@ -586,6 +593,7 @@ function Construct(vpc, transit_gateway, home_page) {
                         source: "Src/assets/img/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
                         description: "Souscription: " + item['souscription'] + "\nVPC: " + item['vpc'] + "\nVPC ID:" + item['vpc_id'] + "\nRegion: " + item['region'] + "\nCIDR: " + item['cidr'] + "\nACL: " + item['id_acl'] + "\nTable de routage: " + item['id_table_routage'],
                         data: item,
+                        url: "./informations.php?account="+account+"&cloud="+cloud+"&type=VPC_ARRAY&id="+item['vpc_id'],
                     }
                     nodeDataArray.push(node)
                 }
@@ -605,6 +613,7 @@ function Construct(vpc, transit_gateway, home_page) {
                         source: "Src/assets/img/Arch_AWS-Transit-Gateway_64@5x.png",
                         description: "Nom: " + item['name'] + "\nGateway: " + item['gateway'] + "\nOwner" + item['owner'] + "\nStatus: " + item['state'],
                         data: item,
+                        url: "./informations.php?account="+account+"&cloud="+cloud+"&type=TRANSIT_GATEWAY_ARRAY&id="+item['gateway'],
                     }
                     nodeDataArray.push(node)
                 }

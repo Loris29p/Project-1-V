@@ -367,7 +367,7 @@
                                 <script src="./Src/assets/script/schema_vpc.js"></script>
                                 <div>
                                     <script>
-                                        Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>);
+                                        Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>, null, <?php echo "'" .$_GET['account'] . "'"; ?>, <?php echo "'" .$_GET['cloud'] . "'" ?>);
                                         ConstructFirstPartVPCId(<?php echo $vpc_id; ?>, <?php echo "'" .$_GET['account'] . "'"; ?>, <?php echo "'" .$_GET['cloud'] . "'" ?>);
                                     </script>
                                 </div>
@@ -403,8 +403,8 @@
                         <script src="./Src/assets/script/schema_vpc.js"></script>
                         <div>
                             <script>
-                                Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>);
-                                ConstructFirstPartTransitGatewayId(<?php echo $transit_gateway_id; ?>);
+                                Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>, null, <?php echo "'" .$_GET['account'] . "'"; ?>, <?php echo "'" .$_GET['cloud'] . "'" ?>);
+                                ConstructFirstPartTransitGatewayId(<?php echo $transit_gateway_id; ?>, <?php echo "'" .$_GET['account'] . "'"; ?>, <?php echo "'" .$_GET['cloud'] . "'" ?>);
                             </script>
                         </div>
                     </div>
