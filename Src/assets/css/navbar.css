@@ -524,6 +524,11 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     text-decoration: none;
     background-color: #f0f0f0;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
 }
 
 #account_top_right i {
@@ -550,63 +555,7 @@
     cursor: pointer;
 }
 
-#navbar-dropdown-infos-element {
-    position: absolute;
-    margin-top: 0;
-    display: none;
-    flex-direction: column;
-    flex-shrink: 0;
-    max-width: 300px!important;
-    min-width: 300px!important;
-    overflow: hidden;
-    z-index: 4;
-    width: 250px;
-    margin-top: 40px;
-    margin-left: 1610px;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    text-align: center;
-}
-
-.top-class-navbar-dropdown-infos-element {
-    background-color: #eaf1fb;
-}
-
-.top-class-navbar-dropdown-infos-element h2 {
-    font-size: 1em;
-    text-decoration: none;
-    font-family: 'SFProRounded';
-    letter-spacing: normal;
-    color: #1f1f1f;
-}
-
-.list-navbar-dropdown-infos-element {
-    background-color: #f0f0f0;
-}
-
-.list-navbar-dropdown-infos-element li {
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    padding-bottom: 7px;
-}
-
-.list-navbar-dropdown-infos-element i {
-    font-size: 1.5em;
-    color: #5f6368;
-    opacity: 1;
-    margin-top: 10px;
-}
-
-.list-navbar-dropdown-infos-element a {
-    font-size: 1em;
-    font-family: 'SFProRounded';
-    color: #1f1f1f;
-    opacity: 1;
-    margin-top: 15px;
-}
-
-.description_informations_element {
+#description_informations_element {
     background-color: #1a73e8;
     list-style-type: none;
     overflow: hidden;
@@ -616,8 +565,14 @@
     width: 80%;
     background-color: #f0f0f0;
     border-radius: 5px 5px 5px 5px;
+    text-align: center;
 }
 
+.gra_test {
+    font-size: 1em;
+    font-family: 'SFProRounded';
+    color: #1f1f1f;
+}
 
 #navbar-dropdown-account {
     position: absolute;
@@ -1107,4 +1062,99 @@
     border: none;
     border-radius: 4px;
     box-shadow: none;
+}
+
+
+
+
+#navbar-dropdown-infos-elements {
+    position: absolute;
+    margin-top: 0;
+    display: none;
+    flex-direction: column;
+    flex-shrink: 0;
+    max-width: 600px!important;
+    min-width: 600px!important;
+    max-height: 400px!important;
+    min-height: 400px!important;
+    overflow: hidden;
+    z-index: 4;
+    margin-top: 50px;
+    margin-left: 1310px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #ffffff;
+}
+
+.top-class-navbar-dropdown-infos-elements {
+    background-color: #eaf1fb;
+    text-align: center;
+}
+
+#list-navbar-dropdown-infos-elements {
+    background-color: #ffffff;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+}
+
+.top-class-navbar-dropdown-infos-elements h2 {
+    font-size: 1.25em;
+    text-decoration: none;
+    font-family: 'SFProRounded';
+    letter-spacing: normal;
+    color: #1f1f1f;
+    font-weight: 500;
+}
+
+#icon-menu-close-infos-element{
+    position: absolute;
+    font-size: 2em;
+    text-decoration: none;
+    letter-spacing: normal;
+    color: #868686;
+    font-weight: 500;
+    margin-top: -45px;
+    margin-left: 250px;
+}
+
+#icon-menu-shwo-more-infos-element{
+    position: absolute;
+    font-size: 2em;
+    text-decoration: none;
+    letter-spacing: normal;
+    color: #868686;
+    font-weight: 500;
+    margin-top: -45px;
+    margin-left: 200px;
+}
+
+#list-navbar-dropdown-infos-elements table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+}
+
+#list-navbar-dropdown-infos-elements table tr {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#list-navbar-dropdown-infos-elements table tr:nth-child(even) {
+    background-color: #eaf1fb5e;
+}
+
+#list-navbar-dropdown-infos-elements table tr:hover {
+    background-color: #ddd;
+}
+
+#list-navbar-dropdown-infos-elements table td {
+    font-size: 1em;
+    font-family: 'SFProRounded';
+    letter-spacing: .25px;
+    color: #1f1f1f;
+    font-weight: 400;
+    text-align: center;
+    padding: 8px;
 }

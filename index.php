@@ -1,14 +1,11 @@
 <?php
     require_once("./Src/Controller/User/User.php");
     require_once('./Src/Model/functions.php');
-    require_once('./Src/Controller/Mother.php');
     require_once('./Src/Controller/SGBD/sgbd.php');
+    require_once('./Config/Config.php');
 
-    $mother = new Mother();
-    $vpcArray = $mother->GetAllType()['vpc'];
-    $transitGatewayArray = $mother->GetAllType()['transit_gateway'];
-
-    $data_show_aside = "";
+    $vpcArray = constant("VPC_ARRAY");
+    $transitGatewayArray = constant("TRANSIT_GATEWAY_ARRAY");
 
     $data_type_cloud = [
         ["name"=> "Aws", "img"=>"1280px-Amazon_Web_Services_Logo.png"],
@@ -24,8 +21,7 @@
     ];
 
     function GetInfosOfVPC($vpcId) {
-        $mother = new Mother();
-        $vpcArray = $mother->GetAllType()['vpc'];
+        $vpcArray = constant("VPC_ARRAY");
         foreach ($vpcArray as $vpc) {
             if ($vpc['vpc_id'] == $vpcId) {
                 return $vpc;
@@ -34,9 +30,6 @@
     }
 
     if (isset($_GET['account'])) {
-        if (isset($_GET['aside'])) {
-            $data_show_aside = $_GET['aside'];
-        }
         $account = $_GET['account'];
         $array = Array();
         foreach ($vpcArray as $vpc) {
@@ -54,10 +47,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="./node_modules/jquery/dist/jquery.js"></script>
-        <link rel="stylesheet" href="./Src/assets/css/gojs.css">
+        <link rel="stylesheet" href="./Src/assets/css/schema_vpc.css">
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
         <link rel="stylesheet" href="./Src/assets/css/main.css"> 
+        <script src="./Src/assets/script/config.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
 
@@ -122,7 +116,7 @@
                                     ?>
                                     <li>
                                         <i class="fad fa-users"></i>
-                                        <a href="./index.php?account=<?php echo $account['name']; ?>&aside=vpc&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
+                                        <a href="./index.php?account=<?php echo $account['name']; ?>&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
                                     </li>
                                     <?php
                                 }
@@ -144,7 +138,7 @@
                                     foreach ($vpcArray as $vpc) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">' . $vpc['vpc'] . '</a>';
+                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">' . $vpc['vpc'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -165,7 +159,7 @@
                                     foreach ($transitGatewayArray as $transit) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">' . $transit['gateway'] . '</a>';
+                                        echo '<a href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">' . $transit['gateway'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -187,7 +181,7 @@
                                     ?>
                                     <li>
                                         <i class="fad fa-users"></i>
-                                        <a href="./index.php?account=<?php echo $account['name']; ?>&aside=vpc&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
+                                        <a href="./index.php?account=<?php echo $account['name']; ?>&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
                                     </li>
                                     <?php
                                 }
@@ -208,7 +202,7 @@
                                     foreach ($vpcArray as $vpc) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
+                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -228,7 +222,7 @@
                                     foreach ($transitGatewayArray as $transit) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a class="button_vpc_text" href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">' . $transit['gateway'] . '</a>';
+                                        echo '<a class="button_vpc_text" href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">' . $transit['gateway'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -248,7 +242,7 @@
                                     foreach ($vpcArray as $vpc) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
+                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -257,16 +251,16 @@
                     </div>
                 </div>
 
-                <div id="navbar-dropdown-infos-element">
-                    <div class="top-class-navbar-dropdown-infos-element">
+                <div id="navbar-dropdown-infos-elements">
+                    <div class="top-class-navbar-dropdown-infos-elements">
                         <h2>Informations</h2>
+                        <i id="icon-menu-close-infos-element" class="fad fa-times"></i>
+                        <a id="mother-fucker">
+                            <i id="icon-menu-shwo-more-infos-element" class="fad fa-info-circle"></i>
+                        </a>
                     </div>
-                    <div class="list-navbar-dropdown-infos-element">
-                        <div>
-                            <div class="description_informations_element">
-                                <a>Test</a>
-                            </div>
-                        </div>
+                    <div id="list-navbar-dropdown-infos-elements">
+                        
                     </div>
                 </div>
 
@@ -363,18 +357,18 @@
                                 <i class="fal fa-flag"></i>
                                 <?php echo GetInfosOfVPC($_GET['vpc'])['region']; ?>
                             </a>
-                            <div class="vpc_info">
+                            <div id="vpc_info">
                                 <a>
-                                <i class="fal fa-network-wired"></i>
+                                    <i class="fal fa-network-wired"></i>
                                     <?php echo GetInfosOfVPC($_GET['vpc'])['vpc']; ?>
                                     <p><?php echo GetInfosOfVPC($_GET['vpc'])['cidr']; ?></p>
                                 </a>
-                                <div id="myDiagramDiv"></div>
-                                <script src="./Src/assets/script/gojs.js"></script>
+                                <div id="schema_vpc"></div>
+                                <script src="./Src/assets/script/schema_vpc.js"></script>
                                 <div>
                                     <script>
                                         Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>);
-                                        ConstructFirstPartVPCId(<?php echo $vpc_id; ?>);
+                                        ConstructFirstPartVPCId(<?php echo $vpc_id; ?>, <?php echo "'" .$_GET['account'] . "'"; ?>, <?php echo "'" .$_GET['cloud'] . "'" ?>);
                                     </script>
                                 </div>
                             </div>
@@ -388,8 +382,8 @@
                         <i class="fab fa-aws"></i>
                         AWS Cloud
                     </a>
-                    <div id="myDiagramDiv"></div>
-                    <script src="./Src/assets/script/gojs.js"></script>
+                    <div id="schema_vpc"></div>
+                    <script src="./Src/assets/script/schema_vpc.js"></script>
                     <div>
                         <script>
                             Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>, true);
@@ -405,8 +399,8 @@
                             <i class="fab fa-aws"></i>
                             AWS Cloud
                         </a>
-                        <div id="myDiagramDiv"></div>
-                        <script src="./Src/assets/script/gojs.js"></script>
+                        <div id="schema_vpc"></div>
+                        <script src="./Src/assets/script/schema_vpc.js"></script>
                         <div>
                             <script>
                                 Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>);

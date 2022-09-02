@@ -126,7 +126,7 @@ body {
 
 #vpc_show_aws {
     position: absolute;
-    border: 1px solid #4e4e4e;
+    border: 2px solid #4e4e4e;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -140,16 +140,16 @@ body {
 
 .zone_name {
     position: absolute;
-    border: 1px solid #008cff;
+    border: 2px solid #008cff;
     top: 4.5%;
     left: 1%;
     width: 98%;
     height: 95%;
 }
 
-.vpc_info {
+#vpc_info {
     position: absolute;
-    border: 1px solid #0f9300;
+    border: 2px solid #0f9300;
     top: 4.5%;
     left: 1%;
     width: 98%;
@@ -172,7 +172,7 @@ body {
     left: 2vw;
 }
 
-.vpc_info p {
+#vpc_info p {
     position: absolute;
     font-family: 'SFProRounded';
     text-decoration: none;

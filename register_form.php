@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="./node_modules/jquery/dist/jquery.js"></script>
-        <link rel="stylesheet" href="./Src/assets/css/gojs.css">
         <link rel="stylesheet" href="./Src/assets/css/main.css"> 
         <link rel="stylesheet" href="./Src/assets/css/register.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>

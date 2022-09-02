@@ -1,51 +1,9 @@
 <?php
     require_once("./Src/Controller/User/User.php");
     require_once('./Src/Model/functions.php');
-    require_once('./Src/Controller/Mother.php');
     require_once('./Src/Controller/SGBD/sgbd.php');
-
-    $mother = new Mother();
-    $vpcArray = $mother->GetAllType()['vpc'];
-    $transitGatewayArray = $mother->GetAllType()['transit_gateway'];
-
-    $data_show_aside = "";
-
-    $data_type_cloud = [
-        ["name"=> "Aws", "img"=>"1280px-Amazon_Web_Services_Logo.png"],
-        ["name"=> "Azure", "img"=>"Microsoft-Azure.png"],
-        ["name"=> "GCP", "img"=>"Google-cloud-platform.png"],
-    ];
-
-    $accounts = [
-        ["name"=> "VESA PROD"],
-        ["name"=> "VESA ACCESS"],
-        ["name"=> "VESA MANAGEMENT"],
-        ["name"=> "VESA TRANSIT"],
-    ];
-
-    function GetInfosOfVPC($vpcId) {
-        $mother = new Mother();
-        $vpcArray = $mother->GetAllType()['vpc'];
-        foreach ($vpcArray as $vpc) {
-            if ($vpc['vpc_id'] == $vpcId) {
-                return $vpc;
-            }
-        }
-    }
-
-    if (isset($_GET['account'])) {
-        if (isset($_GET['aside'])) {
-            $data_show_aside = $_GET['aside'];
-        }
-        $account = $_GET['account'];
-        $array = Array();
-        foreach ($vpcArray as $vpc) {
-            if ($vpc['souscription'] == $account) {
-                $array[$vpc['vpc_id']] = $vpc;
-            }
-        }
-        $vpcArray = $array;
-    }
+    require_once('./Config/Config.php');
+    require_once('./Src/Controller/Informations/Informations.class.php');
 ?>
 
 <html>
@@ -54,10 +12,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="./node_modules/jquery/dist/jquery.js"></script>
-        <link rel="stylesheet" href="./Src/assets/css/gojs.css">
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
-        <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
         <link rel="stylesheet" href="./Src/assets/css/main.css"> 
+        <link rel="stylesheet" href="./Src/assets/css/informations.css"> 
+        <script src="./Src/assets/script/config.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
 
@@ -237,17 +195,50 @@
                     </div>
                 </div>
 
-                <div id="navbar-dropdown-infos-element">
-                    <div class="top-class-navbar-dropdown-infos-element">
-                        <h2>Informations</h2>
+                <div id="navbar-dropdown-vpc">
+                    <div class="top-class-navbar-dropdown-vpc">
+                        <h2>VPC</h2>
                     </div>
-                    <div class="list-navbar-dropdown-infos-element">
+                    <div class="list-navbar-dropdown-vpc">
                         <div>
-                            <a><?php echo $_GET['vpc']; ?></a>
-                            <div class="description_informations_element">
-                                <a>Test</a>
-                            </div>
+                            <ul>
+                                <?php 
+                                    foreach ($vpcArray as $vpc) {
+                                        echo '<li>';
+                                        echo '<i class="fad fa-stream"></i>';
+                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>   
                         </div>
+                    </div>
+                </div>
+
+                <div id="navbar-dropdown-infos-elements">
+                    <div class="top-class-navbar-dropdown-infos-elements">
+                        <h2>Informations</h2>
+                        <i id="icon-menu-close-infos-element" class="fad fa-times"></i>
+                        <a href="./informations.php?vpc=<?php echo $vpc['vpc_id']; ?>&account=<?php echo $_GET['account'] ?>&aside=<?php echo $_GET['aside'] ?>&cloud=<?php echo $_GET['cloud'] ?>&vpc=<?php echo $_GET['vpc'] ?>">
+                            <i id="icon-menu-shwo-more-infos-element" class="fad fa-info-circle"></i>
+                        </a>
+                    </div>
+                    <div id="list-navbar-dropdown-infos-elements">
+                        <!-- create table -->
+                        <table>
+                            <tr>
+                                <th>Mois</th>
+                                <th>Data</th>
+                            </tr>
+                            <tr>
+                                <td>Janvier</td>
+                                <td>10.01.2014</td>
+                            </tr>
+                            <tr>
+                                <td>Février</td>
+                                <td>10.01.2014</td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
 
@@ -329,93 +320,17 @@
             </div>
         </header>
 
-        <main>
-            <?php 
-            if (isset($_GET['vpc'])) {
-                $vpc_id = "'".$_GET['vpc']."'";
-                ?>
-                    <div id="vpc_show_aws">
-                        <a>
-                            <i class="fab fa-aws"></i>
-                            AWS Cloud
-                        </a>
-                        <div class="zone_name">
-                            <a>
-                                <i class="fal fa-flag"></i>
-                                <?php echo GetInfosOfVPC($_GET['vpc'])['region']; ?>
-                            </a>
-                            <div class="vpc_info">
-                                <a>
-                                <i class="fal fa-network-wired"></i>
-                                    <?php echo GetInfosOfVPC($_GET['vpc'])['vpc']; ?>
-                                    <p><?php echo GetInfosOfVPC($_GET['vpc'])['cidr']; ?></p>
-                                </a>
-                                <div id="myDiagramDiv"></div>
-                                <script src="./Src/assets/script/gojs.js"></script>
-                                <div>
-                                    <script>
-                                        Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>);
-                                        ConstructFirstPartVPCId(<?php echo $vpc_id; ?>);
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php
-            } elseif (isset($_GET['account']) && !isset($_GET['vpc']) && !isset($_GET['transit_gateway'])) {
-            ?>
-                <div id="vpc_show_aws">
-                    <a>
-                        <i class="fab fa-aws"></i>
-                        AWS Cloud
-                    </a>
-                    <div id="myDiagramDiv"></div>
-                    <script src="./Src/assets/script/gojs.js"></script>
-                    <div>
-                        <script>
-                            Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>, true);
-                        </script>
-                    </div>
-                </div>
-            <?php
-            } elseif (isset($_GET['transit_gateway'])) {
-                $transit_gateway_id = "'".$_GET['transit_gateway']."'";
-                ?>
-                    <div id="vpc_show_aws">
-                        <a>
-                            <i class="fab fa-aws"></i>
-                            AWS Cloud
-                        </a>
-                        <div id="myDiagramDiv"></div>
-                        <script src="./Src/assets/script/gojs.js"></script>
-                        <div>
-                            <script>
-                                Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>);
-                                ConstructFirstPartTransitGatewayId(<?php echo $transit_gateway_id; ?>);
-                            </script>
-                        </div>
-                    </div>
-                <?php
-            } elseif (true) {
-                ?>
-                <div class="encadre_type_cloud">
-                    <p>Veuillez sélectionner l'environnement cloud à utiliser:</p>
-                    <?php 
-                    foreach ($data_type_cloud as $key => $value) {
-                        ?>
-                        <a class="encadre_type_cloud_div" href="./index.php?cloud=<?php echo $value['name']; ?>">
-                            <h2><?php echo $value['name']; ?></h2>
-                            <img src="./Src/assets/img/<?php echo $value['img']; ?>"/>
-                        </a>
-                        <?php
-                    }
-                    ?>
-                </div>
-                <?php
-            }
-            ?>
-        </main>
 
+        <main>
+            <div id="infos-elements">
+                <div class="top-class-infos-elements">
+                    <h2>Informations</h2>
+                </div>
+                <div id="list-infos-elements">
+                        
+                </div>
+            </div>
+        </main>
 
         <script src="./Src/assets/script/main.js"></script>
     </body>

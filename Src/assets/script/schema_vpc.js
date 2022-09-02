@@ -1,6 +1,6 @@
 const diagram = go.GraphObject.make;
 
-const myDiagram = diagram(go.Diagram, "myDiagramDiv", // must name or refer to the DIV HTML element
+const myDiagram = diagram(go.Diagram, "schema_vpc", // must name or refer to the DIV HTML element
     {
         "animationManager.initialAnimationStyle": go.AnimationManager.None,
         "InitialAnimationStarting": e => {
@@ -66,16 +66,77 @@ myDiagram.addDiagramListener("ObjectDoubleClicked", function(e) {
     }
 });
 
+myDiagram.addDiagramListener("ObjectSingleClicked",
+    function(e) {
+      var clicked = e.subject.part;
+      if (!(clicked instanceof go.Link)) {
+        var node = clicked.data;
+        var navbar_dropdown_infos_elements = document.getElementById("navbar-dropdown-infos-elements");
+        if (navbar_dropdown_infos_elements != null) {
+            var list_navbar_dropdown_infos_elements = document.getElementById("list-navbar-dropdown-infos-elements");
+            var mother_fucker = document.getElementById("mother-fucker");
+            if (node.url != null) {
+                mother_fucker.setAttribute("href", node.url);
+            }
+            var data = Object.entries(node.data);
+            var table = document.createElement("table");
+
+            data.forEach(function(element, index) {
+                var cell = document.createElement("tr");
+                var cell_key = document.createElement("td");
+                var cell_value = document.createElement("td");  
+                var label = element[0];
+                LabelElement.forEach(function(element) {
+                    if (element.name == label) {
+                        label = element.label;
+                    }
+                });
+                cell_key.innerHTML = label + " : ";
+                cell_value.innerHTML = element[1];
+                cell.appendChild(cell_key);
+                cell.appendChild(cell_value);
+                table.appendChild(cell);
+            });
+
+            list_navbar_dropdown_infos_elements.innerHTML = "";
+            list_navbar_dropdown_infos_elements.appendChild(table);
+            navbar_dropdown_infos_elements.style.display = "flex";
+        }
+      }
+    });
 
 myDiagram.addDiagramListener("ObjectContextClicked", function(e) {
     var clicked = e.subject.part;
     if (clicked instanceof go.Node) {
         var node = clicked.data;
-        // alert(node.description);
-        var navbar_dropdown_infos_element = document.getElementById("navbar-dropdown-infos-element");
-        if (navbar_dropdown_infos_element != null) {
-            navbar_dropdown_infos_element.style.display = "flex";
-            navbar_dropdown_infos_element.append(node.description);
+        if (node != null) {
+            var navbar_dropdown_infos_elements = document.getElementById("navbar-dropdown-infos-elements");
+            if (navbar_dropdown_infos_elements != null) {
+                var list_navbar_dropdown_infos_elements = document.getElementById("list-navbar-dropdown-infos-elements");
+                var data = Object.entries(node.data)
+                var table = document.createElement("table");
+
+                data.forEach(function(element, index) {
+                    var cell = document.createElement("tr");
+                    var cell_key = document.createElement("td");
+                    var cell_value = document.createElement("td");  
+                    var label = element[0];
+                    LabelElement.forEach(function(element) {
+                        if (element.name == label) {
+                            label = element.label;
+                        }
+                    });
+                    cell_key.innerHTML = label + " : ";
+                    cell_value.innerHTML = element[1];
+                    cell.appendChild(cell_key);
+                    cell.appendChild(cell_value);
+                    table.appendChild(cell);
+                });
+
+                list_navbar_dropdown_infos_elements.innerHTML = "";
+                list_navbar_dropdown_infos_elements.appendChild(table);
+                navbar_dropdown_infos_elements.style.display = "flex";
+            }
         }
     }
 });
@@ -191,7 +252,7 @@ var ZonesGroups = [
     {loc: "600 0", group: 3},
 ]
 
-function ConstructFirstPartVPCId(vpc_id) {
+function ConstructFirstPartVPCId(vpc_id, account, cloud) {
     var vpc = vpc_array[vpc_id];
 
     if (!vpc) {
@@ -232,7 +293,9 @@ function ConstructFirstPartVPCId(vpc_id) {
                                 text: item2[1]['name'],
                                 source: "Src/assets/img/Res_Amazon-Route-53_Route-Table_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nId: " + item2[1]['id'] + "\nDestination: " + item2[1]['detination'] + "\nPrivate Gateway: " + item2[1]['private_gateway'] + "\nPropagé: " + item2[1]['propagated'] + "\nStatus" + item2[1]['status'] + "\nCible: " + item2[1]['target'],
-                                loc: "0 150"
+                                data: item2[1],
+                                loc: "0 150",
+                                url: "./informations.php?vpc="+vpc_id+"&account="+account+"&cloud="+cloud+"&type=table_routage&id="+item2[1]['id'],
                             }
                             nodeDataArray.push(node)
                         }
@@ -252,6 +315,7 @@ function ConstructFirstPartVPCId(vpc_id) {
                                 text: item2[1]['endpoint_id'],
                                 source: "Src/assets/img/Res_Amazon-VPC_Endpoints_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nEndpoint Id: " + item2[1]['endpoint_id'] + "\nVpc Id:" + item2[1]['vpc_id'] + "\nNom du service: " + item2[1]['service_name'] + "\nType: " + item2[1]['endoint_type'] + "\nNetwork Interfaces: " + item2[1]['network_interfaces'] + "\nTable de routage: " + item2[1]['route_tables'] + "\nSubnets: " + item2[1]['subnets'],
+                                data: item2[1],
                                 loc: "0 200",
                             }
                             nodeDataArray.push(node)
@@ -272,6 +336,7 @@ function ConstructFirstPartVPCId(vpc_id) {
                                 text: item2[1]['name'],
                                 source: "Src/assets/img/Res_Amazon-VPC_Peering-Connection_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nPeering Connection Id: " + item2[1]['peering_connection_id'] + "\nMain: " + item2[1]['main'] + "\nStatus: " + item2[1]['status'] + "\nVpc Id: " + item2[1]['vpc_id'] + "\nTable de Routage: " + item2[1]['route_table_id'] + "\nRequester CIDR: " + item2[1]['requester_cidr'] + "\nRequester Owner: " + item2[1]['requester_owner_id'] + "\nRequester VPC: " + item2[1]['requester_vpc'] + "\nAccepter CIDR: " + item2[1]['accepter_cidr'] + "\nAccepter Owner: " + item2[1]['accepter_owner_id'] + "\nAccepter VPC: " + item2[1]['accepter_vpc'] + "\nAssocié avec: " + item2[1]['associated_with'],
+                                data: item2[1],
                                 loc: "0 250"
                             }
                             nodeDataArray.push(node)
@@ -292,6 +357,7 @@ function ConstructFirstPartVPCId(vpc_id) {
                                 text: item2[1]['name'],
                                 source: "Src/assets/img/Res_Amazon-VPC_Internet-Gateway_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nId: " + item2[1]['internet_gateway_id'] + "\nOwner: " + item2[1]['owner'] + "\nStatus: " + item2[1]['state'] + "\nVpc Id: " + item2[1]['vpc_id'],
+                                data: item2[1],
                                 loc: "0 50"
                             }
                             nodeDataArray.push(node)
@@ -312,6 +378,7 @@ function ConstructFirstPartVPCId(vpc_id) {
                                 text: item2[1]['nat_gateway_id'],
                                 source: "Src/assets/img/Res_Amazon-VPC_NAT-Gateway_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nNat Gateway Id: " + item2[1]['nat_gateway_id'] + "\nConnectivity Type: " + item2[1]['connectivity_type'] + "\nCreated: " + item2[1]['created'] + "\nDeleted: " + item2[1]['deleted'] + "\nElastic Ip Adress: " + item2[1]['elastic_ip_address'] + "\nNetwork Interface Id: " + item2[1]['network_interface_id'] + "\nPrivate Ip Adresse: " + item2[1]['private_ip_address'] + "\nStatus: " + item2[1]['state'] + "\nMessage Status: " + item2[1]['state_message'] + "\nSubnet: " + item2[1]['subnet'] + "\nVPC: " + item2[1]['vpc'],
+                                data: item2[1],
                                 loc: "0 300"
                             }
                             nodeDataArray.push(node)
@@ -383,6 +450,7 @@ function ConstructFirstPartVPCId(vpc_id) {
                                         text: item2[1]['network_id'] + " - " + item2[1]['zone_disponibility'],
                                         source: "Src/assets/img/Res_Amazon-VPC_NAT-Gateway_48_Light.png",
                                         description: "Nom: " + item2[1]['name'] + "\nNetwork Id: " + item2[1]['network_id'] + "\nVpc Id: " + item2[1]['vpc_id'] + "\nCIDR IPV4: " + item2[1]['cidr_ipv4'] + "\nIPV4 Available: " + item2[1]['ipv4_available'] + "\nAcl Network: " + item2[1]['acl_network'] + "\nAuto Private IPV4: " + item2[1]['auto_ipv4_private'] + "\nAuto Public IPV4: " + item2[1]['auto_ipv4_public'] + "\nDefault Subnet: " + item2[1]['default_subnet'] + "\nTable de Routage" + item2[1]['table_routage'] + "\nZone Disponibilité: " + item2[1]['zone_disponibility'] + "\nZone Disponibilité Id: " + item2[1]['zone_disponibility_id'],
+                                        data: item2[1],
                                         loc: loc,
                                         group: ZonesSubnets[index3].group,
                                         stroke: stroke
@@ -410,6 +478,7 @@ function ConstructFirstPartVPCId(vpc_id) {
                         text: element[0],
                         source: "Src/assets/img/Arch_AWS-Transit-Gateway_64@5x.png",
                         description: "Nom: " + element2['name'] + "\nTransit Gateway Attachments Id" + element2['transit_gateway_attachment_ID'] + "\nTransit Gateway Id" + element2['transit_gateway_ID'] + "\nId Table Routage Associé: " + element2['association_route_table_ID'] + "\nStatus Associé: " + element2['association_state'] + "\nResource ID: " + element2['resource_ID'] + "\nResource Type: " + element2['resource_type'] + "\nStatus: " + element2['state'],
+                        data: element2,
                         loc: "0 100"
                     }
                     transit_gateway_array.push(element[0])
@@ -489,6 +558,7 @@ function ConstructFirstPartTransitGatewayId(transit_gateway_id) {
                                 text: item2[1]['name'],
                                 source: "Src/assets/img/Arch_AWS-Transit-Gateway_64@5x.png",
                                 description: "Nom: " + item2[1]['name'] + "\nTransit Gateway Attachments Id" + item2[1]['transit_gateway_attachment_ID'] + "\nTransit Gateway Id" + item2[1]['transit_gateway_ID'] + "\nId Table Routage Associé: " + item2[1]['association_route_table_ID'] + "\nStatus Associé: " + item2[1]['association_state'] + "\nResource ID: " + item2[1]['resource_ID'] + "\nResource Type: " + item2[1]['resource_type'] + "\nStatus: " + item2[1]['state'],
+                                data: item2[1],
                             }
                             nodeDataArray.push(node)
                         }
@@ -515,7 +585,7 @@ function Construct(vpc, transit_gateway, home_page) {
                         text: item['vpc'],
                         source: "Src/assets/img/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
                         description: "Souscription: " + item['souscription'] + "\nVPC: " + item['vpc'] + "\nVPC ID:" + item['vpc_id'] + "\nRegion: " + item['region'] + "\nCIDR: " + item['cidr'] + "\nACL: " + item['id_acl'] + "\nTable de routage: " + item['id_table_routage'],
-                        // loc: "0 100",
+                        data: item,
                     }
                     nodeDataArray.push(node)
                 }
@@ -534,7 +604,7 @@ function Construct(vpc, transit_gateway, home_page) {
                         text: item['gateway'],
                         source: "Src/assets/img/Arch_AWS-Transit-Gateway_64@5x.png",
                         description: "Nom: " + item['name'] + "\nGateway: " + item['gateway'] + "\nOwner" + item['owner'] + "\nStatus: " + item['state'],
-                        // loc: "50 200",
+                        data: item,
                     }
                     nodeDataArray.push(node)
                 }

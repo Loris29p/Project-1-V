@@ -1,0 +1,69 @@
+#infos-elements {
+    position: absolute;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    max-width: 1800px!important;
+    min-width: 1800px!important;
+    max-height: 1000px!important;
+    min-height: 1000px!important;
+    overflow: hidden;
+    z-index: 4;
+    margin-top: 50px;
+    margin-left: 100px;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #ffffff;
+}
+
+.top-class-infos-elements {
+    background-color: #eaf1fb;
+    text-align: center;
+}
+
+#list-infos-elements {
+    background-color: #ffffff;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+}
+
+.top-class-infos-elements h2 {
+    font-size: 1.25em;
+    text-decoration: none;
+    font-family: 'SFProRounded';
+    letter-spacing: normal;
+    color: #1f1f1f;
+    font-weight: 500;
+}
+
+#list-infos-elements table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+}
+
+#list-infos-elements table tr {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#list-infos-elements table tr:nth-child(even) {
+    background-color: #eaf1fb5e;
+}
+
+#list-infos-elements table tr:hover {
+    background-color: #ddd;
+}
+
+#list-infos-elements table td {
+    font-size: 1em;
+    font-family: 'SFProRounded';
+    letter-spacing: .25px;
+    color: #1f1f1f;
+    font-weight: 400;
+    text-align: center;
+    padding: 8px;
+}

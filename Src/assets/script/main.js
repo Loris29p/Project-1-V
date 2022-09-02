@@ -1,6 +1,5 @@
 $(document.body).css("zoom", document.body.clientWidth / 1920);
 
-// resize event
 window.addEventListener("resize", function () {
     $(document.body).css("zoom", document.body.clientWidth / 1920);
 });
@@ -17,6 +16,11 @@ let icon_menu = document.getElementById("icon-menu");
 let show_more_elements_navbar_cloud = document.getElementById("show_more_elements_navbar_cloud");
 let show_more_elements_navbar_vpc = document.getElementById("show_more_elements_navbar_vpc");
 let show_more_elements_navbar_transit_gateway = document.getElementById("show_more_elements_navbar_transit_gateway");
+
+let navbar_dropdown_infos_elements = document.getElementById("navbar-dropdown-infos-elements");
+
+let icon_menu_close_infos_element = document.getElementById("icon-menu-close-infos-element");
+let vpc_info = document.getElementById("vpc_info");
 
 let vpc_show_aws = document.getElementById("vpc_show_aws");
 
@@ -179,6 +183,16 @@ document.addEventListener('click', function handleClickOutsideBox(event) {
     if (!account_top_right.contains(event.target) && !navbar_dropdown_account.contains(event.target)) {
         navbar_dropdown_account.style.display = 'none';
     }
+
+    if (!navbar_dropdown_infos_elements.contains(event.target)) {
+        if (vpc_info != null) {
+            if (!vpc_info.contains(event.target)) {
+                navbar_dropdown_infos_elements.style.display = 'none';
+            }
+        } else {
+            navbar_dropdown_infos_elements.style.display = 'none';
+        }
+    }
 });
 
 if (icon_menu != null) {
@@ -188,7 +202,7 @@ if (icon_menu != null) {
         } else {
             icon_menu_click = false;
         }
-        if (show_more_elements_navbar_cloud.style.display != "flex") {
+        if (icon_menu_click) {
             show_more_elements_navbar_cloud.animate([
                 { opacity: '0' },
                 { opacity: '1' }
@@ -210,10 +224,20 @@ if (icon_menu != null) {
             }
         } else {
             show_more_elements_navbar_cloud.style.display = "none";
+            show_more_elements_navbar_vpc.style.display = "none";
+            show_more_elements_navbar_transit_gateway.style.display = "none";
             if (vpc_show_aws) {
                 vpc_show_aws.style.marginLeft = "90px";
                 vpc_show_aws.style.width = "1800px";
             }
+        }
+    }, false);
+}
+
+if (icon_menu_close_infos_element != null) {
+    icon_menu_close_infos_element.addEventListener("click", function( event ) {
+        if (navbar_dropdown_infos_elements != null && navbar_dropdown_infos_elements.style.display == "flex") {
+            navbar_dropdown_infos_elements.style.display = "none";
         }
     }, false);
 }
