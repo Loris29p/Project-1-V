@@ -1,26 +1,46 @@
 [
-    {
-        "name":"name",
-        "label":"Nom"
-    },
-    {
-        "name":"id",
-        "label":"ID"
-    },
-    {
-        "name":"destination",
-        "label":"Destination"
-    },
-    {
-        "name":"target",
-        "label":"Cible"
-    },
-    {
-        "name":"status",
-        "label":"Status"
-    },
-    {
-        "name":"propagated",
-        "label":"Propagé"
-    }
+    {"name":"name", "label":"Nom"},
+    {"name":"id", "label":"ID"},
+    {"name":"destination", "label":"Destination"},
+    {"name":"target", "label":"Cible"},
+    {"name":"status", "label":"Status"},
+    {"name":"propagated", "label":"Propagé"},
+    {"name":"private_gateway", "label":"Gateway privée"},
+    {"name":"transit_gateway_attachment_ID", "label":"ID Attachment"},
+    {"name":"transit_gateway_ID", "label":"ID Transit Gateway"},
+    {"name":"resource_type", "label":"Type"},
+    {"name":"resource_ID", "label":"VPC ID"},
+    {"name":"state", "label":"Status"},
+    {"name":"association_route_table_ID", "label":"Table de routage associée"},
+    {"name":"association_state", "label":"Status de l'association"},
+    {"name":"internet_gateway_id", "label":"ID"},
+    {"name":"vpc_id", "label":"VPC ID"},
+    {"name":"owner", "label":"Owner"},
+    {"name":"endpoint_id", "label":"ID"},
+    {"name":"service_name", "label":"Service"},
+    {"name":"endoint_type", "label":"Type"},
+    {"name":"creation_time", "label":"Date de création"},
+    {"name":"network_interfaces", "label":"Interface réseau"},
+    {"name":"subnets", "label":"Subnets"},
+    {"name":"route_tables", "label":"Table de routage"},
+    {"name":"peering_connection_id", "label":"ID"},
+    {"name":"requester_vpc", "label":"VPC Demandeur"},
+    {"name":"accepter_vpc", "label":"VPC Accepteur"},
+    {"name":"requester_cidr", "label":"CIDR Demandeur"},
+    {"name":"accepter_cidr", "label":"CIDR Accepteur"},
+    {"name":"requester_owner_id", "label":"Owner Id Demandeur"},
+    {"name":"accepter_owner_id", "label":"Owner Id Accepteur"},
+    {"name":"route_table_id", "label":"Table de routage"},
+    {"name":"associated_with", "label":"Associé avec"},
+    {"name":"main", "label":"Principale"},
+    {"name":"network_id", "label":"ID"},
+    {"name":"cidr_ipv4", "label":"CIDR IPV4"},
+    {"name":"ipv4_available", "label":"IPV4 Disponible"},
+    {"name":"zone_disponibility", "label":"Zone de disponibilité"},
+    {"name":"zone_disponibility_id", "label":"Zone de disponibilité ID"},
+    {"name":"table_routage", "label":"Table de routage"},
+    {"name":"acl_network", "label":"Réseau ACL"},
+    {"name":"default_subnet", "label":"Subnet par défaut"},
+    {"name":"auto_ipv4_public", "label":"Adresse IPV4 Publique automatique"},
+    {"name":"auto_ipv4_private", "label":"Adresse IPV4 Privée automatique"}
 ]

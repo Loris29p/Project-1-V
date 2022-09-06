@@ -246,7 +246,7 @@
                                         echo '</li>';
                                     }
                                 ?>
-                            </ul>   
+                            </ul>  
                         </div>
                     </div>
                 </div>

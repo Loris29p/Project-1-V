@@ -485,7 +485,7 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                         description: "Nom: " + element2['name'] + "\nTransit Gateway Attachments Id" + element2['transit_gateway_attachment_ID'] + "\nTransit Gateway Id" + element2['transit_gateway_ID'] + "\nId Table Routage Associé: " + element2['association_route_table_ID'] + "\nStatus Associé: " + element2['association_state'] + "\nResource ID: " + element2['resource_ID'] + "\nResource Type: " + element2['resource_type'] + "\nStatus: " + element2['state'],
                         data: element2,
                         loc: "0 100",
-                        url: "./informations.php?account="+account+"&cloud="+cloud+"&type=TRANSIT_GATEWAY_ATTACHMENT_ARRAY&id="+element2['transit_gateway_attachment_ID'],
+                        url: "./informations.php?account="+account+"&cloud="+cloud+"&type=TRANSIT_GATEWAY_ATTACHMENTS_ARRAY&id="+element2['transit_gateway_attachment_ID'],
                     }
                     transit_gateway_array.push(element[0])
                     nodeDataArray.push(node)

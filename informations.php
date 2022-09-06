@@ -7,6 +7,13 @@
 
     $informations = new Informations();
 
+    $accounts = [
+        ["name"=> "VESA PROD"],
+        ["name"=> "VESA ACCESS"],
+        ["name"=> "VESA MANAGEMENT"],
+        ["name"=> "VESA TRANSIT"],
+    ];
+
     $infos_to_show = $informations->getInformations($_GET['type'], $_GET['id']);
 ?>
 
@@ -24,6 +31,26 @@
     </head>
 
     <body>
+
+        <main>
+            <div id="infos-elements">
+                <div class="top-class-infos-elements">
+                    <h2>Informations</h2>
+                </div>
+                <div id="list-infos-elements">
+                    <table>
+                        <?php 
+                        foreach ($infos_to_show as $key => $value) {
+                            echo "<tr>";
+                            echo "<td>$key</td>";
+                            echo "<td>$value</td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </table>
+                </div>
+            </div>
+        </main>
 
         <header>
 
@@ -84,7 +111,7 @@
                                     ?>
                                     <li>
                                         <i class="fad fa-users"></i>
-                                        <a href="./index.php?account=<?php echo $account['name']; ?>&aside=vpc&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
+                                        <a href="./index.php?account=<?php echo $account['name']; ?>&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
                                     </li>
                                     <?php
                                 }
@@ -106,7 +133,7 @@
                                     foreach ($vpcArray as $vpc) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">' . $vpc['vpc'] . '</a>';
+                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">' . $vpc['vpc'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -127,7 +154,7 @@
                                     foreach ($transitGatewayArray as $transit) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">' . $transit['gateway'] . '</a>';
+                                        echo '<a href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">' . $transit['gateway'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -149,7 +176,7 @@
                                     ?>
                                     <li>
                                         <i class="fad fa-users"></i>
-                                        <a href="./index.php?account=<?php echo $account['name']; ?>&aside=vpc&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
+                                        <a href="./index.php?account=<?php echo $account['name']; ?>&cloud=<?php echo $_GET["cloud"]; ?>"><?php echo $account['name']; ?></a>
                                     </li>
                                     <?php
                                 }
@@ -170,7 +197,7 @@
                                     foreach ($vpcArray as $vpc) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
+                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -190,7 +217,7 @@
                                     foreach ($transitGatewayArray as $transit) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a class="button_vpc_text" href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">' . $transit['gateway'] . '</a>';
+                                        echo '<a class="button_vpc_text" href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">' . $transit['gateway'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -210,7 +237,7 @@
                                     foreach ($vpcArray as $vpc) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&aside='.$_GET['aside'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
+                                        echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -296,27 +323,6 @@
                 </div>
             </div>
         </header>
-
-
-        <main>
-            <div id="infos-elements">
-                <div class="top-class-infos-elements">
-                    <h2>Informations</h2>
-                </div>
-                <div id="list-infos-elements">
-                    <table>
-                        <?php 
-                        foreach ($infos_to_show as $key => $value) {
-                            echo "<tr>";
-                            echo "<td>$key</td>";
-                            echo "<td>$value</td>";
-                            echo "</tr>";
-                        }
-                        ?>
-                    </table>
-                </div>
-            </div>
-        </main>
 
         <script src="./Src/assets/script/main.js"></script>
     </body>
