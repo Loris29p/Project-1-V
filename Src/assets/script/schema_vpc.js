@@ -74,9 +74,18 @@ myDiagram.addDiagramListener("ObjectSingleClicked",
         var navbar_dropdown_infos_elements = document.getElementById("navbar-dropdown-infos-elements");
         if (navbar_dropdown_infos_elements != null) {
             var list_navbar_dropdown_infos_elements = document.getElementById("list-navbar-dropdown-infos-elements");
-            var mother_fucker = document.getElementById("mother-fucker");
+            var icon_menu_shwo_more_infos_element = document.getElementById("icon-menu-shwo-more-infos-element");
+
+            var show_more_elements_navbar_cloud = document.getElementById("show_more_elements_navbar_cloud");
+            var show_more_elements_navbar_vpc = document.getElementById("show_more_elements_navbar_vpc");
+            var show_more_elements_navbar_transit_gateway = document.getElementById("show_more_elements_navbar_transit_gateway");
+            var show_more_elements_navbar_subnets = document.getElementById("show_more_elements_navbar_subnets");
+            var show_more_elements_navbar_route_table = document.getElementById("show_more_elements_navbar_route_table");
+            var show_more_elements_navbar_vpn = document.getElementById("show_more_elements_navbar_vpn");
+
+            var vpc_show_aws = document.getElementById("vpc_show_aws");
             if (node.url != null) {
-                mother_fucker.setAttribute("href", node.url);
+                icon_menu_shwo_more_infos_element.setAttribute("href", node.url);
             }
             var data = Object.entries(node.data);
             var table = document.createElement("table");
@@ -101,6 +110,31 @@ myDiagram.addDiagramListener("ObjectSingleClicked",
             list_navbar_dropdown_infos_elements.innerHTML = "";
             list_navbar_dropdown_infos_elements.appendChild(table);
             navbar_dropdown_infos_elements.style.display = "flex";
+            if (icon_menu_click) {
+                icon_menu_click = false;
+                show_more_elements_navbar_cloud.style.display = "none";
+                show_more_elements_navbar_vpc.style.display = "none";
+                show_more_elements_navbar_transit_gateway.style.display = "none";
+                show_more_elements_navbar_subnets.style.display = "none";
+                show_more_elements_navbar_route_table.style.display = "none";
+                show_more_elements_navbar_vpn.style.display = "none";
+                if (vpc_show_aws) {
+                    vpc_show_aws.style.marginLeft = "90px";
+                    vpc_show_aws.style.width = "1800px";
+                }
+            }
+            if (vpc_show_aws) {
+                if (vpc_show_aws.style.width != "1400px") {
+                    vpc_show_aws.animate([
+                        { transform: 'translateX(-400px)' },
+                    ], {
+                        duration: 150,
+                    });
+                    setTimeout(function() {
+                        vpc_show_aws.style.width = "1400px";
+                    }, 150);
+                }
+            }
         }
       }
     });
