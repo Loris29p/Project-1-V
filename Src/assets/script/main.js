@@ -224,6 +224,9 @@ if (navbar_dropdown_cloud_li != null) {
     }, false);
 
     navbar_dropdown_cloud_li.addEventListener("click", function( event ) {
+        navbar_dropdown_subnets_li.style.display = "none";
+        navbar_dropdown_table_routage_li.style.display = "none";
+        navbar_dropdown_vpn_li.style.display = "none";
         if (!icon_menu_click) {
             return;
         }
@@ -360,6 +363,9 @@ if (navbar_dropdown_transit_gateway_li != null) {
     }, false);
 
     navbar_dropdown_transit_gateway_li.addEventListener("click", function( event ) {
+        navbar_dropdown_subnets_li.style.display = "none";
+        navbar_dropdown_table_routage_li.style.display = "none";
+        navbar_dropdown_vpn_li.style.display = "none";
         if (!icon_menu_click) {
             return;
         }

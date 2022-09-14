@@ -1728,7 +1728,7 @@
     margin-left: 170px;
 }
 
-#icon-menu-shwo-more-infos-element{
+#icon-menu-shwo-more-infos-element i{
     position: absolute;
     font-size: 1.5em;
     text-decoration: none;
@@ -1768,4 +1768,15 @@
     font-weight: 400;
     text-align: center;
     padding: 8px;
+}
+
+
+.icon_come_back {
+    position: absolute;
+    /* margin-left: 70px; */
+}
+
+.icon_come_back i {
+    font-size: 1.5em;
+    color: #868686;
 }

@@ -67,11 +67,13 @@
                     <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
                     <i class="fad fa-user-circle"></i>
                 </div>
+                <a href=javascript:history.go(-1) class="icon_come_back">
+                    <i class="fad fa-backward"></i>
+                </a>
                 <a class="icon-menu2" href="./index.php">
                     <i class="fad fa-home"></i>
                 </a>
             </div>
-            
             <div class="big_navbar">
                 <nav class="navbar2">
                     <a id="icon-menu">
@@ -390,7 +392,7 @@
                                     foreach ($vpnArray as $vpn) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpn='.$vpn['virutal_private_gateway_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">- ' . $vpn['name'] . '</a>';
+                                        echo '<a href="./index.php?vpn='.$vpn['virutal_private_gateway_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">- ' . $vpn['virutal_private_gateway_id'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -423,8 +425,8 @@
                     <div class="top-class-navbar-dropdown-infos-elements">
                         <h2>Informations</h2>
                         <i id="icon-menu-close-infos-element" class="fad fa-arrow-to-right"></i>
-                        <a>
-                            <i id="icon-menu-shwo-more-infos-element" class="fad fa-info-circle"></i>
+                        <a id="icon-menu-shwo-more-infos-element" >
+                            <i class="fad fa-info-circle"></i>
                         </a>
                     </div>
                     <div id="list-navbar-dropdown-infos-elements">
