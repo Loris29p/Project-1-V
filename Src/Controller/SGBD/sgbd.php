@@ -10,7 +10,7 @@
         public function __construct() {
             $this->host = "localhost";
             $this->user = "root";
-            $this->password = "root";
+            $this->password = "";
             $this->database = "projectv";
 
             $this->db = new mysqli($this->host, $this->user, $this->password, $this->database);

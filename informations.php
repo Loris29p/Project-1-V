@@ -7,12 +7,29 @@
 
     $informations = new Informations();
 
+    $vpcArray = constant("VPC_ARRAY");
+    $transitGatewayArray = constant("TRANSIT_GATEWAY_ARRAY");
+    $subnetsArray = constant("NETWORK_ARRAY");
+    $routeTablesArray = constant("ROUTE_TABLES_ARRAY");
+    $vpnArray = constant("VPN_ARRAY");
+
     $accounts = [
         ["name"=> "VESA PROD"],
         ["name"=> "VESA ACCESS"],
         ["name"=> "VESA MANAGEMENT"],
         ["name"=> "VESA TRANSIT"],
     ];
+
+    if (isset($_GET['account'])) {
+        $account = $_GET['account'];
+        $array = Array();
+        foreach ($vpcArray as $vpc) {
+            if ($vpc['souscription'] == $account) {
+                $array[] = $vpc;
+            }
+        }
+        $vpcArray = $array;
+    }
 
     $infos_to_show = $informations->getInformations($_GET['type'], $_GET['id']);
 ?>
@@ -59,6 +76,9 @@
                     <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
                     <i class="fad fa-user-circle"></i>
                 </div>
+                <a href=javascript:history.go(-1) class="icon_come_back">
+                    <i class="fad fa-arrow-circle-left"></i>
+                </a>
                 <a class="icon-menu2" href="./index.php">
                     <i class="fad fa-home"></i>
                 </a>
@@ -86,6 +106,18 @@
                                 <li id="navbar-dropdown-vpc-li">
                                     <i class="fad fa-server"></i>
                                     <a>VPC</a>
+                                </li>
+                                <li id="navbar-dropdown-subnets-li">
+                                    <i class="fad fa-network-wired"></i>
+                                    <a>Subnets</a>
+                                </li>
+                                <li id="navbar-dropdown-table-routage-li">
+                                    <i class="fad fa-chart-network"></i>
+                                    <a>Tables de routage</a>
+                                </li>
+                                <li id="navbar-dropdown-vpn-li">
+                                    <i class="fad fa-wifi-2"></i>
+                                    <a>VPN</a>
                                 </li>
                                 <li id="navbar-dropdown-transit-gateway-li">
                                     <i class="fal fa-ethernet"></i>
@@ -163,6 +195,90 @@
                     </div>
                 </div>
 
+                <div id="show_more_elements_navbar_subnets">
+                    <div class="show_more_elements_navbar_subnets_2">
+                        <h2>Subnets</h2>
+                    </div>
+                    <div class="show_more_elements_navbar_subnets_3">
+                        <div>
+                            <i class="fab fa-aws"></i>
+                            <ul>
+                                <?php
+                                    foreach ($subnetsArray as $subnets) {
+                                        echo '<li>';
+                                        echo '<i class="fad fa-stream"></i>';
+                                        echo '<a href="./informations.php?id='.$subnets['network_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=NETWORK_ARRAY">' . $subnets['network_id'] . '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="show_more_elements_navbar_route_table">
+                    <div class="show_more_elements_navbar_route_table_2">
+                        <h2>Table de routage</h2>
+                    </div>
+                    <div class="show_more_elements_navbar_route_table_3">
+                        <div>
+                            <i class="fab fa-aws"></i>
+                            <ul>
+                                <?php
+                                    foreach ($routeTablesArray as $route_table) {
+                                        echo '<li>';
+                                        echo '<i class="fad fa-stream"></i>';
+                                        echo '<a href="./informations.php?id='.$route_table['id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=ROUTE_TABLES_ARRAY">' . $route_table['name'] . '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="show_more_elements_navbar_vpn">
+                    <div class="show_more_elements_navbar_vpn_2">
+                        <h2>VPN</h2>
+                    </div>
+                    <div class="show_more_elements_navbar_vpn_3">
+                        <div>
+                            <i class="fab fa-aws"></i>
+                            <ul>
+                                <?php
+                                    foreach ($vpnArray as $vpn) {
+                                        echo '<li>';
+                                        echo '<i class="fad fa-stream"></i>';
+                                        echo '<a href="./informations.php?id='.$vpn['virutal_private_gateway_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=VPN_ARRAY">' . $vpn['virutal_private_gateway_id'] . '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="show_more_elements_navbar_transit_gateway">
+                    <div class="show_more_elements_navbar_transit_gateway_2">
+                        <h2>Tables de routage</h2>
+                    </div>
+                    <div class="show_more_elements_navbar_transit_gateway_3">
+                        <div>
+                            <i class="fab fa-aws"></i>
+                            <ul>
+                                <?php
+                                    foreach ($transitGatewayArray as $transit) {
+                                        echo '<li>';
+                                        echo '<i class="fad fa-stream"></i>';
+                                        echo '<a href="./index.php?transit_gateway='.$transit['gateway'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">' . $transit['gateway'] . '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="navbar-dropdown-cloud">
                     <div class="top-class-navbar-dropdown-cloud">
                         <h2>Comptes</h2>
@@ -194,7 +310,10 @@
                         <div>
                             <ul>
                                 <?php 
-                                    foreach ($vpcArray as $vpc) {
+                                    foreach ($vpcArray as $key=>$vpc) {
+                                        if ($key > 10) {
+                                            break;
+                                        }
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
                                         echo '<a href="./index.php?vpc='.$vpc['vpc_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">- ' . $vpc['vpc'] . '</a>';
@@ -226,6 +345,72 @@
                     </div>
                 </div>
 
+                <div id="navbar-dropdown-subnets">
+                    <div class="top-class-navbar-dropdown-subnets">
+                        <h2>Subnets</h2>
+                    </div>
+                    <div class="list-navbar-dropdown-subnets">
+                        <div>
+                            <ul>
+                                <?php 
+                                    foreach ($subnetsArray as $key=>$subnets) {
+                                        if ($key > 10) {
+                                            break;
+                                        }
+                                        echo '<li>';
+                                        echo '<i class="fad fa-stream"></i>';
+                                        echo '<a href="./informations.php?id='.$subnets['network_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=NETWORK_ARRAY">' . $subnets['network_id'] . '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+
+                <div id="navbar-dropdown-route-table">
+                    <div class="top-class-navbar-dropdown-route-table">
+                        <h2>Table de routage</h2>
+                    </div>
+                    <div class="list-navbar-dropdown-route-table">
+                        <div>
+                            <ul>
+                                <?php 
+                                    foreach ($routeTablesArray as $key=>$route_table) {
+                                        if ($key > 10) {
+                                            break;
+                                        }
+                                        echo '<li>';
+                                        echo '<i class="fad fa-stream"></i>';
+                                        echo '<a href="./informations.php?id='.$route_table['id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=ROUTE_TABLES_ARRAY">' . $route_table['name'] . '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+
+                <div id="navbar-dropdown-vpn">
+                    <div class="top-class-navbar-dropdown-vpn">
+                        <h2>VPN</h2>
+                    </div>
+                    <div class="list-navbar-dropdown-vpn">
+                        <div>
+                            <ul>
+                                <?php 
+                                    foreach ($vpnArray as $vpn) {
+                                        echo '<li>';
+                                        echo '<i class="fad fa-stream"></i>';
+                                        echo '<a href="./informations.php?id='.$vpn['virutal_private_gateway_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=VPN_ARRAY">' . $vpn['virutal_private_gateway_id'] . '</a>';
+                                        echo '</li>';
+                                    }
+                                ?>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+
                 <div id="navbar-dropdown-vpc">
                     <div class="top-class-navbar-dropdown-vpc">
                         <h2>VPC</h2>
@@ -241,7 +426,7 @@
                                         echo '</li>';
                                     }
                                 ?>
-                            </ul>   
+                            </ul>  
                         </div>
                     </div>
                 </div>

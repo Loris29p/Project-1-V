@@ -68,7 +68,7 @@
                     <i class="fad fa-user-circle"></i>
                 </div>
                 <a href=javascript:history.go(-1) class="icon_come_back">
-                    <i class="fad fa-backward"></i>
+                    <i class="fad fa-arrow-circle-left"></i>
                 </a>
                 <a class="icon-menu2" href="./index.php">
                     <i class="fad fa-home"></i>
@@ -197,7 +197,7 @@
                                     foreach ($subnetsArray as $subnets) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?subnets='.$subnets['network_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">' . $subnets['network_id'] . '</a>';
+                                        echo '<a href="./informations.php?id='.$subnets['network_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=NETWORK_ARRAY">' . $subnets['network_id'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -218,7 +218,7 @@
                                     foreach ($routeTablesArray as $route_table) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?route_table='.$route_table['id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">' . $route_table['name'] . '</a>';
+                                        echo '<a href="./informations.php?id='.$route_table['id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=ROUTE_TABLES_ARRAY">' . $route_table['name'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -239,7 +239,7 @@
                                     foreach ($vpnArray as $vpn) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpn='.$vpn['virutal_private_gateway_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">' . $vpn['virutal_private_gateway_id'] . '</a>';
+                                        echo '<a href="./informations.php?id='.$vpn['virutal_private_gateway_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=VPN_ARRAY">' . $vpn['virutal_private_gateway_id'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -349,7 +349,7 @@
                                         }
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?subnets='.$subnets['network_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">- ' . $subnets['network_id'] . '</a>';
+                                        echo '<a href="./informations.php?id='.$subnets['network_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=NETWORK_ARRAY">' . $subnets['network_id'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -372,7 +372,7 @@
                                         }
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?route_table='.$route_table['id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">- ' . $route_table['name'] . '</a>';
+                                        echo '<a href="./informations.php?id='.$route_table['id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=ROUTE_TABLES_ARRAY">' . $route_table['name'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>
@@ -392,7 +392,7 @@
                                     foreach ($vpnArray as $vpn) {
                                         echo '<li>';
                                         echo '<i class="fad fa-stream"></i>';
-                                        echo '<a href="./index.php?vpn='.$vpn['virutal_private_gateway_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'">- ' . $vpn['virutal_private_gateway_id'] . '</a>';
+                                        echo '<a href="./informations.php?id='.$vpn['virutal_private_gateway_id'].'&account='.$_GET['account'].'&cloud='.$_GET['cloud'].'&type=VPN_ARRAY">' . $vpn['virutal_private_gateway_id'] . '</a>';
                                         echo '</li>';
                                     }
                                 ?>

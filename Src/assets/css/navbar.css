@@ -494,7 +494,7 @@
     overflow: hidden;
     z-index: 4;
     width: 250px;
-    margin-top: 305px;
+    margin-top: 240px;
     margin-left: 68px;
     border-radius: 10px 10px 10px 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -592,7 +592,7 @@
     overflow: hidden;
     z-index: 4;
     width: 250px;
-    margin-top: 375px;
+    margin-top: 310px;
     margin-left: 68px;
     border-radius: 10px 10px 10px 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -690,7 +690,7 @@
     overflow: hidden;
     z-index: 4;
     width: 250px;
-    margin-top: 440px;
+    margin-top: 375px;
     margin-left: 68px;
     border-radius: 10px 10px 10px 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -782,22 +782,22 @@
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    max-width: 160px!important;
-    min-width: 160px!important;
+    max-width: 190px!important;
+    min-width: 190px!important;
     overflow: hidden;
     z-index: 4;
     height: 40px;
     width: 100px;
-    margin-left: 1750px;
+    margin-left: 1700px;
     border-radius: 0 0 5px 5px;
-    background-color: #eaf1fb;
+    background-color: #eaf1fb; /* eaf1fb */
 }
 
 .icon-menu2 i {
     position: absolute;
     font-size: 1.5em;
     color: #5f6368;
-    margin-left: 12px;
+    margin-left: 40px;
     margin-top: 8px;
 } 
 
@@ -811,7 +811,7 @@
     z-index: 4;
     height: 35px;
     width: 100px;
-    margin-left: 60px;
+    margin-left: 88px;
     margin-top: 2.5px;
     border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -1770,13 +1770,10 @@
     padding: 8px;
 }
 
-
-.icon_come_back {
-    position: absolute;
-    /* margin-left: 70px; */
-}
-
 .icon_come_back i {
+    position: absolute;
     font-size: 1.5em;
-    color: #868686;
+    color: #5f6368;
+    margin-left: 10px;
+    margin-top: 8px;
 }
