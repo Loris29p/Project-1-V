@@ -10,7 +10,7 @@
         public function __construct() {
             $this->host = "localhost";
             $this->user = "root";
-            $this->password = "";
+            $this->password = "root";
             $this->database = "projectv";
 
             $this->db = new mysqli($this->host, $this->user, $this->password, $this->database);
@@ -26,7 +26,12 @@
 
         public function insert($query) {
             $result = $this->db->query($query);
+            // echo $this->db->error;
             return $result;
+        }
+
+        function lastInsertId() {
+            return $this->db->insert_id;
         }
 
         public function get($query) {

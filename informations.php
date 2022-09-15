@@ -1,11 +1,12 @@
 <?php
-    require_once("./Src/Controller/User/User.php");
     require_once('./Src/Model/functions.php');
     require_once('./Src/Controller/SGBD/sgbd.php');
     require_once('./Config/Config.php');
     require_once('./Src/Controller/Informations/Informations.class.php');
 
     $informations = new Informations();
+
+    session_start();
 
     $vpcArray = constant("VPC_ARRAY");
     $transitGatewayArray = constant("TRANSIT_GATEWAY_ARRAY");
@@ -50,23 +51,29 @@
     <body>
 
         <main>
-            <div id="infos-elements">
-                <div class="top-class-infos-elements">
-                    <h2>Informations</h2>
+            <?php 
+                if (isset($_SESSION['id'])) {
+                ?>
+                <div id="infos-elements">
+                    <div class="top-class-infos-elements">
+                        <h2>Informations</h2>
+                    </div>
+                    <div id="list-infos-elements">
+                        <table>
+                            <?php 
+                            foreach ($infos_to_show as $key => $value) {
+                                echo "<tr>";
+                                echo "<td>$key</td>";
+                                echo "<td>$value</td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </table>
+                    </div>
                 </div>
-                <div id="list-infos-elements">
-                    <table>
-                        <?php 
-                        foreach ($infos_to_show as $key => $value) {
-                            echo "<tr>";
-                            echo "<td>$key</td>";
-                            echo "<td>$value</td>";
-                            echo "</tr>";
-                        }
-                        ?>
-                    </table>
-                </div>
-            </div>
+                <?php
+                }
+            ?>
         </main>
 
         <header>
@@ -85,6 +92,9 @@
             </div>
             
             <div class="big_navbar">
+            <?php 
+                if (isset($_SESSION['id'])) {
+                ?>
                 <nav class="navbar2">
                     <a id="icon-menu">
                         <i class="fad fa-bars"></i>
@@ -129,6 +139,9 @@
                         </ul>
                     </div>
                 </nav>
+                <?php
+                }
+            ?>
 
                 <div id="show_more_elements_navbar_cloud">
                     <div class="show_more_elements_navbar_cloud_2">
@@ -452,12 +465,12 @@
                                 <div class="first_last_name_dropdown">Loris Poilly</div>
                                 <div class="mail_dropdown">loris.poilly@veolia.com</div>
                                 <div>
-                                    <a class="manage_account_dropdown_a">
+                                    <a href="./account_parameters.php" class="manage_account_dropdown_a">
                                         Gérer votre compte
                                     </a>
                                 </div>
                                 <div class="logout_dropdown">
-                                    <a href="./index.php" class="logout_dropdown_a">
+                                    <a href="./logout.php" class="logout_dropdown_a">
                                         <div class="logout_dropdown_div">
                                             Se déconnecter
                                         </div>

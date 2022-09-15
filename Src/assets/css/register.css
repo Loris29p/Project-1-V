@@ -5,10 +5,10 @@
     flex-shrink: 0;
     overflow: hidden;
     z-index: 4;
-    width: 55%;
-    height: 65%;
-    margin-top: 5%;
-    margin-left: 22.5%;
+    width: 45%;
+    height: 55%;
+    margin-top: 10%;
+    margin-left: 27.5%;
     background-color: #ffffff;
     border-radius: 5px 5px 5px 5px;
     text-align: center;
@@ -52,7 +52,7 @@
     font-size: 1em;
     white-space: normal;
     width: 50%;
-    height: 55%;
+    height: 45%;
     margin-left: 5%;
     margin-top: 2%;
     color: #202124;
@@ -61,9 +61,26 @@
     /* background-color: #202124; */
 }
 
+.register_img_right {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: hidden;
+    z-index: 4;
+    width: 344px;
+    height: 344px;
+    aspect-ratio: auto 244 / 244;
+    margin-top: 10%;
+    margin-left: 55%;
+    background-color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+    /* border: 1px solid #dadce0; */
+}
+
 .register_form_form_firstname {
     border-radius: 4px;
-    color: #202124;
     z-index: 1;
     flex-shrink: 1;
     background-color: transparent;
@@ -79,6 +96,20 @@
     border: 1px solid #dadce0;
     font-size: .85em;
     font-family: 'SFProRounded';
+}
+
+.register_form_form_firstname::placeholder {
+    position: relative;
+    color: #767679;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    padding-top: 0%;
+    text-align: left;
+    padding: 10px;
 }
 
 .register_form_form_lastname {
@@ -100,4 +131,227 @@
     border: 1px solid #dadce0;
     font-size: .85em;
     font-family: 'SFProRounded';
+    margin-left: 190px;
+    margin-top: -36px;
+}
+
+.register_form_form_lastname::placeholder {
+    position: relative;
+    color: #767679;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    padding-top: 0%;
+    text-align: left;
+    padding: 10px;
+}
+
+.register_form_form_email {
+    position: relative;
+    border-radius: 4px;
+    color: #202124;
+    z-index: 1;
+    flex-shrink: 1;
+    background-color: transparent;
+    border: none;
+    display: block;
+    line-height: 30px;
+    width: 370px;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #dadce0;
+    font-size: .85em;
+    font-family: 'SFProRounded';
+    margin-top: 20px;
+}
+
+.register_form_form_email::placeholder {
+    position: relative;
+    color: #767679;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    padding-top: 0%;
+    text-align: left;
+    padding: 10px;
+}
+
+.bottom_register_form_form_email {
+    position: relative;
+    color: #767679;
+    font-family: 'SFProRounded';
+    font-size: .75em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    width: 370px;
+    height: 50px;
+    margin-top: 90px;
+    margin-left: -10px;
+}
+
+#register_form_form_password {
+    border-radius: 4px;
+    z-index: 1;
+    flex-shrink: 1;
+    background-color: transparent;
+    border: none;
+    display: block;
+    line-height: 30px;
+    width: 180px;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #dadce0;
+    font-size: .85em;
+    font-family: 'SFProRounded';
+    margin-top: 30px;
+}
+
+#register_form_form_password::placeholder {
+    position: relative;
+    color: #767679;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    padding-top: 0%;
+    text-align: left;
+    padding: 10px;
+}
+
+#register_form_form_password_verif {
+    position: relative;
+    border-radius: 4px;
+    color: #202124;
+    z-index: 1;
+    flex-shrink: 1;
+    background-color: transparent;
+    border: none;
+    display: block;
+    line-height: 30px;
+    width: 180px;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #dadce0;
+    font-size: .85em;
+    font-family: 'SFProRounded';
+    margin-left: 190px;
+    margin-top: -36px;
+}
+
+#register_form_form_password_verif::placeholder {
+    position: relative;
+    color: #767679;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    padding-top: 0%;
+    text-align: left;
+    padding: 10px;
+}
+
+.bottom_register_form_form_password {
+    position: absolute;
+    color: #767679;
+    font-family: 'SFProRounded';
+    font-size: .75em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    max-width: 370px!important;
+    min-width: 370px!important;
+    width: 100px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: -175px;
+    text-align: left;
+}
+
+.checkbox_show_password {
+    position: relative;
+    margin-top: 70px;
+    margin-left: -350px;
+}
+
+.bottom_checkbox_show_password {
+    position: absolute;
+    margin-top: 65px;
+    margin-left: 20px;
+    color: #555557;
+    font-family: 'SFProRounded';
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+}
+
+.connect_exist_account {
+    position: absolute;
+    color: #1a73e8;
+    font-family: 'SFProRounded';
+    font-size: .875rem;
+    letter-spacing: .0107142857em;
+    font-weight: 500;
+    text-transform: none;
+    margin-top: 150px;
+    margin-left: -10px;
+    text-decoration: none;
+}
+
+input[type=submit] {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: hidden;
+    z-index: 4;
+    max-width: 100px!important;
+    min-width: 100px!important;
+    max-height: 36px!important;
+    min-height: 36px!important;
+    margin-top: 6.5%;
+    margin-left: 31%;
+    background-color: #ffffff;
+    border-radius: 4px;
+    text-align: center;
+    border: none;
+    background-color: #1a73e8;
+    color: #ffffff;
+    padding: 9px 25px;
+    text-decoration: none;
+    font-size: .85em;
+}
+
+.submit_button:hover {
+    background-color: #1664c9;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 1em;
+    font-family: 'SFProRounded';
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }

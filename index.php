@@ -1,8 +1,9 @@
 <?php
-    require_once("./Src/Controller/User/User.php");
     require_once('./Src/Model/functions.php');
     require_once('./Src/Controller/SGBD/sgbd.php');
     require_once('./Config/Config.php');
+
+    session_start();
 
     $vpcArray = constant("VPC_ARRAY");
     $transitGatewayArray = constant("TRANSIT_GATEWAY_ARRAY");
@@ -75,50 +76,56 @@
                 </a>
             </div>
             <div class="big_navbar">
-                <nav class="navbar2">
-                    <a id="icon-menu">
-                        <i class="fad fa-bars"></i>
-                    </a>
-                    <div class="navbar2-ul">
-                        <ul>
-                            <?php 
-                            if (isset($_GET['cloud'])) {
-                                ?>
-                                <li id="navbar-dropdown-cloud-li">
-                                    <i class="fad fa-cloud"></i>
-                                    <a>Comptes</a>
-                                </li>
-                                <?php
-                            }
-                            ?>
-                            <?php if (isset($_GET['account'])) {
-                            ?>
-                                <li id="navbar-dropdown-vpc-li">
-                                    <i class="fad fa-server"></i>
-                                    <a>VPC</a>
-                                </li>
-                                <li id="navbar-dropdown-subnets-li">
-                                    <i class="fad fa-network-wired"></i>
-                                    <a>Subnets</a>
-                                </li>
-                                <li id="navbar-dropdown-table-routage-li">
-                                    <i class="fad fa-chart-network"></i>
-                                    <a>Tables de routage</a>
-                                </li>
-                                <li id="navbar-dropdown-vpn-li">
-                                    <i class="fad fa-wifi-2"></i>
-                                    <a>VPN</a>
-                                </li>
-                                <li id="navbar-dropdown-transit-gateway-li">
-                                    <i class="fal fa-ethernet"></i>
-                                    <a>Transit Gateway</a>
-                                </li>
-                                <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </nav>
+                <?php 
+                    if (isset($_SESSION['id'])) {
+                        ?>
+                        <nav class="navbar2">
+                            <a id="icon-menu">
+                                <i class="fad fa-bars"></i>
+                            </a>
+                            <div class="navbar2-ul">
+                                <ul>
+                                    <?php 
+                                    if (isset($_GET['cloud'])) {
+                                        ?>
+                                        <li id="navbar-dropdown-cloud-li">
+                                            <i class="fad fa-cloud"></i>
+                                            <a>Comptes</a>
+                                        </li>
+                                        <?php
+                                    }
+                                    ?>
+                                    <?php if (isset($_GET['account'])) {
+                                    ?>
+                                        <li id="navbar-dropdown-vpc-li">
+                                            <i class="fad fa-server"></i>
+                                            <a>VPC</a>
+                                        </li>
+                                        <li id="navbar-dropdown-subnets-li">
+                                            <i class="fad fa-network-wired"></i>
+                                            <a>Subnets</a>
+                                        </li>
+                                        <li id="navbar-dropdown-table-routage-li">
+                                            <i class="fad fa-chart-network"></i>
+                                            <a>Tables de routage</a>
+                                        </li>
+                                        <li id="navbar-dropdown-vpn-li">
+                                            <i class="fad fa-wifi-2"></i>
+                                            <a>VPN</a>
+                                        </li>
+                                        <li id="navbar-dropdown-transit-gateway-li">
+                                            <i class="fal fa-ethernet"></i>
+                                            <a>Transit Gateway</a>
+                                        </li>
+                                        <?php
+                                    }
+                                    ?>
+                                </ul>
+                            </div>
+                        </nav>
+                        <?php
+                    }
+                ?>
 
                 <div id="show_more_elements_navbar_cloud">
                     <div class="show_more_elements_navbar_cloud_2">
@@ -455,12 +462,12 @@
                                 <div class="first_last_name_dropdown">Loris Poilly</div>
                                 <div class="mail_dropdown">loris.poilly@veolia.com</div>
                                 <div>
-                                    <a class="manage_account_dropdown_a">
+                                    <a href="./account_parameters.php" class="manage_account_dropdown_a">
                                         Gérer votre compte
                                     </a>
                                 </div>
                                 <div class="logout_dropdown">
-                                    <a href="./index.php" class="logout_dropdown_a">
+                                    <a href="./logout.php" class="logout_dropdown_a">
                                         <div class="logout_dropdown_div">
                                             Se déconnecter
                                         </div>
@@ -545,12 +552,6 @@
                         </div>
                     </div>
                 <?php
-            } elseif (isset($_GET['subnets'])) {
-                
-            } elseif (isset($_GET['route_table'])) {
-                
-            } elseif (isset($_GET['vpn'])) {
-                
             } elseif (isset($_GET['account']) && !isset($_GET['vpc']) && !isset($_GET['transit_gateway'])) {
             ?>
                 <div id="vpc_show_aws">
@@ -585,7 +586,7 @@
                         </div>
                     </div>
                 <?php
-            } elseif (true) {
+            } elseif (isset($_SESSION['id']) && !isset($_GET['account']) && !isset($_GET['vpc']) && !isset($_GET['transit_gateway'])) {
                 ?>
                 <div class="encadre_type_cloud">
                     <p>Veuillez sélectionner l'environnement cloud à utiliser:</p>

@@ -1,0 +1,212 @@
+.login_form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: hidden;
+    z-index: 4;
+    width: 25%;
+    height: 45%;
+    margin-top: 10%;
+    margin-left: 37.5%;
+    background-color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+    border: 1px solid #dadce0;
+}
+
+.login_form h1 {
+    color: #202124;
+    padding-bottom: 0;
+    padding-top: 3%;
+    font-family: 'SFProRounded';
+    font-size: 1.5em;
+    font-weight: 400;
+    line-height: 1.3333;
+    letter-spacing: 0.2px;
+    margin-bottom: 0;
+    margin-top: 0;
+    word-break: break-word;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    text-align: center;
+}
+
+.login_form span {
+    color: #202124;
+    font-family: 'SFProRounded';
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    padding-top: 0%;
+    text-align: center;
+}
+
+.login_form_form {
+    box-sizing: inherit;
+    display: flex;
+    font-size: 1em;
+    white-space: normal;
+    width: 85%;
+    height: 45%;
+    margin-left: 7.5%;
+    margin-top: 2%;
+    color: #202124;
+    font-family: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
+    color-scheme: light;
+    /* background-color: #202124; */
+}
+
+.login_form_form_email {
+    position: relative;
+    border-radius: 4px;
+    color: #202124;
+    z-index: 1;
+    flex-shrink: 1;
+    background-color: transparent;
+    border: none;
+    display: block;
+    line-height: 30px;
+    width: 400px;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #dadce0;
+    font-size: .85em;
+    font-family: 'SFProRounded';
+    margin-top: 20px;
+}
+
+.login_form_form_email::placeholder {
+    position: relative;
+    color: #767679;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    padding-top: 0%;
+    text-align: left;
+    padding: 10px;
+}
+
+#login_form_form_password {
+    border-radius: 4px;
+    z-index: 1;
+    flex-shrink: 1;
+    background-color: transparent;
+    border: none;
+    display: block;
+    line-height: 30px;
+    width: 400px;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border: 1px solid #dadce0;
+    font-size: .85em;
+    font-family: 'SFProRounded';
+    margin-top: 20px;
+}
+
+#login_form_form_password::placeholder {
+    position: relative;
+    color: #767679;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    padding-top: 0%;
+    text-align: left;
+    padding: 10px;
+}
+
+.checkbox_show_password {
+    position: relative;
+    margin-top: 35px;
+    margin-left: -380px;
+}
+
+.bottom_checkbox_show_password {
+    position: absolute;
+    margin-top: 31px;
+    margin-left: 20px;
+    color: #555557;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+}
+
+.register_account {
+    position: absolute;
+    color: #1a73e8;
+    font-family: 'SFProRounded';
+    font-size: .875rem;
+    letter-spacing: .0107142857em;
+    font-weight: 500;
+    text-transform: none;
+    margin-top: 95px;
+    margin-left: -10px;
+    text-decoration: none;
+}
+
+.forgot_password {
+    position: absolute;
+    color: #1a73e8;
+    font-family: 'SFProRounded';
+    font-size: .75rem;
+    letter-spacing: .0107142857em;
+    font-weight: 500;
+    text-transform: none;
+    margin-top: 2px;
+    margin-left: -5px;
+    text-decoration: none;
+}
+
+input[type=submit] {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: hidden;
+    z-index: 4;
+    max-width: 100px!important;
+    min-width: 100px!important;
+    max-height: 36px!important;
+    min-height: 36px!important;
+    margin-top: 6.5%;
+    margin-left: 62.5%;
+    background-color: #ffffff;
+    border-radius: 4px;
+    text-align: center;
+    border: none;
+    background-color: #1a73e8;
+    color: #ffffff;
+    padding: 9px 25px;
+    text-decoration: none;
+    font-size: .85em;
+}
+
+.submit_button:hover {
+    background-color: #1664c9;
+    cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 1em;
+    font-family: 'SFProRounded';
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

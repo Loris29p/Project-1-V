@@ -409,17 +409,21 @@ if (account_top_right != null) {
 }
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
-    if (!account_top_right.contains(event.target) && !navbar_dropdown_account.contains(event.target)) {
-        navbar_dropdown_account.style.display = 'none';
+    if (account_top_right != null) {
+        if (!account_top_right.contains(event.target) && !navbar_dropdown_account.contains(event.target)) {
+            navbar_dropdown_account.style.display = 'none';
+        }
     }
 
-    if (!navbar_dropdown_infos_elements.contains(event.target)) {
-        if (vpc_info != null) {
-            if (!vpc_info.contains(event.target)) {
+    if (navbar_dropdown_infos_elements != null) {
+        if (!navbar_dropdown_infos_elements.contains(event.target)) {
+            if (vpc_info != null) {
+                if (!vpc_info.contains(event.target)) {
+                    navbar_dropdown_infos_elements.style.display = 'none';
+                }
+            } else {
                 navbar_dropdown_infos_elements.style.display = 'none';
             }
-        } else {
-            navbar_dropdown_infos_elements.style.display = 'none';
         }
     }
 });
