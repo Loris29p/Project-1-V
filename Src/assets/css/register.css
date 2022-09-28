@@ -335,15 +335,21 @@ input[type=submit] {
     border-radius: 4px;
     text-align: center;
     border: none;
-    background-color: #1a73e8;
+    background-color: rgb(117, 162, 221);
     color: #ffffff;
     padding: 9px 25px;
     text-decoration: none;
     font-size: .85em;
+    transition: .2s;
+    box-shadow: 0 6px 0 #1664c9;
+}
+
+input[type=submit]:active {
+    transform: translateY(5px);
+    box-shadow: 0 5px 0 #1664c9;
 }
 
 .submit_button:hover {
-    background-color: #1664c9;
     cursor: pointer;
 }
 
@@ -354,4 +360,14 @@ input[type=submit] {
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+input:invalid {
+    animation: shake .3s;
+}
+
+@keyframes shake {
+    25% { transform: translateX(1.5%) }
+    50% { transform: translateX(-1.5%) }
+    75% { transform: translateX(1.5%) }
 }

@@ -3,6 +3,10 @@
     require_once('./Src/Controller/SGBD/sgbd.php');
     require_once('./Config/Config.php');
 
+    // https://www.youtube.com/c/CodeWithHossein
+    // https://www.patreon.com/m/4446452/posts
+    // https://colorcodes.io/
+
     session_start();
 
     $vpcArray = constant("VPC_ARRAY");
@@ -12,9 +16,9 @@
     $vpnArray = constant("VPN_ARRAY");
 
     $data_type_cloud = [
-        ["name"=> "Aws", "img"=>"1280px-Amazon_Web_Services_Logo.png"],
-        ["name"=> "Azure", "img"=>"Microsoft-Azure.png"],
-        ["name"=> "GCP", "img"=>"Google-cloud-platform.png"],
+        ["name"=> "Aws", "img"=>"aws.png"],
+        ["name"=> "Azure", "img"=>"azure.png"],
+        ["name"=> "GCP", "img"=>"gcp.png"],
     ];
 
     $accounts = [
@@ -51,7 +55,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="./node_modules/jquery/dist/jquery.js"></script>
-        <link rel="stylesheet" href="./Src/assets/css/schema_vpc.css">
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
         <link rel="stylesheet" href="./Src/assets/css/main.css"> 
@@ -60,7 +63,6 @@
     </head>
 
     <body>
-
         <header>
 
             <div class="navbar_top_right">
@@ -80,9 +82,15 @@
                     if (isset($_SESSION['id'])) {
                         ?>
                         <nav class="navbar2">
-                            <a id="icon-menu">
-                                <i class="fad fa-bars"></i>
-                            </a>
+                            <?php
+                            if (isset($_GET["account"])) {
+                                ?>
+                                <a id="icon-menu">
+                                    <i class="fad fa-bars"></i>
+                                </a>
+                                <?php
+                            }
+                            ?>
                             <div class="navbar2-ul">
                                 <ul>
                                     <?php 
@@ -457,7 +465,7 @@
                             if (isset($_SESSION['id'])) {
                                 ?>
                                 <div class="account_details_dropdown_img">
-                                    <img src="./Src/assets/img/img_avatar.png" alt="Avatar">
+                                    <i class="fad fa-user-circle"></i>
                                 </div>
                                 <div class="first_last_name_dropdown">Loris Poilly</div>
                                 <div class="mail_dropdown">loris.poilly@veolia.com</div>
@@ -465,6 +473,15 @@
                                     <a href="./account_parameters.php" class="manage_account_dropdown_a">
                                         Gérer votre compte
                                     </a>
+                                    <?php 
+                                    if ($_SESSION['role'] == "system_admin") {
+                                        ?>
+                                        <a href="./admin.php" class="manage_account_dropdown_a">
+                                            Administration
+                                        </a>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                                 <div class="logout_dropdown">
                                     <a href="./logout.php" class="logout_dropdown_a">
@@ -477,7 +494,7 @@
                             } else {
                                 ?>
                                 <div class="account_details_dropdown_img" style="opacity: 0.3;">
-                                    <img src="./Src/assets/img/img_avatar.png" alt="Avatar">
+                                    <i class="fad fa-user-circle"></i>
                                 </div>
                                 <div class="first_last_name_dropdown" style="opacity: 0.3;">----- -----</div>
                                 <div class="mail_dropdown" style="opacity: 0.3;">-------------------------</div>
@@ -588,19 +605,23 @@
                 <?php
             } elseif (isset($_SESSION['id']) && !isset($_GET['account']) && !isset($_GET['vpc']) && !isset($_GET['transit_gateway'])) {
                 ?>
-                <div class="encadre_type_cloud">
-                    <p>Veuillez sélectionner l'environnement cloud à utiliser:</p>
-                    <?php 
+                    <div class="show_accounts_main_page">
+                    <?php
                     foreach ($data_type_cloud as $key => $value) {
                         ?>
-                        <a class="encadre_type_cloud_div" href="./index.php?cloud=<?php echo $value['name']; ?>">
-                            <h2><?php echo $value['name']; ?></h2>
-                            <img src="./Src/assets/img/<?php echo $value['img']; ?>"/>
-                        </a>
+                        <div class="show_accounts_main_page_card">
+                            <a href="./index.php?cloud=<?php echo $value['name']; ?>">
+                                <div class="show_accounts_main_page_card_image">
+                                    <img src="./Src/assets/img/account/<?php echo $value['img']; ?>" alt="<?php echo $value['name']; ?>"/>
+                                </div>
+                            </a>
+                        </div>  
                         <?php
                     }
                     ?>
-                </div>
+                    </div>
+                    <?php
+                ?>
                 <?php
             }
             ?>

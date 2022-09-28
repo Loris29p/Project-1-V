@@ -460,7 +460,7 @@
                             if (isset($_SESSION['id'])) {
                                 ?>
                                 <div class="account_details_dropdown_img">
-                                    <img src="./Src/assets/img/img_avatar.png" alt="Avatar">
+                                    <i class="fad fa-user-circle"></i>
                                 </div>
                                 <div class="first_last_name_dropdown">Loris Poilly</div>
                                 <div class="mail_dropdown">loris.poilly@veolia.com</div>
@@ -480,7 +480,7 @@
                             } else {
                                 ?>
                                 <div class="account_details_dropdown_img" style="opacity: 0.3;">
-                                    <img src="./Src/assets/img/img_avatar.png" alt="Avatar">
+                                    <i class="fad fa-user-circle"></i>
                                 </div>
                                 <div class="first_last_name_dropdown" style="opacity: 0.3;">----- -----</div>
                                 <div class="mail_dropdown" style="opacity: 0.3;">-------------------------</div>

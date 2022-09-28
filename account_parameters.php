@@ -54,7 +54,7 @@
                             if (isset($_SESSION['id'])) {
                                 ?>
                                 <div class="account_details_dropdown_img">
-                                    <img src="./Src/assets/img/img_avatar.png" alt="Avatar">
+                                    <i class="fad fa-user-circle"></i>
                                 </div>
                                 <div class="first_last_name_dropdown"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name']; ?></div>
                                 <div class="mail_dropdown"><?php echo $_SESSION['email']; ?></div>
@@ -74,7 +74,7 @@
                             } else {
                                 ?>
                                 <div class="account_details_dropdown_img" style="opacity: 0.3;">
-                                    <img src="./Src/assets/img/img_avatar.png" alt="Avatar">
+                                    <i class="fad fa-user-circle"></i>
                                 </div>
                                 <div class="first_last_name_dropdown" style="opacity: 0.3;">----- -----</div>
                                 <div class="mail_dropdown" style="opacity: 0.3;">-------------------------</div>
@@ -125,45 +125,22 @@
         ?>
 
         <main>
-            <div class="centerxenter">
-            <div class="container-xl px-4 mt-4">
-                <div class="row">
-                    <div class="col-xl-4">
-                        <div class="card mb-4 mb-xl-0">
-                            <div class="card-header">Photo de profil</div>
-                            <div class="card-body text-center">
-                                <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                                <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                                <button class="btn btn-primary" type="button">Valider</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-8">
-                        <div class="card mb-4">
-                            <div class="card-header">Informations générales</div>
-                            <div class="card-body">
-                                <form action="./Src/Controller/User/Changeinfo.php" method="POST">
-                                    <div class="row gx-3 mb-3">
-                                        <div class="col-md-6">
-                                            <label class="small mb-1" for="first_name">Prénom</label>
-                                            <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Prénom">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="small mb-1" for="last_name">Nom</label>
-                                            <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Nom">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="small mb-1" for="email">Adresse e-mail</label>
-                                        <input class="form-control" id="email" name="email" type="email" placeholder="Adresse e-mail">
-                                    </div>
-                                    <button class="btn btn-primary" type="submit">Valider les changements</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+            <div class="account_parameters_form">
+                <h1>Modifier votre compte</h1>
+
+                <div class="account_parameters_form_form">
+                    <form action="./Src/Controller/User/Changeinfo.php" method="POST">
+                        <input class="account_parameters_form_form_firstname" type="text" autocomplete="off" spellcheck="false" tabindex="0" aria-label="Prénom" name="first_name" autocapitalize="sentences" id="first_name" pattern="[A-Za-z]*" placeholder="<?php echo $_SESSION['first_name']; ?>"/>
+                        <input class="account_parameters_form_form_lastname" type="text" autocomplete="off" spellcheck="false" tabindex="0" aria-label="Nom" name="last_name" autocapitalize="sentences" id="last_name" pattern="[A-Za-z]*" placeholder="<?php echo $_SESSION['last_name']; ?>"/>
+
+                        <input class="account_parameters_form_form_email" type="email" autocomplete="off" spellcheck="false" tabindex="0" aria-label="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocapitalize="sentences" id="email" placeholder="<?php echo $_SESSION['email']; ?>"/>
+                        <a class="bottom_account_parameters_form_form_email">Vous pouvez utiliser des lettres, des chiffres et des points</a>
+
+                        <input class="submit_button" type="submit" value="Suivant"> 
+                    </form>
                 </div>
-            </div>
+
+                <img class="account_parameters_img_right" src="./Src/assets/img/account.svg">
             </div>
         </main>
         

@@ -941,17 +941,18 @@
 
 .account_details_dropdown_img {
     display: flex;
+    width: 80px;
     height: 80px;
     margin-bottom: 16px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     text-align: center;
-    width: 80px;
 }
 
-.account_details_dropdown_img img {
-    border-radius: 50%;
+.account_details_dropdown_img i {
+    font-size: 5em;
+    color: #5f6368;
 }
 
 .first_last_name_dropdown {
@@ -1776,4 +1777,59 @@
     color: #5f6368;
     margin-left: 10px;
     margin-top: 8px;
+}
+
+.show_accounts_main_page {
+    display: flex;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.show_accounts_main_page_card {
+    width: min-content;
+    padding: 1%;
+    margin: 0 1%;
+    background: #fff;
+    border-radius: 2%;
+    box-shadow: 0 0 2% rgba(0, 0, 0, .04);
+    transition: .4s ease;
+}
+
+.show_accounts_main_page_card:hover {
+    transform: scale(1.05);
+}
+
+.show_accounts_main_page_card .show_accounts_main_page_card_image {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 0 1%;
+    text-align: center;
+    background: linear-gradient(
+        45deg, #ffffff, #eaf1fb
+    );
+    background-size: 400%;
+    animation: gradient 5s infinite;
+    border-radius: 2%;
+}
+
+.show_accounts_main_page_card .show_accounts_main_page_card_image img {
+    width: 100%;
+    transition: .4s ease;
+}
+
+.show_accounts_main_page_card:hover .show_accounts_main_page_card_image img {
+    transform: scale(1.02) rotate(-3deg) translateX(-2%);
+}
+
+@keyframes gradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }

@@ -12,13 +12,12 @@
 
         if ($password == $password_verif) {
             $password = password_hash($password, PASSWORD_DEFAULT);
-            $picture = "default.png";
             $role = "user";
     
             if ($user->AccountExists($email)) {
                 header("Location: ../../../register_form.php?error=account_exists");
             } else {
-                $user->Register($first_name, $last_name, $email, $password, $picture, $role);
+                $user->Register($first_name, $last_name, $email, $password, $role);
                 header("Location: ../../../login_form.php?error=account_created");
             }
         } else {
