@@ -17,20 +17,14 @@
         <link rel="stylesheet" href="./Src/assets/css/account_parameters.css"> 
         <script src="./Src/assets/script/config.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     </head>
 
     <body>
-        
-        <main>
-            <div class="parent_account_parameters">
-                <div class="child_account_parameters">
-                    <h1>Informations générales</h1>
-                </div>
-            </div>
-        </main>
 
         <header>
-
             <div class="navbar_top_right">
                 <div id="account_top_right">
                     <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
@@ -62,8 +56,8 @@
                                 <div class="account_details_dropdown_img">
                                     <img src="./Src/assets/img/img_avatar.png" alt="Avatar">
                                 </div>
-                                <div class="first_last_name_dropdown">Loris Poilly</div>
-                                <div class="mail_dropdown">loris.poilly@veolia.com</div>
+                                <div class="first_last_name_dropdown"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name']; ?></div>
+                                <div class="mail_dropdown"><?php echo $_SESSION['email']; ?></div>
                                 <div>
                                     <a href="./account_parameters.php" class="manage_account_dropdown_a">
                                         Gérer votre compte
@@ -122,5 +116,56 @@
             </div>
         </header>
 
+        <?php 
+            if (isset($_GET['error'])) {
+                if ($_GET['error'] == "emptyfields") {
+                    echo '<p class="error">Remplissez au minimum un champ</p>';
+                }
+            }
+        ?>
+
+        <main>
+            <div class="centerxenter">
+            <div class="container-xl px-4 mt-4">
+                <div class="row">
+                    <div class="col-xl-4">
+                        <div class="card mb-4 mb-xl-0">
+                            <div class="card-header">Photo de profil</div>
+                            <div class="card-body text-center">
+                                <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                                <button class="btn btn-primary" type="button">Valider</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8">
+                        <div class="card mb-4">
+                            <div class="card-header">Informations générales</div>
+                            <div class="card-body">
+                                <form action="./Src/Controller/User/Changeinfo.php" method="POST">
+                                    <div class="row gx-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="first_name">Prénom</label>
+                                            <input class="form-control" id="first_name" name="first_name" type="text" placeholder="Prénom">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="last_name">Nom</label>
+                                            <input class="form-control" id="last_name" name="last_name" type="text" placeholder="Nom">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="small mb-1" for="email">Adresse e-mail</label>
+                                        <input class="form-control" id="email" name="email" type="email" placeholder="Adresse e-mail">
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Valider les changements</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </main>
+        
         <script src="./Src/assets/script/main.js"></script>
     </body>

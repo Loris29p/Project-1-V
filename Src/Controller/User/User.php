@@ -212,4 +212,25 @@
                 return "invalid_token";
             }
         }
+
+        public function changeFirstName($id, $first_name) {
+            $query = "UPDATE users SET first_name = '$first_name' WHERE id = $id";
+            $result = $this->sgbd->insert($query);
+            $_SESSION['first_name'] = $first_name;
+            return $result;
+        }
+
+        public function changeLastName($id, $last_name) {
+            $query = "UPDATE users SET last_name = '$last_name' WHERE id = $id";
+            $result = $this->sgbd->insert($query);
+            $_SESSION['last_name'] = $last_name;
+            return $result;
+        }
+
+        public function changeEmail($id, $email) {
+            $query = "UPDATE users SET email = '$email' WHERE id = $id";
+            $result = $this->sgbd->insert($query);
+            $_SESSION['email'] = $email;
+            return $result;
+        }
     }
