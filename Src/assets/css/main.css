@@ -33,6 +33,11 @@ body {
 }
 
 @font-face {
+    font-family: 'SFPro';
+    src: url("../fonts/SF-Pro.ttf");
+}
+
+@font-face {
     font-family: 'SFProRounded';
     src: url("../fonts/FontsFree-Net-SF-Pro-Rounded-Regular.ttf");
 }

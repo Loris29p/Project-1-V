@@ -63,7 +63,7 @@
 {
 	color: #fff;
 }
-.navigation ul li a .icon i 
+.navigation ul li a .icon i
 {
 	font-size: 1.5em;
 }
@@ -163,57 +163,71 @@
 	background: #CCA8E0;
 }
 
-.bubbles_placement 
-{
-    position: absolute;
-	display: flex;
+main {
+	position: absolute;
+	width: 93%;
+	margin-top: 4%;
+	margin-left: 5%;
+
+	text-align: center;
 	justify-content: center;
 	align-items: center;
-    height: 100%;
-    width: 100%;
-	background: #f0f0f0;
+
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
 }
-.container 
-{
-	position: relative;
+
+
+#main_page {
+	width: 99.8%;
+	height: 100%;
+	background-color: #eaf1fb;
+	border-radius: 15px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+	margin: 3% 0;
+	margin-left: 0.1%;
+}
+
+#main_page h1 {
+	font-size: 3em;
+	color: #3c4043;
+	font-weight: 400;
+	font-family: 'SFPro';
+}
+
+#main_page .img_h1 {
+	width: 5%;
+	height: 5%;
+	margin-top: -2.5%;
+	margin-left: 20%;
+}
+
+#main_page .img_center {
+	width: 80%;
+	height: 80%;
+	margin-top: 5%;
+}
+
+#second_page {
+	width: 99.8%;
+	height: 900px;
+	background-color: #eaf1fb;
+	border-radius: 15px;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+	margin: 3% 0;
+	margin-left: 0.1%;
+}
+
+#second_page h1 {
+	font-size: 3em;
+	color: #3c4043;
+	font-weight: 400;
+	font-family: 'SFPro';
+}
+
+#second_page .table_users {
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
-}
-.bubbles 
-{
-	position: relative;
-	display: flex;
-}
-.bubbles span 
-{
-	position: relative;
-	min-width: 50px;
-	height: 50px;
-	background: #BF5250;
-	box-shadow: 0 0 0 10px #E66360,
-	0 0 50px #BF5250,
-	0 0 100px #BF5250;
-	margin: 0 4px;
-	border-radius: 50%;
-	animation: animatebubbles 15s linear infinite;
-	animation-duration: calc(200s / var(--i));
-}
-.bubbles span:nth-child(even) 
-{
-	background: #F89975;
-	box-shadow: 0 0 0 10px #F2DFC7,
-	0 0 50px #F89975,
-	0 0 100px #F89975;
-}
-@keyframes animatebubbles
-{
-	0% 
-	{
-		transform: translateY(100vh) scale(0);
-	}
-	100% 
-	{
-		transform: translateY(-10vh) scale(1);
-	}
+	margin-top: 5%;
 }

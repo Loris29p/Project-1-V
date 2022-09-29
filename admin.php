@@ -1,5 +1,9 @@
 <?php 
+    require_once("./Src/Controller/User/User.php");
     session_start();
+
+    $user_admin = new User();
+    $users = $user_admin->getAllUsers();
 ?>
 
 <html>
@@ -18,52 +22,6 @@
     </head>
 
     <body>
-        <div class="bubbles_placement">
-            <div class="container">
-                <div class="bubbles">
-                    <span style="--i:11"></span>
-                    <span style="--i:12"></span>
-                    <span style="--i:24"></span>
-                    <span style="--i:10"></span>
-                    <span style="--i:14"></span>
-                    <span style="--i:23"></span>
-                    <span style="--i:18"></span>
-                    <span style="--i:16"></span>
-                    <span style="--i:19"></span>
-                    <span style="--i:20"></span>
-                    <span style="--i:22"></span>
-                    <span style="--i:25"></span>
-                    <span style="--i:18"></span>
-                    <span style="--i:21"></span>
-                    <span style="--i:13"></span>
-                    <span style="--i:15"></span>
-                    <span style="--i:26"></span>
-                    <span style="--i:17"></span>
-                    <span style="--i:13"></span>
-                    <span style="--i:28"></span>
-                    <span style="--i:11"></span>
-                    <span style="--i:12"></span>
-                    <span style="--i:24"></span>
-                    <span style="--i:10"></span>
-                    <span style="--i:14"></span>
-                    <span style="--i:23"></span>
-                    <span style="--i:18"></span>
-                    <span style="--i:16"></span>
-                    <span style="--i:19"></span>
-                    <span style="--i:20"></span>
-                    <span style="--i:22"></span>
-                    <span style="--i:25"></span>
-                    <span style="--i:18"></span>
-                    <span style="--i:21"></span>
-                    <span style="--i:13"></span>
-                    <span style="--i:15"></span>
-                    <span style="--i:26"></span>
-                    <span style="--i:17"></span>
-                    <span style="--i:13"></span>
-                    <span style="--i:28"></span>
-                </div>
-            </div>
-        </div>
 
         <header>
             <div class="navbar_top_right">
@@ -85,7 +43,7 @@
             <div class="navigation">
                 <ul>
                     <li class="list active" data-color="#85A1F2">
-                        <a href="#">
+                        <a href="#main_page">
                             <span class="icon">
                                 <i class="fad fa-lock"></i>
                             </span>
@@ -93,7 +51,7 @@
                         </a>
                     </li>
                     <li class="list" data-color="#BF5250">
-                        <a href="#">
+                        <a href="#second_page">
                             <span class="icon"><i class="fad fa-users-cog"></i></span>
                             <span class="title">Utilisateurs</span>
                         </a>
@@ -121,6 +79,53 @@
             </div>
         </div>
     </body>
+
+    <main>
+        <div id="main_page">
+            <h1>Administration</h1>
+            <img class="img_h1" src="./Src/assets/img/symbols/hand.raised.square.on.square.fill.svg">
+            <img class="img_center" src="./Src/assets/img/symbols/lock.icloud.fill.svg">
+        </div>
+        <div id="second_page">
+            <h1>Utilisateurs</h1>
+
+            <div class="table_users">
+            <?php 
+                foreach ($users as $user) {
+                    ?>
+                    <table class="table_users_struct">
+                        <tr>
+                            <th>ID</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Mail</th>
+                            <th>Role</th>
+                            <th>Date de création</th>
+                            <th>Dernière modifications</th>
+                            <th>Vérifier</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tr>
+                            <td><?php echo $user['id']; ?></td>
+                            <td><?php echo $user['first_name']; ?></td>
+                            <td><?php echo $user['last_name']; ?></td>
+                            <td><?php echo $user['email']; ?></td>
+                            <td><?php echo $user['role']; ?></td>
+                            <td><?php echo $user['created_at']; ?></td>
+                            <td><?php echo $user['modified_at']; ?></td>
+                            <td><?php echo $user['verified']; ?></td>
+                            <td>
+                                <i class="fad fa-edit"></i>
+                                <i class="fad fa-trash-alt"></i>
+                            </td>
+                        </tr>
+                    </table>
+                    <?php
+                }
+            ?>
+            </div>
+        </div>
+    </main>
 
 	<script>
 		let list = document.querySelectorAll('li');

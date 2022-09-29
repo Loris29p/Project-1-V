@@ -1,10 +1,12 @@
 <?php 
-    require_once("../SGBD/sgbd.php");
+    // require_once("../SGBD/sgbd.php");
+    require_once(__DIR__  . "../../../../Src/Controller/SGBD/sgbd.php");
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-    require '../../../vendor/autoload.php';
+    // require '../../../vendor/autoload.php';
+    require __DIR__  . "../../../../vendor/autoload.php";
 
     class User {
         private $id;
@@ -19,7 +21,7 @@
             $this->sgbd = new SGBD();
         }
         
-        public function getAll() {
+        public function getAllUsers() {
             $query = "SELECT * FROM users";
             $result = $this->sgbd->getWithParameters($query);
             return $result;
@@ -214,21 +216,21 @@
         }
 
         public function changeFirstName($id, $first_name) {
-            $query = "UPDATE users SET first_name = '$first_name' WHERE id = $id";
+            $query = "UPDATE users SET first_name = '$first_name', modified_at = NOW() WHERE id = $id";
             $result = $this->sgbd->insert($query);
             $_SESSION['first_name'] = $first_name;
             return $result;
         }
 
         public function changeLastName($id, $last_name) {
-            $query = "UPDATE users SET last_name = '$last_name' WHERE id = $id";
+            $query = "UPDATE users SET last_name = '$last_name', modified_at = NOW() WHERE id = $id";
             $result = $this->sgbd->insert($query);
             $_SESSION['last_name'] = $last_name;
             return $result;
         }
 
         public function changeEmail($id, $email) {
-            $query = "UPDATE users SET email = '$email' WHERE id = $id";
+            $query = "UPDATE users SET email = '$email', modified_at = NOW() WHERE id = $id";
             $result = $this->sgbd->insert($query);
             $_SESSION['email'] = $email;
             return $result;
