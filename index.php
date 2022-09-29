@@ -1,6 +1,6 @@
 <?php
     require_once('./Src/Model/functions.php');
-    require_once('./Src/Controller/SGBD/sgbd.php');
+    require_once('./Src/Controller/SGBD/SGBD.class.php');
     require_once('./Config/Config.php');
 
     // https://www.youtube.com/c/CodeWithHossein
@@ -14,12 +14,6 @@
     $subnetsArray = constant("NETWORK_ARRAY");
     $routeTablesArray = constant("ROUTE_TABLES_ARRAY");
     $vpnArray = constant("VPN_ARRAY");
-
-    $data_type_cloud = [
-        ["name"=> "Aws", "img"=>"aws.png"],
-        ["name"=> "Azure", "img"=>"azure.png"],
-        ["name"=> "GCP", "img"=>"gcp.png"],
-    ];
 
     $accounts = [
         ["name"=> "VESA PROD"],
@@ -59,7 +53,7 @@
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
         <link rel="stylesheet" href="./Src/assets/css/main.css"> 
-        <script src="./Src/assets/script/config.js"></script>
+        <script src="./Src/assets/scripts/config.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
 
@@ -68,7 +62,7 @@
 
             <div class="navbar_top_right">
                 <div id="account_top_right">
-                    <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
+                    <img src="./Src/assets/img/companies/<?php echo constant("IMG_COMPANY"); ?>" alt=""/>
                     <i class="fad fa-user-circle"></i>
                 </div>
                 <a href=javascript:history.go(-1) class="icon_come_back">
@@ -559,7 +553,7 @@
                                     <p><?php echo GetInfosOfVPC($_GET['vpc'])['cidr']; ?></p>
                                 </a>
                                 <div id="schema_vpc"></div>
-                                <script src="./Src/assets/script/schema_vpc.js"></script>
+                                <script src="./Src/assets/scripts/schema_vpc.js"></script>
                                 <div>
                                     <script>
                                         Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>, null, <?php echo "'" .$_GET['account'] . "'"; ?>, <?php echo "'" .$_GET['cloud'] . "'" ?>);
@@ -578,7 +572,7 @@
                         AWS Cloud
                     </a>
                     <div id="schema_vpc"></div>
-                    <script src="./Src/assets/script/schema_vpc.js"></script>
+                    <script src="./Src/assets/scripts/schema_vpc.js"></script>
                     <div>
                         <script>
                             Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>, true);
@@ -595,7 +589,7 @@
                             AWS Cloud
                         </a>
                         <div id="schema_vpc"></div>
-                        <script src="./Src/assets/script/schema_vpc.js"></script>
+                        <script src="./Src/assets/scripts/schema_vpc.js"></script>
                         <div>
                             <script>
                                 Construct(<?php echo json_encode($vpcArray); ?>, <?php echo json_encode($transitGatewayArray); ?>, null, <?php echo "'" .$_GET['account'] . "'"; ?>, <?php echo "'" .$_GET['cloud'] . "'" ?>);
@@ -629,5 +623,5 @@
         </main>
 
 
-        <script src="./Src/assets/script/main.js"></script>
+        <script src="./Src/assets/scripts/main.js"></script>
     </body>

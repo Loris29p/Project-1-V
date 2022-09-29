@@ -1,6 +1,8 @@
 <?php 
-    require_once('Src/Controller/Read/Read.php');
-    require_once('Src/Controller/SGBD/sgbd.php');
+    // require_once('Src/Controller/Read/Read.php');
+    require_once(__DIR__  . "../../../../Src/Controller/Read/Read.php");
+    // require_once('Src/Controller/SGBD/SGBD.class.php');
+    require_once(__DIR__  . "../../../../Src/Controller/SGBD/SGBD.class.php");
 
     class Network {
         private $network_array;

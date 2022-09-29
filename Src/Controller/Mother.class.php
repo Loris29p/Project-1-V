@@ -1,18 +1,32 @@
 <?php 
-    require_once('Src/Model/functions.php');
-    require_once('Src/Controller/Type/vpc.php');
-    require_once('Src/Controller/Type/route_tables.php');
-    require_once('Src/Controller/Type/network.php');
-    require_once('Src/Controller/Type/vpc_network.php');
-    require_once('Src/Controller/Type/private_gateway.php');
-    require_once('Src/Controller/Type/peering_connections.php');
-    require_once('Src/Controller/Type/transit_gateway.php');
-    require_once('Src/Controller/Type/transit_gateway_attachments.php');
-    require_once('Src/Controller/Type/nat_gateway.php');
-    require_once('Src/Controller/Type/internet_gateways.php');
-    require_once('Src/Controller/Type/endpoints.php');
-    require_once('Src/Controller/Type/vpn.php');
-    require_once('Src/Controller/SGBD/sgbd.php');
+    // require_once('Src/Model/functions.php');
+    require_once(__DIR__  . "../../Model/functions.php");
+    // require_once('Src/Controller/Type/vpc.php');
+    require_once(__DIR__  . "../../Controller/Type/vpc.php");
+    // require_once('Src/Controller/Type/route_tables.php');
+    require_once(__DIR__  . "../../Controller/Type/route_tables.php");
+    // require_once('Src/Controller/Type/network.php');
+    require_once(__DIR__  . "../../Controller/Type/network.php");
+    // require_once('Src/Controller/Type/vpc_network.php');
+    require_once(__DIR__  . "../../Controller/Type/vpc_network.php");
+    // require_once('Src/Controller/Type/private_gateway.php');
+    require_once(__DIR__  . "../../Controller/Type/private_gateway.php");
+    // require_once('Src/Controller/Type/peering_connections.php');
+    require_once(__DIR__  . "../../Controller/Type/peering_connections.php");
+    // require_once('Src/Controller/Type/transit_gateway.php');
+    require_once(__DIR__ . "../../Controller/Type/transit_gateway.php");
+    // require_once('Src/Controller/Type/transit_gateway_attachments.php');
+    require_once(__DIR__ . "../../Controller/Type/transit_gateway_attachments.php");
+    // require_once('Src/Controller/Type/nat_gateway.php');
+    require_once(__DIR__ . "../../Controller/Type/nat_gateway.php");
+    // require_once('Src/Controller/Type/internet_gateways.php');
+    require_once(__DIR__ . "../../Controller/Type/internet_gateways.php");
+    // require_once('Src/Controller/Type/endpoints.php');
+    require_once(__DIR__ . "../../Controller/Type/endpoints.php");
+    // require_once('Src/Controller/Type/vpn.php');
+    require_once(__DIR__ . "../../Controller/Type/vpn.php");
+    // require_once('Src/Controller/SGBD/SGBD.class.php');
+    require_once(__DIR__ . "../../Controller/SGBD/SGBD.class.php");
 
     Class Mother {
         private VPC $vpc;
@@ -30,7 +44,7 @@
         private VPN $vpn;
 
         public function __construct() {
-            $this->sgbd = new SGBD();
+            $this->sgbd = new SGBD("localhost", "root", "root", "projectv");
             $this->vpc = new VPC($this->sgbd);
             $this->route_tables = new Route_Tables($this->sgbd);
             $this->network = new Network($this->sgbd);

@@ -1,6 +1,6 @@
 <?php
     require_once('./Src/Model/functions.php');
-    require_once('./Src/Controller/SGBD/sgbd.php');
+    require_once('./Src/Controller/SGBD/SGBD.class.php');
     require_once('./Config/Config.php');
     require_once('./Src/Controller/Informations/Informations.class.php');
 
@@ -44,7 +44,7 @@
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
         <link rel="stylesheet" href="./Src/assets/css/main.css"> 
         <link rel="stylesheet" href="./Src/assets/css/informations.css"> 
-        <script src="./Src/assets/script/config.js"></script>
+        <script src="./Src/assets/scripts/config.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
 
@@ -80,7 +80,7 @@
 
             <div class="navbar_top_right">
                 <div id="account_top_right">
-                    <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
+                    <img src="./Src/assets/img/companies/<?php echo constant("IMG_COMPANY"); ?>" alt=""/>
                     <i class="fad fa-user-circle"></i>
                 </div>
                 <a href=javascript:history.go(-1) class="icon_come_back">
@@ -522,5 +522,5 @@
             </div>
         </header>
 
-        <script src="./Src/assets/script/main.js"></script>
+        <script src="./Src/assets/scripts/main.js"></script>
     </body>

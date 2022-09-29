@@ -1,6 +1,6 @@
 <?php
     require_once('./Src/Model/functions.php');
-    require_once('./Src/Controller/SGBD/sgbd.php');
+    require_once('./Src/Controller/SGBD/SGBD.class.php');
     require_once('./Config/Config.php');
 
     session_start();
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
         <link rel="stylesheet" href="./Src/assets/css/main.css"> 
         <link rel="stylesheet" href="./Src/assets/css/account_parameters.css"> 
-        <script src="./Src/assets/script/config.js"></script>
+        <script src="./Src/assets/scripts/config.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
         <header>
             <div class="navbar_top_right">
                 <div id="account_top_right">
-                    <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
+                    <img src="./Src/assets/img/companies/<?php echo constant("IMG_COMPANY"); ?>" alt=""/>
                     <i class="fad fa-user-circle"></i>
                 </div>
                 <a href=javascript:history.go(-1) class="icon_come_back">
@@ -140,9 +140,9 @@
                     </form>
                 </div>
 
-                <img class="account_parameters_img_right" src="./Src/assets/img/account.svg">
+                <img class="account_parameters_img_right" src="./Src/assets/img/google/account.svg">
             </div>
         </main>
         
-        <script src="./Src/assets/script/main.js"></script>
+        <script src="./Src/assets/scripts/main.js"></script>
     </body>

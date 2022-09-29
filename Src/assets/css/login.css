@@ -155,7 +155,7 @@
     letter-spacing: .0107142857em;
     font-weight: 500;
     text-transform: none;
-    margin-top: 95px;
+    margin-top: 37.5%;
     margin-left: -10px;
     text-decoration: none;
 }
@@ -184,7 +184,7 @@ input[type=submit] {
     min-width: 100px!important;
     max-height: 36px!important;
     min-height: 36px!important;
-    margin-top: 6.5%;
+    margin-top: 25%;
     margin-left: 62.5%;
     background-color: #ffffff;
     border-radius: 4px;
@@ -225,4 +225,10 @@ input:invalid {
     25% { transform: translateX(1.5%) }
     50% { transform: translateX(-1.5%) }
     75% { transform: translateX(1.5%) }
+}
+
+
+.captcha {
+    position: absolute;
+    margin-top: 5%;
 }

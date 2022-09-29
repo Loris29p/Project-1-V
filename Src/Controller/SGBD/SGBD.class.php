@@ -7,11 +7,11 @@
         private $database;
         private $db;
 
-        public function __construct() {
-            $this->host = "localhost";
-            $this->user = "root";
-            $this->password = "root";
-            $this->database = "projectv";
+        public function __construct($host, $user, $password, $database) {
+            $this->host = $host;
+            $this->user = $user;
+            $this->password = $password;
+            $this->database = $database;
 
             $this->db = new mysqli($this->host, $this->user, $this->password, $this->database);
             if ($this->db->connect_errno) {

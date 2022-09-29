@@ -1,5 +1,6 @@
 <?php
-    require_once("../User/User.php");
+    // require_once("../User/User.class.php");
+    require_once(__DIR__  . "../../../../Src/Controller/User/User.class.php");
     session_start();
 
     $user = new User();

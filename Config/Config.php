@@ -1,5 +1,5 @@
 <?php 
-    require_once('./Src/Controller/Mother.php');
+    require_once('./Src/Controller/Mother.class.php');
 
     $mother = new Mother();
     $vpcArray = $mother->GetAllType()['vpc'];
@@ -27,3 +27,13 @@
     define("VPC_NETWORK_ARRAY", $vpcNetworkArray);
     define("NETWORK_ARRAY", $networkArray);
     define("ROUTE_TABLES_ARRAY", $routeTablesArray);
+
+    define("IMG_COMPANY", "veolia.png");
+
+    $data_type_cloud = [
+        ["name"=> "Aws", "img"=>"aws.png", "has_data"=>false],
+        ["name"=> "Azure", "img"=>"azure.png", "has_data"=>false],
+        ["name"=> "GCP", "img"=>"gcp.png", "has_data"=>false],
+    ];
+
+    define("DATA_TYPE_CLOUD", $data_type_cloud);

@@ -1,5 +1,6 @@
 <?php 
-    require_once("./Src/Controller/User/User.php");
+    require_once("./Src/Controller/User/User.class.php");
+    require_once('./Config/Config.php');
     session_start();
 
     $user_admin = new User();
@@ -16,7 +17,7 @@
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
         <link rel="stylesheet" href="./Src/assets/css/main.css"> 
-        <script src="./Src/assets/script/config.js"></script>
+        <script src="./Src/assets/scripts/config.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
@@ -26,7 +27,7 @@
         <header>
             <div class="navbar_top_right">
                 <div id="account_top_right">
-                    <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
+                    <img src="./Src/assets/img/companies/<?php echo constant("IMG_COMPANY"); ?>" alt=""/>
                     <i class="fad fa-user-circle"></i>
                 </div>
                 <a href=javascript:history.go(-1) class="icon_come_back">
@@ -115,13 +116,13 @@
                                 <div class="col col-7" data-label="Dernière modifications"><?php echo $user['modified_at']; ?></div>
                                 <div class="col col-8" data-label="Vérifier"><?php echo $user['verified']; ?></div>
                                 <div class="col col-9" data-label="Actions">
-                                    <a class="actions_user" href="./Src/Controller/User/Delete.php?id=<?php echo $user['id']; ?>">
-                                        <span class="title">Supprimer</span>
-                                        <img src="./Src/assets/img/symbols/person.crop.circle.fill.badge.minus.svg" alt="Supprimer">
-                                    </a>
                                     <a class="actions_user" href="./Src/Controller/User/Verify.php?id_user=<?php echo $user['id']; ?>">
                                         <span class="title">Vérifier</span>
                                         <img src="./Src/assets/img/symbols/person.crop.circle.fill.badge.checkmark.svg" alt="Vérifier">
+                                    </a>
+                                    <a class="actions_user" href="./Src/Controller/User/Delete.php?id=<?php echo $user['id']; ?>">
+                                        <span class="title">Supprimer</span>
+                                        <img src="./Src/assets/img/symbols/person.crop.circle.fill.badge.minus.svg" alt="Supprimer">
                                     </a>
                                 </div>
                             </li>
@@ -150,5 +151,5 @@
             }
 		}
 	</script> -->
-    <script src="./Src/assets/script/main.js"></script>
+    <script src="./Src/assets/scripts/main.js"></script>
 </html>

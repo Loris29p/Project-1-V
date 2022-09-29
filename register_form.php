@@ -1,3 +1,7 @@
+<?php 
+    require_once('./Config/Config.php');
+?>
+
 <html>
     <head>
         <title>AWS</title>
@@ -9,6 +13,7 @@
         <link rel="stylesheet" href="./Src/assets/css/register.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
 
     <body>
@@ -21,14 +26,16 @@
                     echo '<p class="error">Mot de passe incorrect</p>';
                 } else if ($_GET['error'] == "account_exists") {
                     echo '<p class="error">Compte déjà existant</p>';
+                } else if ($_GET['error'] == "recaptcha") {
+                    echo '<p class="error">Veuillez cocher la case "Je ne suis pas un robot"</p>';
                 }
             }
         ?>
 
-<header>
+        <header>
             <div class="navbar_top_right">
                 <div id="account_top_right">
-                    <img src="./Src/assets/img/RGB_VEOLIA_HD.png" alt=""/>
+                    <img src="./Src/assets/img/companies/<?php echo constant("IMG_COMPANY"); ?>" alt=""/>
                     <i class="fad fa-user-circle"></i>
                 </div>
                 <a href=javascript:history.go(-1) class="icon_come_back">
@@ -136,12 +143,16 @@
                         <input class="checkbox_show_password" type="checkbox" onclick="ChangeTypePassword()">
                         <a class="bottom_checkbox_show_password">Afficher le mot de passe</a>
 
+                        <div class="captcha">
+                            <div class="g-recaptcha" data-sitekey="6LdZ9j4iAAAAAPxZA4ejAStxNGoRWcw_S-b1uGDI"></div>
+                        </div>
+
                         <a href="./login_form.php" class="connect_exist_account">Se connecter à un compte existant</a>
                         <input class="submit_button" type="submit" value="Suivant"> 
                     </form>
                 </div>
 
-                <img class="register_img_right" src="./Src/assets/img/account.svg">
+                <img class="register_img_right" src="./Src/assets/img/google/account.svg">
             </div>
         </main>
 
@@ -158,5 +169,5 @@
                 }
             }
         </script>
-        <script src="./Src/assets/script/main.js"></script>
+        <script src="./Src/assets/scripts/main.js"></script>
     </body>

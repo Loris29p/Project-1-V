@@ -325,7 +325,7 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                             var node = {
                                 key: item2[1]['id'],
                                 text: item2[1]['name'],
-                                source: "Src/assets/img/Res_Amazon-Route-53_Route-Table_48_Light.png",
+                                source: "Src/assets/img/aws/Res_Amazon-Route-53_Route-Table_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nId: " + item2[1]['id'] + "\nDestination: " + item2[1]['detination'] + "\nPrivate Gateway: " + item2[1]['private_gateway'] + "\nPropagé: " + item2[1]['propagated'] + "\nStatus" + item2[1]['status'] + "\nCible: " + item2[1]['target'],
                                 data: item2[1],
                                 loc: "0 150",
@@ -347,7 +347,7 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                             var node = {
                                 key: item2[1]['endpoint_id'],
                                 text: item2[1]['endpoint_id'],
-                                source: "Src/assets/img/Res_Amazon-VPC_Endpoints_48_Light.png",
+                                source: "Src/assets/img/aws/Res_Amazon-VPC_Endpoints_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nEndpoint Id: " + item2[1]['endpoint_id'] + "\nVpc Id:" + item2[1]['vpc_id'] + "\nNom du service: " + item2[1]['service_name'] + "\nType: " + item2[1]['endoint_type'] + "\nNetwork Interfaces: " + item2[1]['network_interfaces'] + "\nTable de routage: " + item2[1]['route_tables'] + "\nSubnets: " + item2[1]['subnets'],
                                 data: item2[1],
                                 loc: "0 200",
@@ -391,7 +391,7 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                             var node = {
                                 key: item2[1]['internet_gateway_id'],
                                 text: item2[1]['name'],
-                                source: "Src/assets/img/Res_Amazon-VPC_Internet-Gateway_48_Light.png",
+                                source: "Src/assets/img/aws/Res_Amazon-VPC_Internet-Gateway_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nId: " + item2[1]['internet_gateway_id'] + "\nOwner: " + item2[1]['owner'] + "\nStatus: " + item2[1]['state'] + "\nVpc Id: " + item2[1]['vpc_id'],
                                 data: item2[1],
                                 loc: "0 50",
@@ -413,7 +413,7 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                             var node = {
                                 key: item2[1]['nat_gateway_id'],
                                 text: item2[1]['nat_gateway_id'],
-                                source: "Src/assets/img/Res_Amazon-VPC_NAT-Gateway_48_Light.png",
+                                source: "Src/assets/img/aws/Res_Amazon-VPC_NAT-Gateway_48_Light.png",
                                 description: "Nom: " + item2[1]['name'] + "\nNat Gateway Id: " + item2[1]['nat_gateway_id'] + "\nConnectivity Type: " + item2[1]['connectivity_type'] + "\nCreated: " + item2[1]['created'] + "\nDeleted: " + item2[1]['deleted'] + "\nElastic Ip Adress: " + item2[1]['elastic_ip_address'] + "\nNetwork Interface Id: " + item2[1]['network_interface_id'] + "\nPrivate Ip Adresse: " + item2[1]['private_ip_address'] + "\nStatus: " + item2[1]['state'] + "\nMessage Status: " + item2[1]['state_message'] + "\nSubnet: " + item2[1]['subnet'] + "\nVPC: " + item2[1]['vpc'],
                                 data: item2[1],
                                 loc: "0 300",
@@ -486,7 +486,7 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                                     var node = {
                                         key: item2[1]['network_id'],
                                         text: item2[1]['network_id'] + " - " + item2[1]['zone_disponibility'],
-                                        source: "Src/assets/img/Res_Amazon-VPC_NAT-Gateway_48_Light.png",
+                                        source: "Src/assets/img/aws/Res_Amazon-VPC_NAT-Gateway_48_Light.png",
                                         description: "Nom: " + item2[1]['name'] + "\nNetwork Id: " + item2[1]['network_id'] + "\nVpc Id: " + item2[1]['vpc_id'] + "\nCIDR IPV4: " + item2[1]['cidr_ipv4'] + "\nIPV4 Available: " + item2[1]['ipv4_available'] + "\nAcl Network: " + item2[1]['acl_network'] + "\nAuto Private IPV4: " + item2[1]['auto_ipv4_private'] + "\nAuto Public IPV4: " + item2[1]['auto_ipv4_public'] + "\nDefault Subnet: " + item2[1]['default_subnet'] + "\nTable de Routage" + item2[1]['table_routage'] + "\nZone Disponibilité: " + item2[1]['zone_disponibility'] + "\nZone Disponibilité Id: " + item2[1]['zone_disponibility_id'],
                                         data: item2[1],
                                         loc: loc,
@@ -515,7 +515,7 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
                     var node = {
                         key: element[0],
                         text: element[0],
-                        source: "Src/assets/img/Arch_AWS-Transit-Gateway_64@5x.png",
+                        source: "Src/assets/img/aws/Arch_AWS-Transit-Gateway_64@5x.png",
                         description: "Nom: " + element2['name'] + "\nTransit Gateway Attachments Id" + element2['transit_gateway_attachment_ID'] + "\nTransit Gateway Id" + element2['transit_gateway_ID'] + "\nId Table Routage Associé: " + element2['association_route_table_ID'] + "\nStatus Associé: " + element2['association_state'] + "\nResource ID: " + element2['resource_ID'] + "\nResource Type: " + element2['resource_type'] + "\nStatus: " + element2['state'],
                         data: element2,
                         loc: "0 100",
@@ -531,7 +531,7 @@ function ConstructFirstPartVPCId(vpc_id, account, cloud) {
     var node = {
         key: "internet",
         text: "internet",
-        source: "Src/assets/img/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
+        source: "Src/assets/img/aws/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
         loc: "0 0",
     }
     nodeDataArray.push(node)
@@ -596,7 +596,7 @@ function ConstructFirstPartTransitGatewayId(transit_gateway_id) {
                             var node = {
                                 key: item2[1]['transit_gateway_attachment_ID'],
                                 text: item2[1]['name'],
-                                source: "Src/assets/img/Arch_AWS-Transit-Gateway_64@5x.png",
+                                source: "Src/assets/img/aws/Arch_AWS-Transit-Gateway_64@5x.png",
                                 description: "Nom: " + item2[1]['name'] + "\nTransit Gateway Attachments Id" + item2[1]['transit_gateway_attachment_ID'] + "\nTransit Gateway Id" + item2[1]['transit_gateway_ID'] + "\nId Table Routage Associé: " + item2[1]['association_route_table_ID'] + "\nStatus Associé: " + item2[1]['association_state'] + "\nResource ID: " + item2[1]['resource_ID'] + "\nResource Type: " + item2[1]['resource_type'] + "\nStatus: " + item2[1]['state'],
                                 data: item2[1],
                                 url: "./informations.php?&account="+account+"&cloud="+cloud+"&type=TRANSIT_GATEWAY_ATTACHMENT_ARRAY&id="+item2[1]['transit_gateway_attachment_ID'],
@@ -624,7 +624,7 @@ function Construct(vpc, transit_gateway, home_page, account, cloud) {
                     var node = {
                         key: item['vpc_id'],
                         text: item['vpc'],
-                        source: "Src/assets/img/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
+                        source: "Src/assets/img/aws/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
                         description: "Souscription: " + item['souscription'] + "\nVPC: " + item['vpc'] + "\nVPC ID:" + item['vpc_id'] + "\nRegion: " + item['region'] + "\nCIDR: " + item['cidr'] + "\nACL: " + item['id_acl'] + "\nTable de routage: " + item['id_table_routage'],
                         data: item,
                         url: "./informations.php?account="+account+"&cloud="+cloud+"&type=VPC_ARRAY&id="+item['vpc_id'],
@@ -644,7 +644,7 @@ function Construct(vpc, transit_gateway, home_page, account, cloud) {
                     var node = {
                         key: item['gateway'],
                         text: item['gateway'],
-                        source: "Src/assets/img/Arch_AWS-Transit-Gateway_64@5x.png",
+                        source: "Src/assets/img/aws/Arch_AWS-Transit-Gateway_64@5x.png",
                         description: "Nom: " + item['name'] + "\nGateway: " + item['gateway'] + "\nOwner" + item['owner'] + "\nStatus: " + item['state'],
                         data: item,
                         url: "./informations.php?account="+account+"&cloud="+cloud+"&type=TRANSIT_GATEWAY_ARRAY&id="+item['gateway'],
