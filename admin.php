@@ -42,7 +42,7 @@
         <div class="navigation_size">
             <div class="navigation">
                 <ul>
-                    <li class="list active" data-color="#85A1F2">
+                    <li class="list" data-color="#85A1F2">
                         <a href="#main_page">
                             <span class="icon">
                                 <i class="fad fa-lock"></i>
@@ -56,7 +56,7 @@
                             <span class="title">Utilisateurs</span>
                         </a>
                     </li>
-                    <li class="list" data-color="#F7DA63">
+                    <!-- <li class="list" data-color="#F7DA63">
                         <a href="#">
                             <span class="icon"><i class="fa-solid fa-message"></i></span>
                             <span class="title">Message</span>
@@ -73,7 +73,7 @@
                             <span class="icon"><i class="fa-solid fa-gear"></i></span>
                             <span class="title">Settings</span>
                         </a>
-                    </li>
+                    </li> -->
                     <div class="indicator"></div>
                 </ul>
             </div>
@@ -88,56 +88,67 @@
         </div>
         <div id="second_page">
             <h1>Utilisateurs</h1>
-
+            <img class="img_h1" src="./Src/assets/img/symbols/person.2.badge.gearshape.fill.svg">
             <div class="table_users">
-            <?php 
-                foreach ($users as $user) {
+                <ul class="responsive-table">
+                    <li class="table-header">
+                        <div class="col col-1">ID</div>
+                        <div class="col col-2">Prénom</div>
+                        <div class="col col-3">Nom</div>
+                        <div class="col col-4">Mail</div>
+                        <div class="col col-5">Role</div>
+                        <div class="col col-6">Date de création</div>
+                        <div class="col col-7">Dernière modifications</div>
+                        <div class="col col-8">Vérifier</div>
+                        <div class="col col-9">Actions</div>
+                    </li>
+                    <?php 
+                        foreach ($users as $user) {
+                            ?>
+                             <li class="table-row">
+                                <div class="col col-1" data-label="ID"><?php echo $user['id']; ?></div>
+                                <div class="col col-2" data-label="Prénom"><?php echo $user['first_name']; ?></div>
+                                <div class="col col-3" data-label="Nom"><?php echo $user['last_name']; ?></div>
+                                <div class="col col-4" data-label="Mail"><?php echo $user['email']; ?></div>
+                                <div class="col col-5" data-label="Role"><?php echo $user['role']; ?></div>
+                                <div class="col col-6" data-label="Date de création"><?php echo $user['created_at']; ?></div>
+                                <div class="col col-7" data-label="Dernière modifications"><?php echo $user['modified_at']; ?></div>
+                                <div class="col col-8" data-label="Vérifier"><?php echo $user['verified']; ?></div>
+                                <div class="col col-9" data-label="Actions">
+                                    <a class="actions_user" href="./Src/Controller/User/Delete.php?id=<?php echo $user['id']; ?>">
+                                        <span class="title">Supprimer</span>
+                                        <img src="./Src/assets/img/symbols/person.crop.circle.fill.badge.minus.svg" alt="Supprimer">
+                                    </a>
+                                    <a class="actions_user" href="./Src/Controller/User/Verify.php?id_user=<?php echo $user['id']; ?>">
+                                        <span class="title">Vérifier</span>
+                                        <img src="./Src/assets/img/symbols/person.crop.circle.fill.badge.checkmark.svg" alt="Vérifier">
+                                    </a>
+                                </div>
+                            </li>
+                            <?php
+                        }
                     ?>
-                    <table class="table_users_struct">
-                        <tr>
-                            <th>ID</th>
-                            <th>Prénom</th>
-                            <th>Nom</th>
-                            <th>Mail</th>
-                            <th>Role</th>
-                            <th>Date de création</th>
-                            <th>Dernière modifications</th>
-                            <th>Vérifier</th>
-                            <th>Actions</th>
-                        </tr>
-                        <tr>
-                            <td><?php echo $user['id']; ?></td>
-                            <td><?php echo $user['first_name']; ?></td>
-                            <td><?php echo $user['last_name']; ?></td>
-                            <td><?php echo $user['email']; ?></td>
-                            <td><?php echo $user['role']; ?></td>
-                            <td><?php echo $user['created_at']; ?></td>
-                            <td><?php echo $user['modified_at']; ?></td>
-                            <td><?php echo $user['verified']; ?></td>
-                            <td>
-                                <i class="fad fa-edit"></i>
-                                <i class="fad fa-trash-alt"></i>
-                            </td>
-                        </tr>
-                    </table>
-                    <?php
-                }
-            ?>
+                </ul>
             </div>
         </div>
     </main>
 
-	<script>
+	<!-- <script>
 		let list = document.querySelectorAll('li');
 		for (let i=0; i<list.length; i++){
-			list[i].onmouseover = function(){
-				let j = 0;
-				while (j < list.length){
-					list[j++].className = 'list';
-				}
-				list[i].className = 'list active';
-			}
+            // console.log(list[i].className)
+            if (list[i].className == "list active" || list[i].className == "list") {
+                console.log(list[i].className)
+                list[i].onmouseover = function(){
+                    let j = 0;
+                    while (j < list.length){
+                        list[j++].className = 'list';
+                    }
+                    console.log(list[i].className, "onmouseover")
+                    list[i].className = 'list active';
+                }
+            }
 		}
-	</script>
+	</script> -->
     <script src="./Src/assets/script/main.js"></script>
 </html>

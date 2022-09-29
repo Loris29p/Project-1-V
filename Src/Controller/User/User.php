@@ -215,6 +215,11 @@
             }
         }
 
+        public function verifyById($id) {
+            $query = "UPDATE users SET verified = 1 WHERE id = $id";
+            $this->sgbd->insert($query);
+        }
+
         public function changeFirstName($id, $first_name) {
             $query = "UPDATE users SET first_name = '$first_name', modified_at = NOW() WHERE id = $id";
             $result = $this->sgbd->insert($query);
@@ -233,6 +238,12 @@
             $query = "UPDATE users SET email = '$email', modified_at = NOW() WHERE id = $id";
             $result = $this->sgbd->insert($query);
             $_SESSION['email'] = $email;
+            return $result;
+        }
+
+        public function deleteUser($id) {
+            $query = "DELETE FROM users WHERE id = $id";
+            $result = $this->sgbd->insert($query);
             return $result;
         }
     }
