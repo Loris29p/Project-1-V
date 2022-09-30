@@ -16,6 +16,7 @@
 }
 
 .login_form h1 {
+    position: relative;
     color: #202124;
     padding-bottom: 0;
     padding-top: 3%;
@@ -33,6 +34,7 @@
 }
 
 .login_form span {
+    position: relative;
     color: #202124;
     font-family: 'SFProRounded';
     font-size: 1em;
@@ -65,7 +67,7 @@
     color: #202124;
     z-index: 1;
     flex-shrink: 1;
-    background-color: transparent;
+    background-color: #C9C4CF;
     border: none;
     display: block;
     line-height: 30px;
@@ -75,7 +77,7 @@
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
-    border: 1px solid #dadce0;
+    /* border: 1px solid #dadce0; */
     font-size: .85em;
     font-family: 'SFProRounded';
     margin-top: 20px;
@@ -96,10 +98,11 @@
 }
 
 #login_form_form_password {
+    position: relative;
     border-radius: 4px;
     z-index: 1;
     flex-shrink: 1;
-    background-color: transparent;
+    background-color: #C9C4CF;
     border: none;
     display: block;
     line-height: 30px;
@@ -109,7 +112,7 @@
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
-    border: 1px solid #dadce0;
+    /* border: 1px solid #dadce0; */
     font-size: .85em;
     font-family: 'SFProRounded';
     margin-top: 20px;
@@ -129,15 +132,131 @@
     padding: 10px;
 }
 
-.checkbox_show_password {
+.form-group-checkbox {
+    width: 65%;
+    height: 20%;
+    margin-top: 8%;
+    align-items: left;
+    text-align: left;
+    justify-content: left;
+    padding: 5px 5px 5px 0;
+    background-color: aqua;
+}
+
+.checkbox_show_password input[type="checkbox"] {
+    display: none;
+}
+.checkbox_show_password input[type="checkbox"] + label {
+    display: block;
     position: relative;
-    margin-top: 35px;
-    margin-left: -380px;
+    width: 2.5em;
+    height: 1.1em;
+    margin-bottom: 20px;
+    background: #C9C4CF;
+    border-radius: 0.2em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox_show_password label span {
+    position: absolute;
+    text-align: left;
+    width: 200px;
+    margin-left: 60px;
+    margin-top: -2px;
+    color: #202124;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+}
+
+.checkbox_show_password input[type="checkbox"] + label:before {
+    content: "";
+    display: block;
+    width: .7em;
+    height: .7em;
+    border-radius: 0.2em;
+    background: #4F4F4B;
+    position: absolute;
+    left: 0.2em;
+    top: 0.2em;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.checkbox_show_password input[type="checkbox"]:checked + label:before {
+    background: #716282;
+    left: 1.6em;
+}
+
+
+.checkbox_system input[type="checkbox"] {
+    display: none;
+}
+.checkbox_system input[type="checkbox"] + label {
+    display: block;
+    position: relative;
+    width: 2.5em;
+    height: 1.1em;
+    margin-bottom: 20px;
+    background: #C9C4CF;
+    border-radius: 0.2em;
+    cursor: pointer;
+    user-select: none;
+}
+.checkbox_system label span {
+    position: absolute;
+    text-align: left;
+    width: 200px;
+    margin-left: 60px;
+    margin-top: -2px;
+    color: #202124;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+}
+.checkbox_system input[type="checkbox"] + label:before {
+    content: "";
+    display: block;
+    width: .7em;
+    height: .7em;
+    border-radius: 0.2em;
+    background: #4F4F4B;
+    position: absolute;
+    left: 0.2em;
+    top: 0.2em;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.checkbox_system input[type="checkbox"]:checked + label:before {
+    background: #716282;
+    left: 1.6em;
 }
 
 .bottom_checkbox_show_password {
+    /* position: absolute; */
+    /* margin-top: 31px; */
+    margin-left: 20px;
+    color: #555557;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+}
+
+.checkbox_system {
+    /* position: absolute;
+    margin-top: 35px;
+    margin-left: -15px; */
+}
+
+.bottom_checkbox_system {
     position: absolute;
-    margin-top: 31px;
+    /* margin-top: 31px; */
     margin-left: 20px;
     color: #555557;
     font-family: 'SFProRounded';
@@ -149,29 +268,30 @@
 
 .register_account {
     position: absolute;
-    color: #1a73e8;
+    color: #202124;
     font-family: 'SFProRounded';
     font-size: .875rem;
     letter-spacing: .0107142857em;
     font-weight: 500;
     text-transform: none;
-    margin-top: 37.5%;
-    margin-left: -10px;
+    margin-top: 17.5%;
+    margin-left: -200px;
     text-decoration: none;
 }
 
 .forgot_password {
     position: absolute;
-    color: #1a73e8;
+    color: #202124;
     font-family: 'SFProRounded';
     font-size: .75rem;
     letter-spacing: .0107142857em;
     font-weight: 500;
     text-transform: none;
-    margin-top: 2px;
-    margin-left: -5px;
+    margin-top: 5px;
+    margin-left: -200px;
     text-decoration: none;
 }
+
 
 input[type=submit] {
     position: absolute;
@@ -184,24 +304,23 @@ input[type=submit] {
     min-width: 100px!important;
     max-height: 36px!important;
     min-height: 36px!important;
-    margin-top: 25%;
+    margin-top: 15%;
     margin-left: 62.5%;
-    background-color: #ffffff;
     border-radius: 4px;
     text-align: center;
     border: none;
-    background-color: rgb(117, 162, 221);
+    background-color: #C9C4CF;
     color: #ffffff;
     padding: 9px 25px;
     text-decoration: none;
     font-size: .85em;
     transition: .2s;
-    box-shadow: 0 6px 0 #1664c9;
+    box-shadow: 0 6px 0 #716282;
 }
 
 input[type=submit]:active {
     transform: translateY(5px);
-    box-shadow: 0 5px 0 #1664c9;
+    box-shadow: 0 5px 0 #716282;
 }
 
 .submit_button:hover {
@@ -230,5 +349,5 @@ input:invalid {
 
 .captcha {
     position: absolute;
-    margin-top: 5%;
+    margin-top: 1%;
 }

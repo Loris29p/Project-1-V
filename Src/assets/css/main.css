@@ -3,6 +3,11 @@
     src: url("../fonts/coolvetica rg it.otf");
 }
 
+:root {
+    --color-light-purple: #C9C4CF;
+    --color-purple: #716282;
+}
+
 ::after,
 ::before {
     box-sizing: border-box;
@@ -141,6 +146,7 @@ body {
     width: 1800px;
     height: 920px;
     display: block;
+    border-radius: 10px;
 }
 
 .zone_name {
@@ -150,6 +156,7 @@ body {
     left: 1%;
     width: 98%;
     height: 95%;
+    border-radius: 10px;
 }
 
 #vpc_info {
@@ -159,6 +166,7 @@ body {
     left: 1%;
     width: 98%;
     height: 95%;
+    border-radius: 10px;
 }
 
 #vpc_show_aws i {

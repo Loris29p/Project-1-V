@@ -18,7 +18,7 @@
         private $sgbd;
 
         public function __construct() {
-            $this->sgbd = new SGBD("localhost", "root", "root", "projectv");
+            $this->sgbd = new SGBD("localhost", "root", "", "projectv");
         }
         
         public function getAllUsers() {
@@ -82,8 +82,9 @@
         }
 
         public function AccountExists($email) {
+            $sgbd_sytem = new SGBD("localhost", "root", "", "projectv_system");
             $query = "SELECT * FROM users WHERE email = '$email'";
-            $result = $this->sgbd->get($query);
+            $result = $sgbd_sytem->get($query);
             if (count($result) > 0) {
                 return true;
             } else {

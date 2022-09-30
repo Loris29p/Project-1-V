@@ -17,7 +17,7 @@
 	position: relative;
 	width: 70px;
 	height: 350px;
-	background: #eaf1fb;
+	background: var(--color-light-purple);
 	border-radius: 15px;
 	box-shadow: 0 15px 25px rgba(0,0,0,0.1);
 }
@@ -168,13 +168,16 @@ main::-webkit-scrollbar {
 
 
 #main_page {
-	width: 99.8%;
-	height: 100%;
-	background-color: #eaf1fb;
+	width: 95%;
+	height: 95%;
+	background-color: #c9c4cfbd;
+	-webkit-box-shadow: 0 4px 11.5px 3.5px #858585;
+	-moz-box-shadow: 0 4px 11.5px 3.5px #858585;
+	box-shadow: 0 4px 11.5px 3.5px #858585;
 	border-radius: 15px;
-	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 	margin: 3% 0;
-	margin-left: 0.1%;
+	margin-left: 4%;
+	margin-top: 2%;
 }
 
 #main_page h1 {
@@ -185,10 +188,10 @@ main::-webkit-scrollbar {
 }
 
 #main_page .img_h1 {
-	width: 5%;
-	height: 5%;
-	margin-top: -2.5%;
-	margin-left: 20%;
+	width: 50px;
+	height: 50px;
+	margin-top: -2.75%;
+	margin-left: 21%;
 }
 
 #main_page .img_center {
@@ -208,9 +211,9 @@ main::-webkit-scrollbar {
 }
 
 #second_page .img_h1 {
-	width: 5%;
-	height: 5%;
-	margin-top: -2.75%;
+	width: 60px;
+	height: 50px;
+	margin-top: -3%;
 	margin-left: 17%;
 }
 

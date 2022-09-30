@@ -13,16 +13,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="./node_modules/jquery/dist/jquery.js"></script>
+        <link rel="stylesheet" href="./Src/assets/css/main.css"> 
         <link rel="stylesheet" href="./Src/assets/css/admin.css">
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
+        <link rel="stylesheet" href="./Src/assets/css/background_animated.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
-        <link rel="stylesheet" href="./Src/assets/css/main.css"> 
         <script src="./Src/assets/scripts/config.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
     <body>
+
+        <div class="area" >
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
 
         <header>
             <div class="navbar_top_right">
@@ -85,7 +101,7 @@
         <div id="main_page">
             <h1>Administration</h1>
             <img class="img_h1" src="./Src/assets/img/symbols/hand.raised.square.on.square.fill.svg">
-            <img class="img_center" src="./Src/assets/img/symbols/lock.icloud.fill.svg">
+            <!-- <img class="img_center" src="./Src/assets/img/symbols/lock.icloud.fill.svg"> -->
         </div>
         <div id="second_page">
             <h1>Utilisateurs</h1>

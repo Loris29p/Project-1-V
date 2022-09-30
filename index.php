@@ -7,6 +7,9 @@
     // https://www.patreon.com/m/4446452/posts
     // https://colorcodes.io/
 
+    // Jointure entre deux bdd (base de données) différentes
+    // "SELECT COUNT(mabase.membres.id) AS nombre FROM mabase.membres WHERE mabase.membres.active = 0"
+
     session_start();
 
     $vpcArray = constant("VPC_ARRAY");
@@ -52,12 +55,28 @@
         <link rel="stylesheet" href="./Src/assets/css/schema_vpc.css">
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
-        <link rel="stylesheet" href="./Src/assets/css/main.css"> 
+        <link rel="stylesheet" href="./Src/assets/css/main.css">
+        <link rel="stylesheet" href="./Src/assets/css/background_animated.css"> 
         <script src="./Src/assets/scripts/config.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     </head>
 
     <body>
+        
+        <div class="area" >
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
         <header>
 
             <div class="navbar_top_right">
@@ -74,7 +93,7 @@
             </div>
             <div class="big_navbar">
                 <?php 
-                    if (isset($_SESSION['id'])) {
+                    if (isset($_SESSION['id']) && isset($_GET["cloud"])) {
                         ?>
                         <nav class="navbar2">
                             <?php
@@ -602,7 +621,7 @@
                 ?>
                     <div class="show_accounts_main_page">
                     <?php
-                    foreach ($data_type_cloud as $key => $value) {
+                    foreach (constant("DATA_TYPE_CLOUD") as $key => $value) {
                         ?>
                         <div class="show_accounts_main_page_card">
                             <a href="./index.php?cloud=<?php echo $value['name']; ?>">

@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="./Src/assets/css/navbar.css">
         <link rel="stylesheet" href="./Src/assets/css/main.css"> 
         <link rel="stylesheet" href="./Src/assets/css/login.css">
+        <link rel="stylesheet" href="./Src/assets/css/background_animated.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -136,23 +137,49 @@
 
         <main>
             <div class="login_form">
-                <h1>Connexion</h1>
-                <span>Utiliser votre compte Veolia</span>
+                
+                <div class="area" >
+                    <ul class="circles">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+
+                <h1>Connexion à ProjectV</h1>
+                <!-- <span>Utiliser votre compte</span> -->
 
                 <div class="login_form_form">
                     <form action="./Src/Controller/User/Login.php" method="POST">
                         <input class="login_form_form_email" type="email" autocomplete="off" spellcheck="false" tabindex="0" aria-label="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocapitalize="sentences" id="email" placeholder="Adresse e-mail"/>
 
                         <input id="login_form_form_password" type="password" autocomplete="off" spellcheck="false" tabindex="0" aria-label="Motdepasse1" name="password" autocapitalize="sentences" id="password" placeholder="Saisissez votre mot de passe"/>
-                        <input class="checkbox_show_password" type="checkbox" onclick="ChangeTypePassword()">
-                        <a class="bottom_checkbox_show_password">Afficher le mot de passe</a>
+                        <a href="./index.php" class="forgot_password">Mot de passe oublié ?</a>
+                        
+                        
+                        <div class="form-group-checkbox">
+                            <div class="checkbox_show_password">
+                                <input type="checkbox" id="checkbox_show_password" name="check" onclick="ChangeTypePassword()">
+                                <label for="checkbox_show_password"><span>Afficher le mot de passe</span></label>
+                            </div>
+                            <!-- <div class="checkbox_system">
+                                <input type="checkbox" id="checkbox_system" name="check">
+                                <label for="checkbox_system"><span>Système</span></label>
+                            </div> -->
+                        </div>
 
                         <div class="captcha">
                             <div class="g-recaptcha" data-sitekey="6LdZ9j4iAAAAAPxZA4ejAStxNGoRWcw_S-b1uGDI"></div>
                         </div>
 
                         <a href="./register_form.php" class="register_account">Créer un compte</a>
-                        <a href="./index.php" class="forgot_password">Mot de passe oublié ?</a>
                         <input class="submit_button" type="submit" value="Suivant"> 
                     </form>
                 </div>
