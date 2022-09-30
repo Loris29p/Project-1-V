@@ -409,7 +409,7 @@ if (account_top_right != null) {
 }
 
 document.addEventListener('click', function handleClickOutsideBox(event) {
-    if (account_top_right != null) {
+    if (account_top_right != null && navbar_dropdown_account != null) {
         if (!account_top_right.contains(event.target) && !navbar_dropdown_account.contains(event.target)) {
             navbar_dropdown_account.style.display = 'none';
         }

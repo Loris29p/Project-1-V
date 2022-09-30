@@ -169,10 +169,6 @@
                                 <input type="checkbox" id="checkbox_show_password" name="check" onclick="ChangeTypePassword()">
                                 <label for="checkbox_show_password"><span>Afficher le mot de passe</span></label>
                             </div>
-                            <!-- <div class="checkbox_system">
-                                <input type="checkbox" id="checkbox_system" name="check">
-                                <label for="checkbox_system"><span>Système</span></label>
-                            </div> -->
                         </div>
 
                         <div class="captcha">

@@ -346,7 +346,6 @@ input:invalid {
     75% { transform: translateX(1.5%) }
 }
 
-
 .captcha {
     position: absolute;
     margin-top: 1%;
