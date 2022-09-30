@@ -576,3 +576,13 @@ input[type=submit]:active {
     margin-top: 12%;
 	margin-left: 20px;
 }
+
+.img_popup_create_clients_close {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	margin-top: -3.25%;
+	margin-left: 45%;
+	cursor: pointer;
+    border: none;
+}

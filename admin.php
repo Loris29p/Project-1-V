@@ -139,7 +139,7 @@
                 <div class="font-bar">
                     <h1>Clients</h1>
                     <img class="img_h1" src="./Src/assets/img/symbols/text.viewfinder.svg">
-                    <img class="img_popup_create_clients" src="./Src/assets/img/symbols/plus.circle.svg" onclick="OpenPopupCreateClients()">
+                    <img class="img_popup_create_clients" src="./Src/assets/img/symbols/plus.square.svg" onclick="OpenPopupCreateClients()">
                 </div>
                 <div class="table_companies">
                     <ul class="responsive-table">
@@ -174,6 +174,7 @@
         <!-- PopUp Create Clients -->
         <div id="popup_create_clients">
             <h1>Créer un nouveau client</h1>
+            <img class="img_popup_create_clients_close" src="./Src/assets/img/symbols/xmark.square.svg" onclick="OpenPopupCreateClients()">
             <form action="./Src/Controller/Companies/CreateCompany.php" method="POST">
                 <div class="left_part_company">
                     <h1>Entreprise:</h1>
