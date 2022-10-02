@@ -6,13 +6,20 @@
     overflow: hidden;
     z-index: 4;
     width: 25%;
-    height: 45%;
+    height: 55%;
     margin-top: 10%;
     margin-left: 37.5%;
-    background-color: #ffffff;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 20px;
+	background-image: url(../img/backgrounds/blob-scene-haikei.svg);
+	/* -webkit-box-shadow: 0 4px 11.5px 3.5px #716282;
+	-moz-box-shadow: 0 4px 11.5px 3.5px #716282;
+	box-shadow: 5px 5px 20px #716282, -5px -5px 20px #716282; */
+    box-shadow: #716282 0px 2px 8px 0px;
+    /* border-radius: 5px 5px 5px 5px; */
     text-align: center;
-    border: 1px solid #dadce0;
+    /* border: 1px solid #dadce0; */
+    animation: fadeInUpBig;
+    animation-duration: 0.5s; /* don't forget to set a duration! */
 }
 
 .login_form h1 {
@@ -63,7 +70,6 @@
 
 .login_form_form_email {
     position: relative;
-    border-radius: 4px;
     color: #202124;
     z-index: 1;
     flex-shrink: 1;
@@ -73,11 +79,6 @@
     line-height: 30px;
     width: 400px;
     border-radius: 4px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    /* border: 1px solid #dadce0; */
     font-size: .85em;
     font-family: 'SFProRounded';
     margin-top: 20px;
@@ -94,7 +95,6 @@
     padding-bottom: 0;
     padding-top: 0%;
     text-align: left;
-    padding: 10px;
 }
 
 #login_form_form_password {
@@ -129,7 +129,6 @@
     padding-bottom: 0;
     padding-top: 0%;
     text-align: left;
-    padding: 10px;
 }
 
 .form-group-checkbox {
@@ -140,7 +139,7 @@
     text-align: left;
     justify-content: left;
     padding: 5px 5px 5px 0;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
 .checkbox_show_password input[type="checkbox"] {
@@ -162,7 +161,7 @@
     position: absolute;
     text-align: left;
     width: 200px;
-    margin-left: 60px;
+    margin-left: 50px;
     margin-top: -2px;
     color: #202124;
     font-family: 'SFProRounded';
@@ -309,12 +308,12 @@ input[type=submit] {
     text-decoration: none;
     font-size: .85em;
     transition: .2s;
-    box-shadow: 0 6px 0 #716282;
+    box-shadow: 0 6px 0 #9185a0;
 }
 
 input[type=submit]:active {
     transform: translateY(5px);
-    box-shadow: 0 5px 0 #716282;
+    box-shadow: 0 5px 0 #9185a0;
 }
 
 .submit_button:hover {
@@ -322,16 +321,30 @@ input[type=submit]:active {
 }
 
 .error {
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.error p {
     color: red;
     font-size: 1em;
     font-family: 'SFProRounded';
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    text-shadow: 0 0 5px #ffffff,
+                0 0 25px #ffffff,
+                0 0 50px #ffffff,
+                0 0 100px #ffffff;
 }
 
 input:invalid {
     animation: shake .3s;
+}
+
+input {
+    outline: none;
+    padding: 0px 10px 0px;
 }
 
 @keyframes shake {
@@ -342,5 +355,68 @@ input:invalid {
 
 .captcha {
     position: absolute;
-    margin-top: 1%;
+    margin-top: 3%;
+}
+
+.show_all_companies {
+    height: 50%;
+    width: 395px;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    background-color: #C9C4CF;
+    border-radius: 4px;
+    padding: 5px 0px 0px 5px;
+    overflow-y: scroll;
+}
+
+.show_all_companies::-webkit-scrollbar {
+	background: transparent;
+}
+
+.show_all_companies_div input[type="radio"] {
+    display: none;
+}
+.show_all_companies_div input[type="radio"] + label {
+    display: block;
+    position: relative;
+    width: 2.5em;
+    height: 1.1em;
+    margin-bottom: 20px;
+    background: #a29aad;
+    border-radius: 0.2em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.show_all_companies_div label span {
+    position: absolute;
+    text-align: left;
+    width: 200px;
+    margin-left: 50px;
+    margin-top: -2px;
+    color: #202124;
+    font-family: 'SFProRounded';
+    font-size: .85em;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+}
+
+.show_all_companies_div input[type="radio"] + label:before {
+    content: "";
+    display: block;
+    width: .7em;
+    height: .7em;
+    border-radius: 0.2em;
+    background: #4f4f4b63;
+    position: absolute;
+    left: 0.2em;
+    top: 0.2em;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.show_all_companies_div input[type="radio"]:checked + label:before {
+    background: #716282;
+    left: 1.6em;
 }

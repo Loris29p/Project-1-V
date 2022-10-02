@@ -1,5 +1,9 @@
 <?php 
     require_once('./Config/Config.php');
+    require_once('./Src/Controller/Companies/Companies.class.php');
+
+    $companies = new Companies();
+    $companies_list = $companies->getAll();
 ?>
 
 <html>
@@ -14,34 +18,52 @@
         <link rel="stylesheet" href="./Src/assets/css/background_animated.css">
         <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
 
     <body>
 
-        <?php 
-            if (isset($_GET['error'])) {
-                if ($_GET['error'] == "emptyfields") {
-                    echo '<p class="error">Remplissez tous les champs</p>';
-                } else if ($_GET['error'] == "wrongpassword") {
-                    echo '<p class="error">Mot de passe incorrect</p>';
-                } else if ($_GET['error'] == "nouser") {
-                    echo '<p class="error">Utilisateur inexistant</p>';
-                } else if ($_GET['error'] == "account_created") {
-                    echo '<p class="error">Un mail vous a été envoyé avec un code de vérification</p>';
-                } else if ($_GET['error'] == "account_not_verified") {
-                    echo '<p class="error">Le compte n\'a pas été vérifié</p>';
-                } else if ($_GET['error'] == "account_verified") {
-                    echo '<p class="error">Le compte a été vérifié</p>';
-                } else if ($_GET['error'] == "token_expired") {
-                    echo '<p class="error">Le code de vérification a expiré</p>';
-                } else if ($_GET['error'] == "invalid_token") { 
-                    echo '<p class="error">Le code de vérification est invalide</p>';
-                } else if ($_GET['error'] == "recaptcha") {
-                    echo '<p class="error">Veuillez cocher la case "Je ne suis pas un robot"</p>';
+        <div class="area" >
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <div class="error">
+            <?php 
+                if (isset($_GET['error'])) {
+                    if ($_GET['error'] == "emptyfields") {
+                        echo '<p>Remplissez tous les champs</p>';
+                    } else if ($_GET['error'] == "wrongpassword") {
+                        echo '<p>Mot de passe incorrect</p>';
+                    } else if ($_GET['error'] == "nouser") {
+                        echo '<p>Utilisateur inexistant</p>';
+                    } else if ($_GET['error'] == "account_created") {
+                        echo '<p>Un mail vous a été envoyé avec un code de vérification</p>';
+                    } else if ($_GET['error'] == "account_not_verified") {
+                        echo '<p>Le compte n\'a pas été vérifié</p>';
+                    } else if ($_GET['error'] == "account_verified") {
+                        echo '<p>Le compte a été vérifié</p>';
+                    } else if ($_GET['error'] == "token_expired") {
+                        echo '<p>Le code de vérification a expiré</p>';
+                    } else if ($_GET['error'] == "invalid_token") { 
+                        echo '<p>Le code de vérification est invalide</p>';
+                    } else if ($_GET['error'] == "recaptcha") {
+                        echo '<p>Veuillez cocher la case "Je ne suis pas un robot"</p>';
+                    }
                 }
-            }
-        ?>
+            ?>
+        </div>
 
         <header>
             <div class="navbar_top_right">
@@ -137,22 +159,6 @@
 
         <main>
             <div class="login_form">
-                
-                <div class="area" >
-                    <ul class="circles">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-
                 <h1>Connexion à ProjectV</h1>
                 <!-- <span>Utiliser votre compte</span> -->
 
@@ -163,12 +169,24 @@
                         <input id="login_form_form_password" type="password" autocomplete="off" spellcheck="false" tabindex="0" aria-label="Motdepasse1" name="password" autocapitalize="sentences" id="password" placeholder="Saisissez votre mot de passe"/>
                         <a href="./index.php" class="forgot_password">Mot de passe oublié ?</a>
                         
-                        
                         <div class="form-group-checkbox">
                             <div class="checkbox_show_password">
                                 <input type="checkbox" id="checkbox_show_password" name="check" onclick="ChangeTypePassword()">
                                 <label for="checkbox_show_password"><span>Afficher le mot de passe</span></label>
                             </div>
+                        </div>
+
+                        <div class="show_all_companies">
+                            <?php 
+                            foreach($companies_list as $company) {
+                                ?>
+                                <div class="show_all_companies_div">
+                                    <input type="radio" id="<?php echo $company['id']; ?>" name="company" value="<?php echo $company['id']; ?>">
+                                    <label for="<?php echo $company['id']; ?>"><span><?php echo $company['name']; ?></span></label>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </div>
 
                         <div class="captcha">
