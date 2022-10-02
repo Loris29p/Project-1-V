@@ -1,10 +1,14 @@
 <?php 
     require_once("./Src/Controller/User/User.class.php");
+    require_once("./Src/Controller/Companies/Companies.class.php");
     require_once('./Config/Config.php');
     session_start();
 
     $user_admin = new User();
     $users = $user_admin->getAllUsers();
+
+    $companies = new Companies();
+    $companies_all = $companies->getAll();
 ?>
 
 <html>
@@ -26,6 +30,78 @@
     </head>
 
     <body>
+        
+        <?php 
+            if (isset($_GET['error'])) {
+                if ($_GET['error'] == "emptyfields") {
+                    ?>
+                    <script>
+                        alert("Remplissez tous les champs");
+                    </script>
+                    <?php
+                } else if ($_GET['error'] == "logo_already_exists") {
+                    ?>
+                    <script>
+                        alert("Le logo existe déjà");
+                    </script>
+                    <?php
+                } else if ($_GET['error'] == "logo_too_large") {
+                    ?>
+                    <script>
+                        alert("Le logo est trop grand");
+                    </script>
+                    <?php
+                } else if ($_GET['error'] == "sqlerror") {
+                    ?>
+                    <script>
+                        alert("Erreur SQL");
+                    </script>
+                    <?php
+                } else if ($_GET['error'] == "company_already_exists") {
+                    ?>
+                    <script>
+                        alert("La compagnie existe déjà");
+                    </script>
+                    <?php
+                } else if ($_GET['error'] == "logo_not_allowed") {
+                    ?>
+                    <script>
+                        alert("Uniquement les logos de type JPG, JPEG, PNG & GIF sont acceptés");
+                    </script>
+                    <?php
+                } else if ($_GET['error'] == "logo_upload_error") {
+                    ?>
+                    <script>
+                        alert("Erreur lors de l'upload du logo");
+                    </script>
+                    <?php
+                } else if ($_GET['error'] == "logo_not_image") {
+                    ?>
+                    <script>
+                        alert("Le logo n'est pas une image");
+                    </script>
+                    <?php
+                } else if ($_GET['error'] == "client_already_exists") {
+                    ?>
+                    <script>
+                        alert("Un client avec le même nom de base de données existe déjà");
+                    </script>
+                    <?php
+                } else if ($_GET['error'] == "logo_too_big") {
+                    ?>
+                    <script>
+                        alert("Merci de choisir un logo de 96x96 pixels");
+                    </script>
+                    <?php
+                } else if ($_GET['error'] == "auto_company_not_valid") {
+                    ?>
+                    <script>
+                        alert("Merci de rentrer 1 ou 0");
+                    </script>
+                    <?php
+                }
+            }
+        ?>
 
         <div class="area" >
             <ul class="circles">
@@ -62,19 +138,19 @@
             <div class="navigation">
                 <ul>
                     <li class="list" data-color="#85A1F2">
-                        <a href="#main_page">
+                        <a onclick="ShowSpecialPage('first_page')">
                             <img src="./Src/assets/img/symbols/faceid.svg" alt=""/>
                             <span class="title">Administration</span>
                         </a>
                     </li>
                     <li class="list" data-color="#BF5250">
-                        <a href="#second_page">
+                    <a onclick="ShowSpecialPage('second_page')">
                             <img src="./Src/assets/img/symbols/person.fill.viewfinder.svg" alt=""/>
                             <span class="title">Utilisateurs</span>
                         </a>
                     </li>
                     <li class="list" data-color="#BF5250">
-                        <a href="#third_page">
+                    <a onclick="ShowSpecialPage('third_page')">
                             <img src="./Src/assets/img/symbols/text.viewfinder.svg" alt=""/>
                             <span class="title">Clients</span>
                         </a>
@@ -85,7 +161,7 @@
         </div>
 
         <main>
-            <div id="main_page">
+            <div id="first_page">
                 <h1>Administration</h1>
                 <img class="img_h1" src="./Src/assets/img/symbols/faceid.svg">
                 <!-- <img class="img_center" src="./Src/assets/img/symbols/lock.icloud.fill.svg"> -->
@@ -121,11 +197,11 @@
                                     <div class="col col-9" data-label="Actions">
                                         <a class="actions_user" href="./Src/Controller/User/Verify.php?id_user=<?php echo $user['id']; ?>">
                                             <span class="title">Vérifier</span>
-                                            <img src="./Src/assets/img/symbols/person.crop.circle.fill.badge.checkmark.svg" alt="Vérifier">
+                                            <img src="./Src/assets/img/symbols/pencil.circle.svg" alt="Vérifier">
                                         </a>
                                         <a class="actions_user" href="./Src/Controller/User/Delete.php?id=<?php echo $user['id']; ?>">
                                             <span class="title">Supprimer</span>
-                                            <img src="./Src/assets/img/symbols/person.crop.circle.fill.badge.minus.svg" alt="Supprimer">
+                                            <img src="./Src/assets/img/symbols/trash.circle.svg" alt="Supprimer">
                                         </a>
                                     </div>
                                 </li>
@@ -150,22 +226,36 @@
                             <div class="col col-4">Image</div>
                             <div class="col col-5">Actions</div>
                         </li>
-                        <li class="table-row">
-                            <div class="col col-1" data-label="ID">1</div>
-                            <div class="col col-2" data-label="Nom">Veolia</div>
-                            <div class="col col-3" data-label="Automatique">1</div>
-                            <div class="col col-4" data-label="Image">veolia.png</div>
-                            <div class="col col-9" data-label="Actions">
-                                <a class="actions_user" href="./Src/Controller/User/Verify.php?id_user=<?php echo $user['id']; ?>">
-                                    <span class="title">Vérifier</span>
-                                    <img src="./Src/assets/img/symbols/person.crop.circle.fill.badge.checkmark.svg" alt="Vérifier">
-                                </a>
-                                <a class="actions_user" href="./Src/Controller/User/Delete.php?id=<?php echo $user['id']; ?>">
-                                    <span class="title">Supprimer</span>
-                                    <img src="./Src/assets/img/symbols/person.crop.circle.fill.badge.minus.svg" alt="Supprimer">
-                                </a>
-                            </div>
-                        </li>
+                        <?php 
+                            foreach ($companies_all as $company) {
+                                ?>
+                                <form method="POST" action="./Src/Controller/Companies/Modify.php?id=<?php echo $company['id'] ?>">
+                                    <li class="table-row">
+                                        <div class="col col-1" data-label="ID" ><?php echo $company['id'] ?></div>
+                                        <div class="col col-2" id="name_company" ondblclick="DivToInput('name_company')" data-label="Nom"><?php echo $company['name'] ?></div>
+                                        <div class="col col-3" id="auto_company" ondblclick="DivToInput('auto_company')" data-label="Automatique"><?php echo $company['auto'] ?></div>
+
+                                        <!-- <div class="col col-4" id="fucking_div" style="display:none">
+                                            <div id="parent-btn-file-modify-company">
+                                                <button class="popup_create_clients_form_file_modify_copmany"><img src="./Src/assets/img/symbols/doc.badge.plus.svg" /></button>
+                                                <input class="max_width_input_file" type="file" name="logo_company" id="logo_company" />
+                                            </div>
+                                        </div> -->
+
+                                        <div class="col col-4 image_company_table" data-label="Image">
+                                            <img src="./Src/assets/img/companies/<?php echo $company['image'] ?>" alt="">
+                                        </div>
+                                        <div class="col col-9" data-label="Actions">
+                                            <input class="actions_user_img_submit" type="image" name="submit" src="./Src/assets/img/symbols/pencil.circle.svg" alt="Valider les modifications" />
+                                            <a class="actions_user" href="./Src/Controller/Companies/Delete.php?id=<?php echo $user['id']; ?>">
+                                                <img src="./Src/assets/img/symbols/trash.circle.svg" alt="Supprimer">
+                                            </a>
+                                        </div>
+                                    </li>
+                                </form>
+                                <?php
+                            }
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -175,13 +265,13 @@
         <div id="popup_create_clients">
             <h1>Créer un nouveau client</h1>
             <img class="img_popup_create_clients_close" src="./Src/assets/img/symbols/xmark.square.svg" onclick="OpenPopupCreateClients()">
-            <form action="./Src/Controller/Companies/CreateCompany.php" method="POST">
+            <form action="./Src/Controller/Companies/CreateCompany.php" method="POST" enctype="multipart/form-data">
                 <div class="left_part_company">
                     <h1>Entreprise:</h1>
-                    <input class="popup_create_clients_form_name" type="text" autocomplete="off" spellcheck="false" tabindex="0" aria-label="Nom" name="last_name" autocapitalize="sentences" id="last_name" pattern="[A-Za-z]*" placeholder="Nom de l'entreprise" required/>
+                    <input class="popup_create_clients_form_name" type="text" autocomplete="off" spellcheck="false" tabindex="0" aria-label="Nom" name="name_company" autocapitalize="sentences" id="name_company" pattern="[A-Za-z]*" placeholder="Nom de l'entreprise" required/>
                     <div class="parent-btn-file">
                         <button class="popup_create_clients_form_file"><img src="./Src/assets/img/symbols/doc.badge.plus.svg" /></button>
-                        <input type="file" name="upfile" required/>
+                        <input type="file" name="logo_company" id="logo_company" required/>
                     </div>
 
                     <div class="captcha">
@@ -202,9 +292,54 @@
         </div>
 
         <script>
+            // Disable enter for form
+            $(document).keypress(
+                function(event){
+                    if (event.which == '13') {
+                    event.preventDefault();
+                    }
+                }
+            );
+            
+            function ShowSpecialPage(page) {
+                if (page == "first_page") {
+                    document.getElementById("first_page").style.display = "block";
+                    document.getElementById("second_page").style.display = "none";
+                    document.getElementById("third_page").style.display = "none";
+                } else if (page == "second_page") {
+                    document.getElementById("first_page").style.display = "none";
+                    document.getElementById("second_page").style.display = "block";
+                    document.getElementById("third_page").style.display = "none";
+                } else if (page == "third_page") {
+                    document.getElementById("first_page").style.display = "none";
+                    document.getElementById("second_page").style.display = "none";
+                    document.getElementById("third_page").style.display = "block";
+                }
+            }
+
+            function DivToInput(element) {
+                var div = document.getElementById(element);
+                var input = document.createElement("input");
+                if (element != "image_company") {
+                    input.className = div.className + " input";
+                    input.type = "text";
+                    input.id = div.id;
+                    input.name = div.id;
+                    input.placeholder = div.innerHTML;
+                    div.parentNode.replaceChild(input, div);
+                    input.focus();
+                } else {
+                    div.parentNode.removeChild(div);
+                    var parent_btn_file_modify_company = document.getElementById("parent-btn-file-modify-company");
+                    parent_btn_file_modify_company.style.display = "block";
+                    var fucking_div = document.getElementById("fucking_div");
+                    fucking_div.style.display = "block";
+                    console.log(document.getElementById("logo_company"))
+                }
+            }
+
             function OpenPopupCreateClients() {
                 var popup_create_clients = document.getElementById("popup_create_clients");
-                console.log(popup_create_clients)
                 if (popup_create_clients.style.opacity == 0) {
                     popup_create_clients.style.opacity = 1;
                     popup_create_clients.style.visibility = "visible";
@@ -214,14 +349,6 @@
                     popup_create_clients.style.visibility = "hidden";
                     popup_create_clients.style.display = "none";
                 }
-
-                // document.addEventListener('click', function handleClickOutsideBox(event) {
-                //     if (popup_create_clients != null) {
-                //         if (!popup_create_clients.contains(event.target)) {
-                //             popup_create_clients.style.display = 'none';
-                //         }
-                //     }
-                // });
             }
         </script>
         <script src="./Src/assets/scripts/main.js"></script>

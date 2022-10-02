@@ -15,7 +15,7 @@
             if (isset($_GET["id_user"])) {
                 $id_user = $_GET["id_user"];
                 $user->verifyById($id_user);
-                header("Location: ../../../admin.php#second_page");
+                header("Location: ../../../system_admin.php#second_page");
             } else {
                 header("Location: ../../../login_form.php?error=account_not_verified");
             }

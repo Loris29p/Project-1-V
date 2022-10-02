@@ -8,5 +8,5 @@
 
     if ($_SESSION['role'] == 'system_admin') {
         $user->deleteUser($_GET['id']);
-        header("Location: ../../../admin.php#second_page");
+        header("Location: ../../../system_admin.php#second_page");
     }

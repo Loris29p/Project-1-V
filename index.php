@@ -481,8 +481,8 @@
                                 <div class="account_details_dropdown_img">
                                     <i class="fad fa-user-circle"></i>
                                 </div>
-                                <div class="first_last_name_dropdown">Loris Poilly</div>
-                                <div class="mail_dropdown">loris.poilly@veolia.com</div>
+                                <div class="first_last_name_dropdown"><?php echo $_SESSION['first_name'] . " " . $_SESSION['last_name']; ?></div>
+                                <div class="mail_dropdown"><?php echo $_SESSION['email']; ?></div>
                                 <div>
                                     <a href="./account_parameters.php" class="manage_account_dropdown_a">
                                         Gérer votre compte
@@ -490,7 +490,7 @@
                                     <?php 
                                     if ($_SESSION['role'] == "system_admin") {
                                         ?>
-                                        <a href="./admin.php" class="manage_account_dropdown_a">
+                                        <a href="./system_admin.php" class="manage_account_dropdown_a">
                                             Administration
                                         </a>
                                         <?php
