@@ -274,9 +274,9 @@
                         <input type="file" name="logo_company" id="logo_company" required/>
                     </div>
 
-                    <div class="captcha">
+                    <!-- <div class="captcha">
                         <div class="g-recaptcha" data-sitekey="6LdZ9j4iAAAAAPxZA4ejAStxNGoRWcw_S-b1uGDI"></div>
-                    </div>
+                    </div> -->
 
                     <input class="submit_button" type="submit" value="Suivant"> 
                 </div>

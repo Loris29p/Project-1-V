@@ -31,7 +31,7 @@
         }
 
         public function initCompany() {
-            $sgbd_system = new SGBD("localhost", "root", "", "projectv_system");
+            $sgbd_system = new SGBD("localhost", null, null, "projectv_system");
 
             $query = "SELECT * FROM companies WHERE id = " . $this->id . " OR name = '" . $this->name . "'";
             if ($this->name != null && $this->name != "") {
@@ -48,11 +48,11 @@
                 $this->image = $result[0]["image"];
 
                 $database_users = "projectv_users_" . $this->name_dtb;
-                $sgbd_users = new SGBD("localhost", "root", "", $database_users);
+                $sgbd_users = new SGBD("localhost", null, null, $database_users);
                 $database_orga = "projectv_orga_" . $this->name_dtb;
-                $sgbd_orga = new SGBD("localhost", "root", "", $database_orga);
+                $sgbd_orga = new SGBD("localhost", null, null, $database_orga);
                 $database_acl = "projectv_acl_" . $this->name_dtb;
-                $sgbd_acl = new SGBD("localhost", "root", "", $database_acl);
+                $sgbd_acl = new SGBD("localhost", null, null, $database_acl);
 
                 $query = "SELECT * FROM users";
                 $result = $sgbd_users->getWithParameters($query);
@@ -81,7 +81,7 @@
         }
         
         public function createDtb(string $first_name, string $last_name, string $email) {
-            $sgbd_system = new SGBD("localhost", "root", "", "projectv_system");
+            $sgbd_system = new SGBD("localhost", null, null, "projectv_system");
             $query_companies_system = "SELECT * FROM companies";
             $result = $sgbd_system->getWithParameters($query_companies_system);
             foreach ($result as $key => $value) {
@@ -94,7 +94,7 @@
             $sgbd_system->insert($query_companies_system);
             
             // CREATE Databases
-            $sgbd = new SGBD("localhost", "root", "", "");
+            $sgbd = new SGBD("localhost", null, null, "");
             $database_users = "projectv_users_" . $this->name_dtb;
             $query_database_users = "CREATE DATABASE " . $database_users;
             $sgbd->insert($query_database_users);
@@ -106,7 +106,7 @@
             $sgbd->insert($query_database_acl);
 
             // CREATE TABLES
-            $sgbd_users = new SGBD("localhost", "root", "", $database_users);
+            $sgbd_users = new SGBD("localhost", null, null, $database_users);
             $query_table_users = "CREATE TABLE users (
                 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 first_name VARCHAR(30) NOT NULL,
@@ -124,7 +124,7 @@
             $sgbd_users->insert($query_table_users_2);
             $id_user = $sgbd_users->lastInsertId();
 
-            $sgbd_orga = new SGBD("localhost", "root", "", $database_orga);
+            $sgbd_orga = new SGBD("localhost", null, null, $database_orga);
             $query_table_orga = "CREATE TABLE accounts (
                 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 name VARCHAR(30) NOT NULL,
@@ -133,7 +133,7 @@
             )";
             $sgbd_orga->insert($query_table_orga);
 
-            $sgbd_acl = new SGBD("localhost", "root", "", $database_acl);
+            $sgbd_acl = new SGBD("localhost", null, null, $database_acl);
             $query_table_acl = "CREATE TABLE users (
                 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 id_user INT(11) NOT NULL,
@@ -181,11 +181,11 @@
 
         public function delete() {
             echo $this->id . " " . $this->name . " " . $this->auto . " " . $this->name_dtb . " " . $this->image . " ";
-            $sgbd_system = new SGBD("localhost", "root", "", "projectv_system");
+            $sgbd_system = new SGBD("localhost", null, null, "projectv_system");
             $query_companies_system = "DELETE FROM companies WHERE id = " . $this->id;
             $sgbd_system->insert($query_companies_system);
 
-            $sgbd = new SGBD("localhost", "root", "", "");
+            $sgbd = new SGBD("localhost", null, null, "");
             $query_delete_database_users = "DROP DATABASE projectv_users_" . $this->name_dtb;
             $sgbd->insert($query_delete_database_users);
 
@@ -198,7 +198,7 @@
         }
 
         public function update() {
-            $sgbd_system = new SGBD("localhost", "root", "", "projectv_system");
+            $sgbd_system = new SGBD("localhost", null, null, "projectv_system");
             $query_companies_system = "UPDATE companies SET name = '" . $this->name . "', auto = " . $this->auto . ", name_dtb = '" . $this->name_dtb . "', image = '" . $this->image . "' WHERE id = " . $this->id;
             $sgbd_system->insert($query_companies_system);
         }
@@ -235,7 +235,7 @@
             $this->name = $name;
             if ($update == true) {
                 // verify if name is already used
-                $sgbd_system = new SGBD("localhost", "root", "", "projectv_system");
+                $sgbd_system = new SGBD("localhost", null, null, "projectv_system");
                 $query_companies_system = "SELECT * FROM companies WHERE name = '" . $this->name . "'";
                 $result = $sgbd_system->getWithParameters($query_companies_system);
                 if (count($result) > 0) {

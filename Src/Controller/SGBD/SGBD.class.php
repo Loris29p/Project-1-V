@@ -1,4 +1,5 @@
 <?php
+    require_once(__DIR__ . "../../../../Config/Config_fix.php");
     // class permettant la connection à MySQL et nottament ses fonctions.
     class SGBD {
         private $host;
@@ -9,8 +10,16 @@
 
         public function __construct($host, $user, $password, $database) {
             $this->host = $host;
-            $this->user = $user;
-            $this->password = $password;
+            if ($user != null) {
+                $this->user = $user;
+            } else {
+                $this->user = user_sgbd;
+            }
+            if ($password != null) {
+                $this->password = $password;
+            } else {
+                $this->password = password_sgbd;
+            }
             $this->database = $database;
 
             $this->db = new mysqli($this->host, $this->user, $this->password, $this->database);

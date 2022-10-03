@@ -8,6 +8,8 @@
     // require '../../../vendor/autoload.php';
     require __DIR__  . "../../../../vendor/autoload.php";
 
+    session_start();
+
     class User {
         private $id;
         private $first_name;
@@ -18,7 +20,7 @@
         private $sgbd;
 
         public function __construct() {
-            $this->sgbd = new SGBD("localhost", "root", "", "projectv_system");
+            $this->sgbd = new SGBD("localhost", null, null, "projectv_system");
         }
         
         public function getAllUsers() {
@@ -110,7 +112,7 @@
             $this->Create($first_name, $last_name, $email, $password, $role);
         }
 
-        public function Login($email, $password) {
+        public function Login($email, $password, $company_data) {
             $error = "";
             if ($this->CheckPassword($email, $password)) {
                 $query = "SELECT * FROM users WHERE email = '$email' AND verified = 1";
@@ -122,14 +124,30 @@
                     $this->setEmail($result[0]['email']);
                     $this->setPassword($result[0]['password']);
                     $this->setRole($result[0]['role']);
-    
-                    session_start();
+
                     $_SESSION['id'] = $this->getId();
                     $_SESSION['first_name'] = $this->getFirstName();
                     $_SESSION['last_name'] = $this->getLastName();
                     $_SESSION['email'] = $this->getEmail();
                     $_SESSION['password'] = $this->getPassword();
                     $_SESSION['role'] = $this->getRole();
+
+                    if ($company_data != null) {
+                        $_SESSION['company_id'] = $company_data[0]['id'];
+                        $_SESSION['company_name'] = $company_data[0]['name'];
+                        $_SESSION['company_dtb_name'] = $company_data[0]['name_dtb'];
+                        $_SESSION['company_data'] = $company_data;
+                    }
+
+                    // get role of the user in the company
+                    $sgbd_users = new SGBD("localhost", null, null, "projectv_users_" . $_SESSION['company_dtb_name']);
+
+                    $query = "SELECT *
+                    FROM users
+                    INNER JOIN "."projectv_acl_" . $_SESSION['company_dtb_name'].".users
+                    ON `users`.`id` = `"."projectv_acl_" . $_SESSION['company_dtb_name'].".users`.`id_user`";
+                    $result = $sgbd_users->getWithParameters($query);
+                    $_SESSION['role_company'] = $result[0]['permission'];
                     return "success";
                 } else {
                     $error = "account_not_verified";

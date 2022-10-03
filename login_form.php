@@ -189,9 +189,9 @@
                             ?>
                         </div>
 
-                        <div class="captcha">
+                        <!-- <div class="captcha">
                             <div class="g-recaptcha" data-sitekey="6LdZ9j4iAAAAAPxZA4ejAStxNGoRWcw_S-b1uGDI"></div>
-                        </div>
+                        </div> -->
 
                         <a href="./register_form.php" class="register_account">Créer un compte</a>
                         <input class="submit_button" type="submit" value="Suivant"> 

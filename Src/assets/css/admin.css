@@ -412,7 +412,7 @@ main {
 	box-shadow: 50px 50px 100px #716282, -50px -50px 100px #716282;
     text-align: center;
 	animation: backInDown; /* referring directly to the animation's @keyframe declaration */
-  	animation-duration: 2s; /* don't forget to set a duration! */
+  	animation-duration: 0.5s; /* don't forget to set a duration! */
 }
 
 #popup_create_clients h1 {

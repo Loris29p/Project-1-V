@@ -44,7 +44,7 @@
         private VPN $vpn;
 
         public function __construct() {
-            $this->sgbd = new SGBD("localhost", "root", "", "projectv");
+            $this->sgbd = new SGBD("localhost", null, null, "projectv");
             $this->vpc = new VPC($this->sgbd);
             $this->route_tables = new Route_Tables($this->sgbd);
             $this->network = new Network($this->sgbd);
