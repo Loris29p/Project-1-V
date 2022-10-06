@@ -3,13 +3,6 @@
     require_once('./Src/Controller/SGBD/SGBD.class.php');
     require_once('./Config/Config.php');
 
-    // https://www.youtube.com/c/CodeWithHossein
-    // https://www.patreon.com/m/4446452/posts
-    // https://colorcodes.io/
-
-    // Jointure entre deux bdd (base de données) différentes
-    // "SELECT COUNT(mabase.membres.id) AS nombre FROM mabase.membres WHERE mabase.membres.active = 0"
-
     session_start();
 
     $vpcArray = constant("VPC_ARRAY");
@@ -466,7 +459,7 @@
                 <div id="navbar-dropdown-account">
                     <div class="message_advert_account">
                         <span class="message_advert_account_first_span">
-                            Ce compte est géré par <span class="message_advert_account_first_span_2">veolia.com</span> 
+                            Ce compte est géré par <span class="message_advert_account_first_span_2">ProjectV</span> 
                         </span>
                         <span data-et="14" data-dt="3" class="show_more_account_advert">
                             <a target="_blank" href="https://support.google.com/accounts/answer/181692?hl=fr&authuser=0">
@@ -492,6 +485,13 @@
                                         ?>
                                         <a href="./system_admin.php" class="manage_account_dropdown_a">
                                             Administration
+                                        </a>
+                                        <?php
+                                    }
+                                    if ($_SESSION['permission'] == "admin") {
+                                        ?>
+                                        <a href="./admin_company.php" class="manage_account_dropdown_a">
+                                            Administration <?php echo $_SESSION['company_name']; ?>
                                         </a>
                                         <?php
                                     }

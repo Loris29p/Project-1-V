@@ -2,7 +2,7 @@
     require_once("./Src/Controller/User/User.class.php");
     require_once("./Src/Controller/Companies/Companies.class.php");
     require_once('./Config/Config.php');
-    session_start();
+    // session_start();
 
     $user_admin = new User();
     $users = $user_admin->getAllUsers();

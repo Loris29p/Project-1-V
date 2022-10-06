@@ -94,8 +94,11 @@
         }
 
         // Function permettant de verifier si le mot de passe est correct
-        public function CheckPassword($email, $password) {
+        public function CheckPassword($email, $password, $company_data) {
             $query = "SELECT * FROM users WHERE email = '$email'";
+            if ($company_data != null) {
+                $query = "SELECT * FROM projectv_users_" . $company_data['name_dtb'] . ".users WHERE email = '$email'";
+            }
             $result = $this->sgbd->get($query);
             if (count($result) > 0) {
                 if (password_verify($password, $result[0]["password"])) {
@@ -114,8 +117,11 @@
 
         public function Login($email, $password, $company_data) {
             $error = "";
-            if ($this->CheckPassword($email, $password)) {
+            if ($this->CheckPassword($email, $password, $company_data)) {
                 $query = "SELECT * FROM users WHERE email = '$email' AND verified = 1";
+                if ($company_data != null) {
+                    $query = "SELECT * FROM projectv_users_" . $company_data['name_dtb'] . ".users WHERE email = '$email' AND verified = 1";
+                }
                 $result = $this->sgbd->getWithParameters($query);
                 if (count($result) > 0) {
                     $this->setId($result[0]['id']);
@@ -123,7 +129,11 @@
                     $this->setLastName($result[0]['last_name']);
                     $this->setEmail($result[0]['email']);
                     $this->setPassword($result[0]['password']);
-                    $this->setRole($result[0]['role']);
+                    if ($company_data == null) {
+                        $this->setRole($result[0]['role']);
+                    } else {
+                        $this->setRole("company");
+                    }
 
                     $_SESSION['id'] = $this->getId();
                     $_SESSION['first_name'] = $this->getFirstName();
@@ -133,21 +143,16 @@
                     $_SESSION['role'] = $this->getRole();
 
                     if ($company_data != null) {
-                        $_SESSION['company_id'] = $company_data[0]['id'];
-                        $_SESSION['company_name'] = $company_data[0]['name'];
-                        $_SESSION['company_dtb_name'] = $company_data[0]['name_dtb'];
+                        $_SESSION['company_id'] = $company_data['id'];
+                        $_SESSION['company_name'] = $company_data['name'];
+                        $_SESSION['company_dtb_name'] = $company_data['name_dtb'];
                         $_SESSION['company_data'] = $company_data;
                     }
 
-                    // get role of the user in the company
-                    $sgbd_users = new SGBD("localhost", null, null, "projectv_users_" . $_SESSION['company_dtb_name']);
-
-                    $query = "SELECT *
-                    FROM users
-                    INNER JOIN "."projectv_acl_" . $_SESSION['company_dtb_name'].".users
-                    ON `users`.`id` = `"."projectv_acl_" . $_SESSION['company_dtb_name'].".users`.`id_user`";
-                    $result = $sgbd_users->getWithParameters($query);
-                    $_SESSION['role_company'] = $result[0]['permission'];
+                    $query = "SELECT * FROM projectv_acl_" . $_SESSION['company_dtb_name'] . ".users WHERE id_user = " . $this->getId();
+                    $result = $this->sgbd->getWithParameters($query);
+                    $query = "SELECT * FROM projectv_acl_" . $_SESSION['company_dtb_name'] . ".permissions WHERE id = " . $result[0]['permission'];
+                    $_SESSION['permission'] = $this->sgbd->getWithParameters($query)[0]['name'];
                     return "success";
                 } else {
                     $error = "account_not_verified";

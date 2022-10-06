@@ -114,13 +114,13 @@
                 email VARCHAR(50) NOT NULL,
                 password VARCHAR(255) NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                is_verified int(11) NOT NULL
+                modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                verified int(11) NOT NULL
             )";
             $sgbd_users->insert($query_table_users);
 
             $password = password_hash("password", PASSWORD_DEFAULT);
-            $query_table_users_2 = "INSERT INTO users (first_name, last_name, email, password, is_verified) VALUES ('" . $first_name . "', '" . $last_name . "', '" . $email . "', '" . $password . "', 1)";
+            $query_table_users_2 = "INSERT INTO users (first_name, last_name, email, password, verified) VALUES ('" . $first_name . "', '" . $last_name . "', '" . $email . "', '" . $password . "', 1)";
             $sgbd_users->insert($query_table_users_2);
             $id_user = $sgbd_users->lastInsertId();
 
@@ -129,7 +129,7 @@
                 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 name VARCHAR(30) NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                modified_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             )";
             $sgbd_orga->insert($query_table_orga);
 
@@ -158,7 +158,7 @@
             $query_table_acl_7 = "INSERT INTO permissions (name) VALUES ('admin')";
             $sgbd_acl->insert($query_table_acl_7);
 
-            $query_table_acl_8 = "INSERT INTO users (id_user, id_orga, permission) VALUES (" . $id_user . ", 1, 7)";
+            $query_table_acl_8 = "INSERT INTO users (id_user, id_orga, permission) VALUES (" . $id_user . ", 1, 5)";
             $sgbd_acl->insert($query_table_acl_8);
 
             $query_acl_from_company = "SELECT * FROM users";
@@ -212,6 +212,9 @@
         public function getOrgaAccounts() {
             return $this->orga_accounts;
         }
+        public function getUsers() {
+            return $this->users;
+        }
         public function getId() {
             return $this->id;
         }
@@ -259,5 +262,17 @@
             if ($update == true) {
                 $this->update();
             }
+        }
+
+        public function createAccount($name) {
+            $sgbd_orga = new SGBD("localhost", null, null, "projectv_orga_" . $this->name_dtb); 
+            $exit_query = "SELECT * FROM accounts WHERE name = '" . $name . "'";
+            $result = $sgbd_orga->getWithParameters($exit_query);
+            if (count($result) > 0) {
+                return "account_already_exist";
+            }
+            $query = "INSERT INTO accounts (name) VALUES ('" . $name . "')";
+            $sgbd_orga->insert($query);
+            return true;
         }
     }
