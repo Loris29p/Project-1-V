@@ -173,8 +173,23 @@
             <h1>Créer un nouveau compte</h1>
             <img class="img_popup_create_account_close" src="./Src/assets/img/symbols/xmark.square.svg" onclick="OpenPopupCreateAccount()">
             <form action="./Src/Controller/Companies/CreateAccount.php" method="POST" enctype="multipart/form-data">
-                <input class="popup_create_account_form_name" type="text" autocomplete="off" spellcheck="false" tabindex="0" aria-label="Nom" name="first_name" autocapitalize="sentences" id="name" pattern="[A-Za-z\s]*" placeholder="Nom du compte"/>
+                <input class="popup_create_account_form_name" type="text" autocomplete="off" spellcheck="false" tabindex="0" aria-label="Nom" name="name" autocapitalize="sentences" id="name" pattern="[A-Za-z\s]*" placeholder="Nom du compte"/>
                 <input class="submit_button" type="submit" value="Suivant">
+            </form>
+        </div>
+
+        <!-- PopUp Create Clients -->
+        <div id="popup_create_clients">
+            <h1>Créer un nouveau client</h1>
+            <img class="img_popup_create_account_close" src="./Src/assets/img/symbols/xmark.square.svg" onclick="OpenPopupCreateClients()">
+            <form action="./Src/Controller/Companies/CreateUser.php" method="POST" enctype="multipart/form-data">
+
+                <input class="popup_create_clients_form_name" type="text" autocomplete="off" spellcheck="false" tabindex="0" aria-label="Prénom" name="first_name" autocapitalize="sentences" id="first_name" pattern="[A-Za-z]*" placeholder="Prénom" required/>
+                <input class="popup_create_clients_form_last_name" type="text" autocomplete="off" spellcheck="false" tabindex="0" aria-label="Nom" name="last_name" autocapitalize="sentences" id="last_name" pattern="[A-Za-z]*" placeholder="Nom" required/>
+                <input class="popup_create_clients_form_email" type="email" autocomplete="off" spellcheck="false" tabindex="0" aria-label="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocapitalize="sentences" id="email" placeholder="Adresse e-mail" required/>
+                <a class="bottom_popup_create_clients_email">Vous pouvez utiliser des lettres, des chiffres et des points</a>
+
+                <input class="submit_button2" type="submit" value="Suivant"> 
             </form>
         </div>
 
@@ -235,6 +250,19 @@
                     popup_create_account.style.opacity = 0;
                     popup_create_account.style.visibility = "hidden";
                     popup_create_account.style.display = "none";
+                }
+            }
+
+            function OpenPopupCreateClients() {
+                var popup_create_clients = document.getElementById("popup_create_clients");
+                if (popup_create_clients.style.opacity == 0) {
+                    popup_create_clients.style.opacity = 1;
+                    popup_create_clients.style.visibility = "visible";
+                    popup_create_clients.style.display = "block";
+                } else {
+                    popup_create_clients.style.opacity = 0;
+                    popup_create_clients.style.visibility = "hidden";
+                    popup_create_clients.style.display = "none";
                 }
             }
         </script>

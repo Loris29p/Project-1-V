@@ -141,18 +141,20 @@
                     $_SESSION['email'] = $this->getEmail();
                     $_SESSION['password'] = $this->getPassword();
                     $_SESSION['role'] = $this->getRole();
+                    $_SESSION['permission'] = "";
 
                     if ($company_data != null) {
                         $_SESSION['company_id'] = $company_data['id'];
                         $_SESSION['company_name'] = $company_data['name'];
                         $_SESSION['company_dtb_name'] = $company_data['name_dtb'];
                         $_SESSION['company_data'] = $company_data;
+
+                        $query = "SELECT * FROM projectv_acl_" . $_SESSION['company_dtb_name'] . ".users WHERE id_user = " . $this->getId();
+                        $result = $this->sgbd->getWithParameters($query);
+                        $query = "SELECT * FROM projectv_acl_" . $_SESSION['company_dtb_name'] . ".permissions WHERE id = " . $result[0]['permission'];
+                        $_SESSION['permission'] = $this->sgbd->getWithParameters($query)[0]['name'];
                     }
 
-                    $query = "SELECT * FROM projectv_acl_" . $_SESSION['company_dtb_name'] . ".users WHERE id_user = " . $this->getId();
-                    $result = $this->sgbd->getWithParameters($query);
-                    $query = "SELECT * FROM projectv_acl_" . $_SESSION['company_dtb_name'] . ".permissions WHERE id = " . $result[0]['permission'];
-                    $_SESSION['permission'] = $this->sgbd->getWithParameters($query)[0]['name'];
                     return "success";
                 } else {
                     $error = "account_not_verified";

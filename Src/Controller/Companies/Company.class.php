@@ -275,4 +275,29 @@
             $sgbd_orga->insert($query);
             return true;
         }
+
+        public function createUser($firs_name, $last_name, $email) {
+            $sgbd_users = new SGBD("localhost", null, null, "projectv_users_" . $this->name_dtb); 
+            $exit_query = "SELECT * FROM users WHERE email = '" . $email . "'";
+            $result = $sgbd_users->getWithParameters($exit_query);
+            if (count($result) > 0) {
+                return "user_already_exist";
+            }
+            // generate password
+            $password = $this->generatePassword();
+            $query = "INSERT INTO users (first_name, last_name, email, password) VALUES ('" . $firs_name . "', '" . $last_name . "', '" . $email . "', '" . $password . "')";
+            $sgbd_users->insert($query);
+            return $password;
+        }
+
+        public function generatePassword() {
+            $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+            $pass = array(); //remember to declare $pass as an array
+            $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+            for ($i = 0; $i < 8; $i++) {
+                $n = rand(0, $alphaLength);
+                $pass[] = $alphabet[$n];
+            }
+            return implode($pass); //turn the array into a string
+        }
     }
